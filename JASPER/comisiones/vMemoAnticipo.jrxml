@@ -1,0 +1,464 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.5.final using JasperReports Library version 6.21.5-74d586df47b25dbd05bd0957999819196e59934a  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="vMemoAnticipo" language="groovy" pageWidth="842" pageHeight="595" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="eb189f50-317f-4939-8950-aed5664255b0">
+	<property name="ireport.zoom" value="1.4641000000000006"/>
+	<property name="ireport.x" value="70"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sello" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\sello.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paramIdComision" class="java.lang.Long"/>
+	<parameter name="paramIdGrupo" class="java.lang.Integer"/>
+	<parameter name="ciuComision" class="java.lang.String"/>
+	<parameter name="funcionFirma" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[1]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sumilla" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="persona" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[1500]]></defaultValueExpression>
+	</parameter>
+	<parameter name="institucion" class="java.lang.String">
+		<defaultValueExpression><![CDATA["CASA MILITAR PRESIDENCIAL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CEDULA_USUARIO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select depend, lugar, round(total::numeric,2) total, comisiones.f_numero_letras(round(total::numeric,2)) totletras, tipooper, cms_codigo,
+     (select count(*)
+        from comisiones.cpxo_persoper pxo, personal.pfun_funcion fun,
+             personal.puni_unidad uni
+         where pxo.fun_secuen = fun.fun_secuen
+           and fun.uni_secuen = uni.uni_secuen
+           and cms_secuen = $P{paramIdComision} and pxo_estasi = 1
+           and uni.gdo_secuen = $P{paramIdGrupo})totreg,
+          personal.f_firmas('E',185,0,gxo_fechapro_anticipo::varchar) graesp,
+          personal.f_firmas('G',185,0,gxo_fechapro_anticipo::varchar) gra,
+          personal.f_firmas('N',185,0,gxo_fechapro_anticipo::varchar) admfin,
+          personal.f_firmas('F',185,0,gxo_fechapro_anticipo::varchar) funfin,
+          (case when personal.f_firmas('O',208,0,gxo_fechapro_anticipo::varchar)::int >= 40
+           then personal.f_firmas('E',208,0,gxo_fechapro_anticipo::varchar) else personal.f_firmas('G',208,0,gxo_fechapro_anticipo::varchar) end) graespjefespp,
+          personal.f_firmas('N',208,0,gxo_fechapro_anticipo::varchar) jefespp,
+          personal.f_firmas('F',208,0,gxo_fechapro_anticipo::varchar) funspp,
+          personal.f_firmas('N',355,0,gxo_fechapro_anticipo::varchar) nomsub,
+          personal.f_firmas('E',355,0,gxo_fechapro_anticipo::varchar) graespsub,
+          personal.f_firmas('F',355,0,gxo_fechapro_anticipo::varchar) funsub,
+          (case when gxo_fechapro_anticipo = '2021-12-30'::date or gxo_fechapro_anticipo > '2022-03-01'::date then personal.f_firmas('R',208,0,gxo_fechapro_anticipo::varchar) else personal.f_firmas('R',355,0,gxo_fechapro_anticipo::varchar) end) resolu,
+(case when $P{persona} > 0 Then (select (case fue_secuen when 6 then '' else gmi_abreviat || '. ' end) || (case fue_secuen when 1 then 'DE ' else '' end) || esp_abrevi || '. ' from personal.pper_persona p, personal.pgmi_gradomil g, personal.pesp_especial e
+           where p.gmi_secuen = g.gmi_secuen and p.esp_secuen = e.esp_secuen and
+            per_Secuen = $P{persona}) else personal.f_firmas('E',$P{funcionFirma},0,gxo_fechapro_anticipo::varchar) end) graespFirma,
+(case when $P{persona} > 0 Then (select initcap(per_nombre || ' ' || per_apellido)
+             from personal.pper_persona p where per_secuen = $P{persona}) else personal.f_firmas('N',$P{funcionFirma},0,gxo_fechapro_anticipo::varchar) end) firma,
+          (case when $P{persona} > 0 Then (select fun_funcion from personal.pfun_funcion where fun_secuen = $P{funcionFirma}) else personal.f_firmas('F',$P{funcionFirma},0,gxo_fechapro_anticipo::varchar) end) cargo,
+	      (case when $P{persona} > 0 Then (select p.per_cedula from personal.pper_persona p where p.per_secuen = $P{persona}) else COALESCE((SELECT per2.per_cedula FROM personal.pfxp_funcpers fxp2 JOIN personal.pper_persona per2 ON fxp2.per_secuen = per2.per_secuen WHERE fxp2.fun_secuen = $P{funcionFirma} AND gxo_fechapro_anticipo BETWEEN fxp2.fxp_fecini AND COALESCE(fxp2.fxp_fecfin, gxo_fechapro_anticipo + 20) LIMIT 1), 'NO REGISTRADA') end) cedula_elaborador,
+	      (case when gxo_fechapro_anticipo = '2021-12-30'::date or gxo_fechapro_anticipo > '2022-03-01'::date then COALESCE((SELECT per2.per_cedula FROM personal.pfxp_funcpers fxp2 JOIN personal.pper_persona per2 ON fxp2.per_secuen = per2.per_secuen WHERE fxp2.fun_secuen = 208 AND gxo_fechapro_anticipo BETWEEN fxp2.fxp_fecini AND COALESCE(fxp2.fxp_fecfin, gxo_fechapro_anticipo + 20) LIMIT 1), 'NO REGISTRADA') else COALESCE((SELECT per2.per_cedula FROM personal.pfxp_funcpers fxp2 JOIN personal.pper_persona per2 ON fxp2.per_secuen = per2.per_secuen WHERE fxp2.fun_secuen = 355 AND gxo_fechapro_anticipo BETWEEN fxp2.fxp_fecini AND COALESCE(fxp2.fxp_fecfin, gxo_fechapro_anticipo + 20) LIMIT 1), 'NO REGISTRADA') end) cedula_jefe,
+          gxo_fechapro_anticipo, gxo_numofiant, gxo_nummemant
+from (select  (select gdo_grupoope from personal.pgdo_grupoope where gdo_secuen = uni.gdo_secuen) depend,
+              (select tdo_tipooper from comisiones.ctdo_tipooper where tdo_secuen = ope.tdo_secuen) tipooper, ope.cms_codigo,
+              (Select ciu_ciudad || ' - ' || pai_pais from comisiones.cciu_ciudad ciu, comisiones.cpai_pais pai
+              where ciu.pai_secuen = pai.pai_secuen and ciu_secuen = ope.ciu_secuen) lugar,
+              gxo_fechapro_anticipo, gxo_numofiant, gxo_nummemant,
+       sum(case when (det.dxr_diavia > 0) then round((det.dxr_coef * det.dxr_diavia * pxo.pxo_valvia),2) else 0 end +
+       case when (det.dxr_diavia85 > 0) then round((det.dxr_coef * det.dxr_diavia85 * pxo.pxo_valvia85),2) else 0 end +
+       case when (det.dxr_diasub > 0) then round((det.dxr_coef * det.dxr_diasub * pxo.pxo_valsub)::numeric,2) else 0 end +
+       case when (det.dxr_diaali > 0) then round((det.dxr_coef * det.dxr_diaali * pxo.pxo_valali),2) else 0 end) as total, count(*) totreg
+   from comisiones.cpxo_persoper pxo, comisiones.cord_operacion ope,
+        personal.pfun_funcion fun, personal.puni_unidad uni,
+        comisiones.ccxr_cabruta cab, comisiones.cdxr_detruta det,
+        comisiones.cgxo_grupoper gxo
+   where pxo.cms_secuen = ope.cms_secuen
+     and fun.fun_secuen = pxo.fun_secuen
+     and fun.uni_secuen = uni.uni_secuen
+     and pxo.cxr_secuen_ant = cab.cxr_secuen
+     and cab.cxr_Secuen = det.cxr_secuen
+     and gxo.cms_secuen = pxo.cms_secuen
+     and gxo.gdo_secuen = uni.gdo_secuen
+     and cxr_secuen_ant > 0
+     and (pxo_valvia > 0.0 or pxo_valsub > 0.0 or pxo_valali > 0.0)
+     and pxo.pxo_estasi = 1
+     and det.dxr_coef > 0
+     and pxo.cms_secuen = $P{paramIdComision}
+     and uni.gdo_secuen = $P{paramIdGrupo}
+     group by 1,2,3,4,5,6,7) a]]>
+	</queryString>
+	<field name="depend" class="java.lang.String"/>
+	<field name="lugar" class="java.lang.String"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="totletras" class="java.lang.String"/>
+	<field name="tipooper" class="java.lang.String"/>
+	<field name="cms_codigo" class="java.lang.String">
+		<fieldDescription><![CDATA[Código por misión]]></fieldDescription>
+	</field>
+	<field name="totreg" class="java.lang.Long"/>
+	<field name="graesp" class="java.lang.String"/>
+	<field name="gra" class="java.lang.String"/>
+	<field name="admfin" class="java.lang.String"/>
+	<field name="funfin" class="java.lang.String"/>
+	<field name="graespjefespp" class="java.lang.String"/>
+	<field name="jefespp" class="java.lang.String"/>
+	<field name="funspp" class="java.lang.String"/>
+	<field name="nomsub" class="java.lang.String"/>
+	<field name="resolu" class="java.lang.String"/>
+	<field name="graespsub" class="java.lang.String"/>
+	<field name="funsub" class="java.lang.String"/>
+	<field name="graespfirma" class="java.lang.String"/>
+	<field name="firma" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="cedula_elaborador" class="java.lang.String"/>
+	<field name="cedula_jefe" class="java.lang.String"/>
+	<field name="gxo_fechapro_anticipo" class="java.sql.Date">
+		<fieldDescription><![CDATA[fecha de cálculo (anticipo) de viático]]></fieldDescription>
+	</field>
+	<field name="gxo_numofiant" class="java.lang.String">
+		<fieldDescription><![CDATA[Número de oficio de anticipo]]></fieldDescription>
+	</field>
+	<field name="gxo_nummemant" class="java.lang.String">
+		<fieldDescription><![CDATA[Número de memo de anticipo]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="92" splitType="Stretch">
+			<line>
+				<reportElement x="0" y="86" width="380" height="1" uuid="d67a274a-671e-4333-9d23-30bc6abf95b7"/>
+			</line>
+			<line>
+				<reportElement x="422" y="86" width="380" height="1" uuid="19f506ef-2976-4f36-91ef-d8671c7bae03"/>
+			</line>
+			<staticText>
+				<reportElement x="423" y="0" width="100" height="16" uuid="9b7a2e1e-c57b-45e3-9ef6-f426a0e1cb3d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[REPÚBLICA DEL ECUADOR]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="423" y="66" width="100" height="24" uuid="a3c19bbc-199d-44fc-ab8e-24d5a7bcc03a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA["El Ecuador ha sido, es y será país Amazónico"]]></text>
+			</staticText>
+			<image>
+				<reportElement x="745" y="5" width="55" height="59" uuid="f19c2c96-0c58-41b1-8284-819e7e1b9957"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1" y="0" width="100" height="16" uuid="3fc20edd-667e-42f1-8967-dc28b10f0420"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[REPÚBLICA DEL ECUADOR]]></text>
+			</staticText>
+			<image>
+				<reportElement x="323" y="5" width="55" height="59" uuid="6ab6c11c-c234-470d-b69f-d5d18b9da6c7"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<image>
+				<reportElement x="21" y="13" width="55" height="59" uuid="dc2e7c1d-ea2b-4779-9c66-289a38c0ce9a"/>
+				<imageExpression><![CDATA[$P{sello}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="1" y="66" width="100" height="24" uuid="556215fa-144f-4e37-9c07-454c5a771243"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA["El Ecuador ha sido, es y será país Amazónico"]]></text>
+			</staticText>
+			<image>
+				<reportElement x="443" y="13" width="55" height="59" uuid="6fc1c3bb-30aa-4093-b8f1-6ca87bfb2d46"/>
+				<imageExpression><![CDATA[$P{sello}.toString()]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="85" y="13" width="233" height="24" uuid="2009a4b3-22f3-4806-afb7-3511aea6da52"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{institucion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="507" y="13" width="233" height="24" uuid="58c71f57-bb85-4ffb-a008-3feb6d1421b1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{institucion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="171" splitType="Stretch">
+			<staticText>
+				<reportElement x="169" y="30" width="53" height="19" uuid="5904bad7-980d-4bfc-a3cd-fc83c020a610"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quito DM.,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="138" width="48" height="19" uuid="033ece6e-ec62-42b6-a438-976a6a3b154e"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Presente:]]></text>
+			</staticText>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="223" y="30" width="155" height="19" uuid="391b825d-818b-47d4-ba99-08d4e9be5434"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gxo_fechapro_anticipo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="2" width="377" height="19" uuid="f0f1e102-6f53-4995-9fd0-b5619dd91763"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Oficio No. " + $F{gxo_numofiant}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="1" y="55" width="40" height="19" uuid="09927942-2a5f-454d-942d-003fca563c10"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asunto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="44" y="55" width="221" height="19" uuid="30a19415-4aa4-4095-a65f-f078d80c7aed"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pago de anticipo de viáticos / subsistencia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="96" width="274" height="19" uuid="7714bc5d-0d64-41fe-bb12-4b13fb884040"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jefespp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="81" width="274" height="19" uuid="7067ac2b-b3f0-48da-ba8f-928af29b7092"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Señor " + $F{graespjefespp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="464" y="55" width="274" height="19" uuid="a732c718-0d0f-4cd5-8084-de241064e27d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{graesp}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="110" width="40" height="19" uuid="d101dd0e-8de7-46a9-aeca-5567dc79f3bc"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asunto:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="464" y="70" width="274" height="19" uuid="91982f97-b384-4a98-a1f2-2b49f50be7ce"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{admfin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="421" y="55" width="40" height="19" uuid="179cb865-75eb-4949-b7f0-c1909dee8ccd"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="464" y="110" width="274" height="19" uuid="e09f43a5-2433-46e7-9381-56ebcc5b1f04"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Pago de anticipo de viáticos / subsistencia]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="423" y="2" width="378" height="19" uuid="9385d004-4f2a-40ad-a265-84dda487c16b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Memorando No. " + $F{gxo_nummemant}]]></textFieldExpression>
+			</textField>
+			<textField pattern="EEEEE dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement x="646" y="30" width="155" height="19" uuid="3eb0c5c1-ff54-4a8c-89e3-820c94a31f9d"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gxo_fechapro_anticipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="592" y="30" width="53" height="19" uuid="d9791fdb-e1b9-4ae1-9b54-b44ddb290414"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Quito DM.,]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="464" y="85" width="274" height="19" uuid="1371e199-a5cc-4add-a8f3-86a81dba7137"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funfin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="111" width="378" height="19" uuid="081e37d0-b187-4705-b83f-bd103f16b6ef"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{funspp}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="101" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="380" height="94" uuid="9a1193fe-6bad-44f1-af50-103a94921a59"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["Adjunto al presente me permito remitir a usted mi " + $F{graespjefespp} + ", el cálculo del anticipo de viáticos y subsistencias del personal de " + $F{depend} + " que cumplirán la comisión de servicios en " + $P{ciuComision} + "; SEGÚN " + $F{tipooper} + " No. " + $F{cms_codigo} + ", a fin de que se digne autorizar y disponer a quien corresponda se realicen los trámites pertinentes."]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="0" width="380" height="94" uuid="d3b683f9-cb84-474a-9aed-9f18a9bd9963"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["Agradeceré a usted señor(a) " + $F{gra} + ", se sirva disponer a quien corresponda, se realice el pago por concepto de anticipo de viáticos y subsistencias por el valor de " + $F{total} + " (" + $F{totletras} +"), a favor del personal de " + $F{depend} + ", que cumplirán la comisión de servicios en " + $P{ciuComision} + "; SEGUN " + $F{tipooper} + " No. " + $F{cms_codigo} + ", para lo cual adjunto la documentación respectiva."]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="120" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="100" height="17" uuid="82cc1be9-3de2-4804-bf13-30c8a3cac5ca"/>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="0" y="12" width="141" height="17" uuid="27abd178-a7e9-43bb-9c91-14b859d71d58"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIOS, PATRIA Y LIBERTAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="1" width="100" height="17" uuid="403874b1-88a2-48f6-ae7c-45ee5bb1bb25"/>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="13" width="141" height="17" uuid="64efabba-515e-4fe4-bfd2-5febfd4c6e5f"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIOS, PATRIA Y LIBERTAD]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement x="0" y="82" width="201" height="17" uuid="fa1480c4-820d-4168-bed1-ea9e5e71ec4e"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{jefespp} == $F{firma}  ? $F{graespjefespp} : $F{graespfirma} )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="70" width="267" height="17" uuid="0c568124-be84-4780-a11a-ef41a2ff34a9"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[( $F{jefespp} == $F{firma}  ? $F{jefespp} : $F{firma} )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="1" y="94" width="379" height="17" uuid="36ed1a1d-3470-4e0c-9b3e-182c9c0fe980"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[( $F{jefespp} == $F{firma}  ? $F{funspp} : $F{cargo} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="81" width="290" height="17" uuid="5672b8d2-db41-49da-98a0-2190e4496434"/>
+				<textFieldExpression><![CDATA[( $F{gxo_fechapro_anticipo} != null && String.valueOf($F{gxo_fechapro_anticipo}).length() >= 10 && (String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2021-12-30") == 0 || String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2022-03-01") > 0) ? $F{graespjefespp} : $F{graespsub} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="93" width="330" height="17" uuid="883262f3-f7fe-4e4c-8164-f59186720eac"/>
+				<textFieldExpression><![CDATA[( $F{gxo_fechapro_anticipo} != null && String.valueOf($F{gxo_fechapro_anticipo}).length() >= 10 && (String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2021-12-30") == 0 || String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2022-03-01") > 0) ? $F{funspp} : $F{funsub} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="421" y="69" width="290" height="17" uuid="c0c087f8-5886-4276-a548-d894f7c7a09d"/>
+				<textFieldExpression><![CDATA[( $F{gxo_fechapro_anticipo} != null && String.valueOf($F{gxo_fechapro_anticipo}).length() >= 10 && (String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2021-12-30") == 0 || String.valueOf($F{gxo_fechapro_anticipo}).substring( 0, 10 ).compareTo("2022-03-01") > 0) ? $F{jefespp} : $F{nomsub} )]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement x="421" y="105" width="290" height="15" uuid="4e00ac50-3230-4a9d-a00c-1a5bac9707dd"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{resolu}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="30" width="209" height="16" forecolor="#FAF5F5" uuid="3517f074-10fe-469c-b4c5-7c1b7f6e3790"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CI: " + ( $F{jefespp} == $F{firma} ? $F{cedula_jefe} : $F{cedula_elaborador} )]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="422" y="30" width="209" height="16" forecolor="#FCFCFC" uuid="4c3d45a1-8a3b-42a9-8c73-661ed7ac6175"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["CI: " + $F{cedula_jefe}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="91" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="5" width="268" height="17" uuid="5259b19c-0690-441d-9d93-c36f53dabfd2"/>
+				<text><![CDATA[Hoja de cálculo - oficio - Autorización de descuento]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="424" y="5" width="287" height="17" uuid="4156b7fd-2aeb-4a1f-bf7f-fafbb70caccd"/>
+				<text><![CDATA[Hoja de cálculo - oficio - Autorización de descuento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="0" y="27" width="104" height="24" forecolor="#FCF7F7" uuid="f36e264e-e2f8-4f05-98a1-e39e7777a416"/>
+				<textElement verticalAlignment="Middle">
+					<font size="5" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CEDULA_USUARIO} != null ? "CI: " + $P{P_CEDULA_USUARIO} : "CI: [NO DISPONIBLE]"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="80" width="100" height="11" uuid="c39cf321-7088-4924-9d5d-ff272b8e3497"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Dotted"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sumilla}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="426" y="27" width="104" height="24" forecolor="#FCF7F7" uuid="be362f10-58c3-4d20-8a0f-a03cd38dd025"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{P_CEDULA_USUARIO} != null ? "CI: " + $P{P_CEDULA_USUARIO} : "CI: [NO DISPONIBLE]"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="424" y="80" width="100" height="11" uuid="cf5a1fdb-c49b-47bc-afa5-4f8cf6405313"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Dotted"/>
+				</box>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{sumilla}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

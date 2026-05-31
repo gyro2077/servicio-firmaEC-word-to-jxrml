@@ -1,0 +1,600 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="orden" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="ecf154fa-197f-4b21-8d7f-f65348fd3790">
+	<property name="ireport.zoom" value="2.1435888100000016"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="723"/>
+	<parameter name="institucion" class="java.lang.String">
+		<defaultValueExpression><![CDATA["CASA MILITAR PRESIDENCIAL"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="funcionFirma" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[5]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT personal.f_firmas('E', 185, 0, (fecha::date)::varchar) grafin,
+personal.f_firmas('N', 185, 0, (fecha::date)::varchar) nomfin,
+personal.f_firmas('F', 185, 0, (fecha::date)::varchar) funfin,
+          numero, fecha, uni.codigo || ' - ' || uni.descripcion solicitante, ord.total,
+	identificacion || ' / ' || nombreemisionpago rucben,
+	ban.descripcion as banco, (Case when tipocta = 0 Then 'AHORROS' else 'CORRIENTE' End) || ' / No.' || numerocta ctano,
+         (Select descripcion from util04.tipo where tabla = 'ORDENAPLICACION' and tipo = ord.tipo) as tipo,
+         (select numero from finanzas14.certificacionfondos where oid = certificacionfondosoid) certif,
+         ord.descripcion, elaboradopor, numeroesigef,
+          (SELECT codigo1 || '  ' || descripcion FROM finanzas14.v_item_total_14 where itemoid = det.itemoid) item,
+          valor, iva, det.total as dettot, virtual,
+          personal.f_firmas('N',$P{funcionFirma},0,fecha::varchar) nomuni,
+          personal.f_firmas('E',$P{funcionFirma},0,fecha::varchar) espuni,
+          personal.f_firmas('F',$P{funcionFirma},0,fecha::varchar) fununi,
+          personal.f_firmas('N',337,0,fecha::varchar) nomcoo,
+          personal.f_firmas('E',337,0,fecha::varchar) espcoo,
+          personal.f_firmas('F',337,0,fecha::varchar) funcoo
+	FROM finanzas14.ordenaplicacion ord, finanzas14.detordenaplica det,
+	     finanzas14.unidesconcentrada uni, finanzas14.enteexterno ent,
+	     finanzas14.banco ban
+	 where ord.oid = det.ordenaplicacionoid
+       and uni.oid = ord.unidesconcentradaoid
+       and ent.oid = ord.enteexternooid
+       and ban.oid = ent.bancooid
+       and ord.oid = 344]]>
+	</queryString>
+	<field name="grafin" class="java.lang.String"/>
+	<field name="nomfin" class="java.lang.String"/>
+	<field name="funfin" class="java.lang.String"/>
+	<field name="numero" class="java.lang.String"/>
+	<field name="fecha" class="java.sql.Date"/>
+	<field name="solicitante" class="java.lang.String"/>
+	<field name="total" class="java.math.BigDecimal"/>
+	<field name="rucben" class="java.lang.String"/>
+	<field name="banco" class="java.lang.String"/>
+	<field name="ctano" class="java.lang.String"/>
+	<field name="tipo" class="java.lang.String"/>
+	<field name="certif" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="elaboradopor" class="java.lang.String"/>
+	<field name="numeroesigef" class="java.lang.String"/>
+	<field name="item" class="java.lang.String"/>
+	<field name="valor" class="java.math.BigDecimal"/>
+	<field name="iva" class="java.math.BigDecimal"/>
+	<field name="dettot" class="java.math.BigDecimal"/>
+	<field name="virtual" class="java.math.BigDecimal"/>
+	<field name="nomuni" class="java.lang.String"/>
+	<field name="espuni" class="java.lang.String"/>
+	<field name="fununi" class="java.lang.String"/>
+	<field name="nomcoo" class="java.lang.String"/>
+	<field name="espcoo" class="java.lang.String"/>
+	<field name="funcoo" class="java.lang.String"/>
+	<variable name="valor_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{valor}]]></variableExpression>
+	</variable>
+	<variable name="iva_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{iva}]]></variableExpression>
+	</variable>
+	<variable name="dettot_1" class="java.math.BigDecimal" resetType="Column" calculation="Sum">
+		<variableExpression><![CDATA[$F{dettot}]]></variableExpression>
+	</variable>
+	<variable name="virtual_1" class="java.math.BigDecimal" calculation="Sum">
+		<variableExpression><![CDATA[$F{virtual}]]></variableExpression>
+	</variable>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<image>
+				<reportElement uuid="79ee58fa-2ec2-44c6-99df-5301728f0914" x="4" y="1" width="50" height="59"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="5d6c57d5-ba53-43bb-a748-47e4ed331066" x="60" y="14" width="432" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE PLANIFICACIÓN]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="eb4a55e0-1b56-442a-86f0-34349f33d7f1" x="1" y="55" width="553" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="a37b73c5-5328-4195-aa49-13cec06c12f0" x="60" y="0" width="432" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{institucion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="2aadfd74-20f6-4a2b-8ad7-6f49f3a1f502" x="60" y="33" width="432" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true" isUnderline="false"/>
+				</textElement>
+				<text><![CDATA[ORDEN DE GASTO]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="297" splitType="Stretch">
+			<textField>
+				<reportElement uuid="0e9e444c-a98e-4250-910f-cc7f5ab99510" x="87" y="88" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy">
+				<reportElement uuid="cfff040e-c4a5-4057-ac22-7ebc37a1d842" x="420" y="88" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecha}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="888b1d51-605d-4843-bda8-ac9281b8f403" x="87" y="107" width="231" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{solicitante}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ad2c7fcb-c494-41d1-8884-b3745ce58220" x="420" y="107" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="1e1462cd-3297-4bbf-a534-2dc1928c1bbf" x="87" y="126" width="231" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{rucben}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="18296d00-af8c-4ecb-b1bc-963f304d9abd" x="12" y="88" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Número:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a86caba2-45a5-43a4-9c2e-8a16ca55874d" x="360" y="88" width="60" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9d887113-07d0-4429-8ba4-088081c1430e" x="12" y="64" width="75" height="24"/>
+				<textElement verticalAlignment="Top">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Asunto:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82410d35-0634-42d7-8ad2-cdbcd60b7fdb" x="87" y="64" width="253" height="29"/>
+				<textElement verticalAlignment="Top">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Agradeceré, disponer la afectación al gasto, previo el cumplimiento a la normativa de control interno para el efecto, según detalle:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ab7f5d22-263f-4352-a3dc-fe4e63d13204" x="12" y="107" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitante:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9dfb39b8-dd57-49e4-a7c6-0881fb699118" x="360" y="107" width="60" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Valor:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="264531ca-fbf9-4517-8444-31f42ba62418" x="12" y="126" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[RUC / Beneficiario:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c6cea1f8-6a14-4e36-a584-4698887bf6dd" x="12" y="145" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Banco:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ed2a6569-6e4d-495e-9509-490733f9e767" x="360" y="145" width="60" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cta. / No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="be335c41-3364-44c3-b1da-e590ebdce294" x="420" y="145" width="123" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ctano}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="a4d103a6-0e80-4d6b-8e46-5e439fe994eb" x="87" y="164" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tipo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="704af02e-109a-4919-8808-792bff07d42e" x="13" y="164" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tipo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cd2321ff-8e71-4fed-b892-f917cae5d02c" x="360" y="164" width="60" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Solicitud Cert.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="50819598-517e-4f32-94e6-af3c5fb4f017" x="420" y="164" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{certif}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="292819d9-9ba2-4669-bb2d-b02112d2bdf8" x="87" y="145" width="100" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{banco}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="35c24870-c442-4ed8-94e8-a0ebeb918a76" x="87" y="183" width="456" height="42"/>
+				<textElement textAlignment="Justified" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="cbec8559-edde-448c-9209-6aa3920bb95c" x="12" y="183" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="56ead761-e230-49f2-8e1c-8c93eda3aad9" x="360" y="220" width="60" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Cert. No.:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="db2ffadf-d6a5-4462-ab78-11715151cedb" x="420" y="220" width="79" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroesigef}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e497f2eb-8665-43ca-89b5-a5bf7d2a07cb" x="0" y="273" width="404" height="24"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CUENTA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="7d0b3ad2-a34f-4d36-bf8c-738dbec85716" x="0" y="254" width="555" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DATOS DE LA TRANSACCIÓN]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="bc1e25dd-4387-4b70-a6d5-a6290cdd3bc2" x="404" y="273" width="50" height="24"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SUBTOTAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f031c6ff-a881-4fb1-828d-e14e41d2849b" x="454" y="273" width="50" height="24"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[IVA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="dda813b1-3244-49b9-9552-3a80b78ac75f" x="13" y="5" width="75" height="24"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Para:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="d1e5998f-1653-413c-84f2-280cdd8778ba" x="87" y="5" width="150" height="24"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{grafin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b7e33d4c-7f00-4a2d-ba40-03d7c95a749a" x="87" y="24" width="150" height="24"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomfin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="f71f8835-1653-4c01-be9c-52af0a6c7a71" x="87" y="43" width="150" height="24"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funfin}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="e87daba7-d457-42ac-a3d4-a1ba98246f3b" x="504" y="273" width="50" height="24"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[TOTAL]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="3aa21c54-2eff-4b93-9150-7518d55011ef" x="0" y="0" width="404" height="16"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{item}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="244cf083-e576-4906-9e07-f062bffd9290" x="404" y="0" width="50" height="16"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{valor}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="c21c2ecd-b251-48d6-bff6-b2ac426fe156" x="454" y="0" width="50" height="16"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{virtual}.add( $F{iva} )]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="2feb512d-d3cb-4e97-be54-6cabeefeb0b4" x="504" y="0" width="50" height="16"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dettot}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="224" splitType="Stretch">
+			<textField>
+				<reportElement uuid="7a4fe9b1-4463-44db-b05f-ecaaae06f7e7" x="75" y="200" width="329" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{elaboradopor} + " .................. "]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="637b465f-2924-430f-973b-f4e42091bc69" x="0" y="200" width="75" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Elaborado por:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="f04b0ed1-857a-40bd-adc3-bb1fdd17eb1d" x="53" y="61" width="190" height="24"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Jefe de la Unidad Solicitante]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="e04da723-0802-452c-ab25-3ee910c8776e" x="53" y="114" width="190" height="24"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="82db5107-f407-4b24-bb41-85f7c8d43c77" x="322" y="114" width="190" height="24"/>
+				<box>
+					<bottomPen lineWidth="0.25"/>
+				</box>
+				<textElement/>
+				<text><![CDATA[]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="35d50f37-68fd-4cfd-8bbb-d7256668879d" x="322" y="61" width="190" height="24"/>
+				<textElement textAlignment="Center">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[Coordinador Administrativo Financiero]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="8c59d510-9875-4aaa-a31a-507bd6b646bd" x="0" y="15" width="283" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Estructura Programatica [ INS-UOD-UD-PG-PY-ACT-SACT-TA-STA-FU-ITEM ]]]></text>
+			</staticText>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="ca83107f-4c5f-4786-8ae6-4b8625e662b2" x="403" y="0" width="50" height="19"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{valor_1}]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="d494a0c4-27ac-40fa-9fe5-36a69c88e06c" x="453" y="0" width="50" height="19"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{iva_1}.add( $V{virtual_1} )]]></textFieldExpression>
+			</textField>
+			<textField pattern="#,##0.00">
+				<reportElement uuid="57f38d48-66d1-41e7-8104-86aeb4e0322e" x="503" y="0" width="51" height="19"/>
+				<box rightPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{dettot_1}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="1e9b2ebc-3ed7-4ed2-980c-c852a6bd1865" x="0" y="0" width="403" height="19"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Total:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="8b3db373-3af8-4a41-84ae-3da6c21e600f" x="53" y="134" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomuni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e11bfe40-4228-4bc6-a9f8-745c50e9f3f1" x="53" y="148" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{espuni}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="0e4bec3d-164b-478f-9325-201a3dad32a7" x="53" y="162" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fununi}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2c3b6330-1386-4a84-af9d-37d2ecd73123" x="322" y="133" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nomcoo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="823b330b-c616-4125-9d7c-e1f6b90ecda1" x="322" y="161" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{funcoo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="b75e6653-5651-4e43-b732-7c01f06acc18" x="322" y="147" width="190" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{espcoo}]]></textFieldExpression>
+			</textField>
+		</band>
+	</summary>
+</jasperReport>

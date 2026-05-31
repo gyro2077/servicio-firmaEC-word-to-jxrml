@@ -1,0 +1,526 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="repPerOperacion" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" isFloatColumnFooter="true" uuid="3c8f4ae8-c8ed-4ea8-b802-17fc9e43dade">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sello" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\sello.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="paramIdComision" class="java.lang.Long"/>
+	<parameter name="funcionFirma" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sumilla" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Flores E."]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select (pxo.cat_secuen || pxo.pxo_destino || pxo.pxo_fecsalgru::varchar || pxo.pxo_fecllegru::varchar) gruseg,
+       (select cat_nombre from seguridades.scat_catalogo where cat_Secuen = pxo.cat_secuen) seguridad,
+        pxo.pxo_fecsalgru, pxo.pxo_fecllegru, pxo_destino,
+       (select gdo_secuen from personal.pgdo_grupoope where gdo_secuen = uni.gdo_secuen) ordenGrupo,
+       (select gdo_grupoope from personal.pgdo_grupoope where gdo_secuen = uni.gdo_secuen) grupo,
+       (select tdo_tipooper from comisiones.ctdo_tipooper where tdo_secuen = ord.tdo_secuen) || ' No. ' || cms_codigo as numcom,
+       gmi_abreviat, per_cedula, per_apellido || ' ' || per_nombre as nombre, fun_funcion,
+       personal.f_firmas('N',$P{funcionFirma},$P{paramIdComision},(cms_fecmem::date)::varchar) firma,
+       personal.f_firmas('E',$P{funcionFirma},$P{paramIdComision},(cms_fecmem::date)::varchar) graespfirma,
+       personal.f_firmas('F',$P{funcionFirma},0,(cms_fecmem::date)::varchar) cargo,
+       upper(personal.f_firmas('N',187,0,(cms_fecmem::date)::varchar)) nombreth,
+       personal.f_firmas('E',187,0,(cms_fecmem::date)::varchar) graespth,
+       personal.f_firmas('F',187,0,(cms_fecmem::date)::varchar) cargoth,
+       personal.f_firmas('G',187,0,(cms_fecmem::date)::varchar) gradoth,
+       upper(personal.f_firmas('N',185,0,(cms_fecmem::date)::varchar)) nombrefin,
+       personal.f_firmas('E',185,0,(cms_fecmem::date)::varchar) graespfin,
+       personal.f_firmas('F',185,0,(cms_fecmem::date)::varchar) cargofin,
+       personal.f_firmas('G',185,0,(cms_fecmem::date)::varchar) gradofin,
+       ord.cms_comisi, ord.cms_nummem, ord.cms_fecmem
+ from comisiones.cpxo_persoper pxo, personal.pper_persona per,
+      personal.pgmi_gradomil gmi, personal.pfun_funcion fun,
+      personal.puni_unidad uni, comisiones.cord_operacion ord
+ where pxo.per_secuen = per.per_secuen
+   and per.gmi_secuen = gmi.gmi_secuen
+   and pxo.fun_secuen = fun.fun_secuen
+   and fun.uni_secuen = uni.uni_secuen
+   and pxo.cms_secuen = ord.cms_secuen
+   and pxo.cms_secuen = $P{paramIdComision}
+   order by ordenGrupo, 1, gmi_orden, nombre]]>
+	</queryString>
+	<field name="gruseg" class="java.lang.String"/>
+	<field name="seguridad" class="java.lang.String"/>
+	<field name="pxo_fecsalgru" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha de salida con el grupo de seguridad]]></fieldDescription>
+	</field>
+	<field name="pxo_fecllegru" class="java.sql.Date">
+		<fieldDescription><![CDATA[Fecha de llegada con el grupo de seguridad]]></fieldDescription>
+	</field>
+	<field name="pxo_destino" class="java.lang.String">
+		<fieldDescription><![CDATA[Destinos cubiertos por el grupo de seguridad]]></fieldDescription>
+	</field>
+	<field name="ordengrupo" class="java.lang.Integer"/>
+	<field name="grupo" class="java.lang.String"/>
+	<field name="numcom" class="java.lang.String"/>
+	<field name="gmi_abreviat" class="java.lang.String"/>
+	<field name="per_cedula" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="fun_funcion" class="java.lang.String">
+		<fieldDescription><![CDATA[función]]></fieldDescription>
+	</field>
+	<field name="firma" class="java.lang.String"/>
+	<field name="graespfirma" class="java.lang.String"/>
+	<field name="cargo" class="java.lang.String"/>
+	<field name="nombreth" class="java.lang.String"/>
+	<field name="graespth" class="java.lang.String"/>
+	<field name="cargoth" class="java.lang.String"/>
+	<field name="gradoth" class="java.lang.String"/>
+	<field name="nombrefin" class="java.lang.String"/>
+	<field name="graespfin" class="java.lang.String"/>
+	<field name="cargofin" class="java.lang.String"/>
+	<field name="gradofin" class="java.lang.String"/>
+	<field name="cms_comisi" class="java.lang.String">
+		<fieldDescription><![CDATA[Descripción de la misión]]></fieldDescription>
+	</field>
+	<field name="cms_nummem" class="java.lang.String">
+		<fieldDescription><![CDATA[Número de memo de operaciones]]></fieldDescription>
+	</field>
+	<field name="cms_fecmem" class="java.sql.Timestamp">
+		<fieldDescription><![CDATA[Fecha de generación del memo de operaciones]]></fieldDescription>
+	</field>
+	<group name="grupo" keepTogether="true">
+		<groupExpression><![CDATA[$F{grupo}]]></groupExpression>
+		<groupHeader>
+			<band height="22">
+				<textField>
+					<reportElement uuid="7acdc5c1-c28c-4547-863d-d0e09711df8c" x="18" y="0" width="325" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{grupo}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="16"/>
+		</groupFooter>
+	</group>
+	<group name="gruseg">
+		<groupExpression><![CDATA[$F{gruseg}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<staticText>
+					<reportElement uuid="212b09de-5a35-47f0-8a46-280d1d624b4a" x="158" y="15" width="180" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[APELLIDOS Y NOMBRES]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="f4c431de-10a8-482c-b0ab-c8db5269a81b" x="48" y="15" width="47" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[GRADO]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="253f0614-bcd6-46e7-b403-d209d87075ed" x="19" y="15" width="29" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ORD.]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="0c16f985-06a1-4e02-9a84-a0057aa34f3e" x="95" y="15" width="63" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CÉDULA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="cbf90235-368d-42cd-b306-c882f5492ba2" x="338" y="15" width="200" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FUNCIÓN]]></text>
+				</staticText>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="a2567914-6122-4d33-9d4f-00d54977fdd0" mode="Opaque" x="191" y="0" width="230" height="19" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pxo_destino}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+					<reportElement uuid="652d2754-7065-4989-a4a4-b86efaa574c0" mode="Opaque" x="489" y="0" width="50" height="19" backcolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pxo_fecllegru}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd-MMM-yyyy" isBlankWhenNull="true">
+					<reportElement uuid="dd3b2f90-72bd-43dd-9fd2-d33175f37d0e" mode="Opaque" x="421" y="0" width="50" height="19" backcolor="#CCCCCC"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pxo_fecsalgru}]]></textFieldExpression>
+				</textField>
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="9ca33242-c580-4a5f-a009-1115bfa3d42a" mode="Opaque" x="18" y="0" width="174" height="19" backcolor="#CCCCCC"/>
+					<box leftPadding="3"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{seguridad}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="4e9dcc87-5cac-42f6-8f23-da5e3fc39578" mode="Opaque" x="470" y="0" width="20" height="19" backcolor="#CCCCCC"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $F{pxo_fecsalgru} == null ? "" : "AL" )]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="12"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="220" splitType="Stretch">
+			<line>
+				<reportElement uuid="c6d8e5d2-4fb2-422e-ae92-df50e1ace7e3" x="40" y="65" width="470" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="6d034b56-ad14-403b-9286-fa20ecb2f4f5" x="126" y="4" width="300" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE PROTECCIÓN PRESIDENCIAL]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="f0a0d55d-033e-40e8-b059-aa14c6075b28" x="458" y="2" width="45" height="49"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="4103af08-d7fb-46ce-898b-e1074d293c0e" x="126" y="16" width="300" height="17"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE OPERACIONES]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="61b1573c-c1c7-4e7f-80b9-457e507e2d9d" x="61" y="10" width="40" height="44"/>
+				<imageExpression><![CDATA[$P{sello}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="46c212f9-9c2a-42a2-a5f2-52711320ceab" x="40" y="49" width="80" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA["El Ecuador ha sido, es y será país Amazónico"]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ec06d2db-b0b0-4bd5-82af-913e8983c428" x="41" y="0" width="80" height="14"/>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[REPÚBLICA DEL ECUADOR]]></text>
+			</staticText>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="bdb3c7bc-f5b8-4933-a7be-b38d87ca85e1" x="210" y="53" width="300" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Memorando No. " + $F{cms_nummem}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cd1b2c5e-0629-42bb-90f6-ca8d226f3383" x="42" y="153" width="470" height="64"/>
+				<textElement textAlignment="Justified">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Por medio del presente remito a usted, señor " + $F{gradoth} +
+", una copia del informe final de la comisión cumplida por el personal del Servicio de Protección Presidencial, en la que " +
+ $F{cms_comisi} + ". A fin de que se sirva disponer el pago de viáticos de acuerdo al siguiente detalle:"]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="906ad331-c5de-4964-9627-bf194788702b" x="42" y="78" width="40" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[PARA:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="ac704114-0f6b-449a-9f3c-b429791a384a" x="42" y="133" width="40" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ASUNTO:]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="587ffbbb-64fe-41ba-8b3b-92ee96567235" x="84" y="133" width="428" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Cancelación de viáticos " + $F{numcom}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="bd6dd123-b4d4-42a5-ab5b-993de33094be" x="84" y="78" width="250" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SR. " + $F{graespth} + " " + $F{nombreth}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ae9e29ff-4dc4-4aae-a95c-30e22945cdc7" x="84" y="89" width="250" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargoth}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd MMMMM yyyy" isBlankWhenNull="true">
+				<reportElement uuid="7ce3afdd-51c4-4bc8-b97d-39e38d061a8f" x="430" y="67" width="80" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cms_fecmem}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="90825dff-cd3c-48b3-8c4b-753aaf953b6c" x="373" y="67" width="55" height="16"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Quito DM.,]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="596e5cc9-ddab-4aba-9699-04fb539757df" x="84" y="104" width="250" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["SR. " + $F{graespfin} + " " + $F{nombrefin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4ab99eda-0666-42d5-868c-a496b19a83a3" x="84" y="115" width="250" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargofin}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2dcaf49e-52f8-4100-b2e8-df36c729a70d" x="48" y="0" width="47" height="15"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gmi_abreviat}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d2ae9600-b775-47d9-b3b9-02e129f27fae" x="158" y="0" width="180" height="15"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="61a211af-4178-4247-9e71-65f25bdecd3b" x="95" y="0" width="63" height="15"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{per_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="474d3101-d3b0-4f23-b3e0-c57388c0c0ea" x="338" y="0" width="200" height="15"/>
+				<box leftPadding="2">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fun_funcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="ea8bbe9e-491a-46a8-8c92-c5bed212fe41" x="19" y="0" width="29" height="15"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$V{grupo_COUNT}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="187" splitType="Stretch">
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="2ce67d64-4999-461f-b475-2c3ed74172d2" x="40" y="121" width="500" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargo}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="81881c90-b1bd-4097-a9ad-12ecdfb1fa2b" x="40" y="92" width="500" height="19"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{firma}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="9f8d1aa9-fbb2-4220-9915-5618e39b2593" x="40" y="106" width="500" height="19"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{graespfirma}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement uuid="c821ce5f-98a1-4abc-8d58-f7dbdb5de2f5" x="40" y="91" width="160" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="1e631be0-dde7-4a4a-a0d1-6b8b1a1a790a" x="40" y="1" width="113" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[Atentamente,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="c153f7e6-c934-4120-97bb-a18154df81b9" x="40" y="12" width="113" height="16"/>
+				<textElement>
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIOS, PATRIA Y LIBERTAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="162071ef-6ddc-47f6-bb33-6066f45aaa58" x="42" y="170" width="100" height="16"/>
+				<box>
+					<pen lineStyle="Dotted"/>
+					<topPen lineWidth="0.0" lineStyle="Dotted"/>
+					<leftPen lineStyle="Dotted"/>
+					<bottomPen lineStyle="Dotted"/>
+					<rightPen lineStyle="Dotted"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Llerena E.  " + $P{sumilla}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="6305f920-f5e8-4170-9dbe-df20aef2ca8c" x="42" y="159" width="100" height="16"/>
+				<textElement verticalAlignment="Bottom">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[...........   /  ...........]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement uuid="8d25b908-6c9f-4138-ac0b-9d687dc3af4d" x="377" y="3" width="162" height="183"/>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="bc4bde68-24a4-4877-9b34-bbab63003018" x="382" y="3" width="155" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[AUTENTICACIÓN DE DOCUMENTOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a7118bda-724b-42b3-a5fe-47652f3be924" x="382" y="25" width="154" height="79"/>
+				<textElement textAlignment="Justified">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[El suscrito, en cumplimiento a las atribuciones delegadas por la máxima autoridad de la entidad, certifica que la presente fotocopia es fiel y conforme con su original, misma que se da fe en la ciudad de Quito DM., a los ...... del mes de .................... del año ..........]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9f220550-feb8-41cc-9051-a38af33d1457" x="382" y="128" width="154" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[GRADO, APELLIDOS Y NOMBRES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="6bd5e23a-1530-4d91-9aa1-b3759c641e4d" x="382" y="139" width="154" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[FEDETARIO ADM. INSTITUCIONAL]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>

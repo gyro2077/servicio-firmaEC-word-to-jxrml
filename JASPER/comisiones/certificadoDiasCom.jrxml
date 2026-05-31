@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="certificadoDiasCom" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="a8f5087b-f132-461d-8195-d560475308bd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="203"/>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sello" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\sello.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="secPers" class="java.lang.Long">
+		<defaultValueExpression><![CDATA[1296]]></defaultValueExpression>
+	</parameter>
+	<parameter name="institucion" class="java.lang.String">
+		<defaultValueExpression><![CDATA["CASA MILITAR PRESIDENCIAL"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select personal.f_nombre(per_secuen) nombre, per_cedula,
+ comisiones.f_dias_comision_persona(per_secuen) dias,
+   to_char(per_fecingre::date,'DD-MM-YYYY') per_fecingre, to_char(per_fecsalida::date,'DD-MM-YYYY') per_fecsalida,
+   Upper(personal.f_firmas('N',208,0,(now()::date)::varchar)) firmaJSPP,
+   personal.f_firmas('E',208,0,(now()::date)::varchar) gradoJSPP,
+   personal.f_firmas('F',208,0,(now()::date)::varchar) cargoJSPP,
+   upper(personal.f_firmas('N',186,0,(now()::date)::varchar)) firmaOpe,
+   personal.f_firmas('E',186,0,(now()::date)::varchar) gradoOpe,
+   personal.f_firmas('F',186,0,(now()::date)::varchar) cargoOpe
+ from personal.pper_persona  where per_secuen = $P{secPers}]]>
+	</queryString>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="per_cedula" class="java.lang.String"/>
+	<field name="dias" class="java.lang.Integer"/>
+	<field name="per_fecingre" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha de ingreso]]></fieldDescription>
+	</field>
+	<field name="per_fecsalida" class="java.lang.String">
+		<fieldDescription><![CDATA[Fecha de salida]]></fieldDescription>
+	</field>
+	<field name="firmajspp" class="java.lang.String"/>
+	<field name="gradojspp" class="java.lang.String"/>
+	<field name="cargojspp" class="java.lang.String"/>
+	<field name="firmaope" class="java.lang.String"/>
+	<field name="gradoope" class="java.lang.String"/>
+	<field name="cargoope" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="155" splitType="Stretch">
+			<textField pattern="EEEEE dd MMMMM yyyy">
+				<reportElement uuid="9a0f0998-e9d6-44ce-adba-d3281f2ee769" x="375" y="92" width="127" height="24"/>
+				<textElement verticalAlignment="Middle">
+					<font size="10"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="70b92dce-6be8-499a-ad79-99b7e1df8162" x="452" y="14" width="50" height="59"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<line>
+				<reportElement uuid="75427d1b-f4d6-4ca6-b957-005f35abf354" x="52" y="90" width="450" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="35bdd717-cb4c-42d1-8b13-82e2a559c565" x="153" y="21" width="284" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE OPERACIONES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="b436055a-ea1a-47ed-a255-fcdf44183dd9" x="52" y="123" width="450" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="20" isBold="true"/>
+				</textElement>
+				<text><![CDATA[CERTIFICADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="a31fe0a5-34db-4b3c-8e00-d80a03897e35" x="309" y="92" width="66" height="24"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[QUITO, D.M.,]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="cd56a15d-d512-4194-a5de-b96f7f2d63b8" x="53" y="67" width="100" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA["El Ecuador ha sido, es y será país Amazónico"]]></text>
+			</staticText>
+			<image>
+				<reportElement uuid="3258011b-0763-46af-a9cd-0ee858e6603b" x="73" y="14" width="55" height="59"/>
+				<imageExpression><![CDATA[$P{sello}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="421885eb-4d04-49be-ae23-0382fcd07b3c" x="53" y="1" width="100" height="16"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[REPÚBLICA DEL ECUADOR]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="4fed7a54-b054-4f2c-a93a-d40851237a29" x="153" y="6" width="284" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{institucion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="142" splitType="Stretch">
+			<textField>
+				<reportElement uuid="2540672a-f0b7-43bf-81e6-e95636334316" x="52" y="70" width="450" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["El Sr(a). " + $F{nombre}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="42cbfe7d-371a-4aee-a2b4-a8dca7d4e5b2" x="52" y="90" width="450" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA["C.I. N°." + $F{per_cedula}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="e0f34df2-3abb-4819-bc99-8fa055735c7e" x="52" y="31" width="450" height="32"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["El Sr. " + $F{gradojspp} + " " + $F{firmajspp} +", Jefe de la Casa Militar Presidencial, a petición del interesado certifica que:"]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="361" splitType="Stretch">
+			<textField>
+				<reportElement uuid="94240fe0-7ae9-49d9-9e80-893069f9e477" x="52" y="0" width="450" height="79"/>
+				<textElement textAlignment="Justified"/>
+				<textFieldExpression><![CDATA["Consta en los registros de la base de datos de la CMP, con el cumplimiento de (" + $F{dias}
++ ") días de operaciones de Inteligencia (seguridad a las máximas autoridades del país y sus familiares íntimos), desde el "
++ $F{per_fecingre} + ", hasta "
++ ( $F{per_fecsalida} != null ? "el " + $F{per_fecsalida} + "." : "la presente. " )]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement uuid="c4a92a15-7205-44db-ace3-65762cceffca" x="52" y="89" width="450" height="24"/>
+				<textElement/>
+				<text><![CDATA[El uso del presente certificado, será de responsabilidad exclusiva del solicitante.]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="239dc7a4-1434-4cd6-ada3-9f84a560b5e2" x="52" y="178" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmajspp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="5f433c58-da07-42bc-ae93-61d74c2b823a" x="52" y="302" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{firmaope}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cd983441-de2c-4a13-a6bc-3e15b1fc6d64" x="52" y="207" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargojspp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="3964b65a-d067-41ea-a4db-218a460bbb79" x="52" y="332" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{cargoope}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2c300fac-4905-4b65-822a-551e404d0dac" x="52" y="193" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gradojspp}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2d96d42c-b63f-43a3-9e2c-a2b5670eb331" x="52" y="317" width="450" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{gradoope}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="9" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="58" splitType="Stretch">
+			<line>
+				<reportElement uuid="a17525d6-ca29-4177-9a3f-54d07558b606" x="52" y="7" width="450" height="1"/>
+			</line>
+			<staticText>
+				<reportElement uuid="79cc2e9e-c45a-4308-a5a0-ef7e0f359498" x="53" y="8" width="449" height="16"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[García Moreno 10-43 y chile, telf: 023947060]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

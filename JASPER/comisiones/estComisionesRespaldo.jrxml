@@ -1,0 +1,313 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="estComisiones" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c90c264b-dcd7-47ff-a88b-41152e169d40">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Crosstab Data Text" hAlign="Center"/>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="sql" class="java.lang.String">
+		<defaultValueExpression><![CDATA[" and ord.tdo_secuen = 14      order by 1, 2"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="titPrincipal" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="titulo" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select lpad((extract(month from gxo_fecha))::varchar,2,'0') ||
+       (case extract(month from gxo_fecha)
+          when 1 Then 'ENE' when 2 Then 'FEB' When 3 Then 'MAR' when 4 Then 'ABR'
+          when 5 Then 'MAY' When 6 Then 'JUN' when 7 Then 'JUL' when 8 Then 'AGO'
+          When 9 Then 'SEP' when 10 Then 'OCT' when 11 Then 'NOV' When 12 Then 'DIC' end) mes,
+ gdo.gdo_abreviat, comisiones.f_valor_comision_grupo(gxo.cms_secuen, gxo.gdo_secuen)
+ from comisiones.cgxo_grupoper gxo, personal.pgdo_grupoope gdo,
+      comisiones.cord_operacion ord, comisiones.ctdo_tipooper tdo
+   where gxo.gdo_secuen = gdo.gdo_secuen
+     and gxo.cms_secuen = ord.cms_secuen
+     and ord.tdo_secuen = tdo.tdo_secuen
+     and gxo_fecha is not null
+     $P!{sql}]]>
+	</queryString>
+	<field name="mes" class="java.lang.String"/>
+	<field name="gdo_abreviat" class="java.lang.String">
+		<fieldDescription><![CDATA[Abreviatura del grupo de operaciones]]></fieldDescription>
+	</field>
+	<field name="f_valor_comision_grupo" class="java.lang.Double"/>
+	<variable name="grupo_sum" class="java.lang.Number" resetType="Group" resetGroup="grupo" calculation="Sum">
+		<variableExpression><![CDATA[$F{f_valor_comision_grupo}]]></variableExpression>
+	</variable>
+	<group name="mes">
+		<groupExpression><![CDATA[$F{mes}]]></groupExpression>
+		<groupHeader>
+			<band/>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<group name="grupo">
+		<groupExpression><![CDATA[$F{gdo_abreviat}]]></groupExpression>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="58" splitType="Stretch">
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement uuid="0ee715c7-e693-4161-8a0a-16146d725d55" x="475" y="20" width="80" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="b995f864-ed69-4ba8-9af5-91f1123f61a5" x="525" y="31" width="30" height="12"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="4786d9a6-82c0-4093-ae61-b6950d38aeff" x="2" y="0" width="50" height="55"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="97299831-7358-4d06-ad6f-d4a5181b8dc7" x="62" y="1" width="413" height="13"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE PROTECCIÓN PRESIDENCIAL]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="22b83771-0ade-4f8d-8478-ab06afc6726b" x="1" y="56" width="554" height="1"/>
+			</line>
+			<textField>
+				<reportElement uuid="1c56f7a7-bbe1-4bb4-bf5f-f24911d027ce" x="465" y="31" width="60" height="12"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="df9e31ca-f672-46a3-a573-9516b7f85d9b" x="62" y="26" width="413" height="31"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$P{titulo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="965cecd3-b18b-44ea-9080-5c97b4fe4daf" x="62" y="14" width="413" height="12"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{titPrincipal}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band height="500" splitType="Stretch">
+			<crosstab>
+				<reportElement uuid="977658fe-f84c-48df-a781-be6380711008" x="0" y="0" width="555" height="129"/>
+				<rowGroup name="mes" width="34" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{mes}]]></bucketExpression>
+					</bucket>
+					<crosstabRowHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="065047c1-76a6-4633-ab95-2fcaabf9c9ec" style="Crosstab Data Text" x="0" y="0" width="34" height="12"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{mes}.substring(2)]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabRowHeader>
+					<crosstabTotalRowHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement uuid="12ec667f-4419-4abe-8b27-954705357742" x="0" y="0" width="34" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalRowHeader>
+				</rowGroup>
+				<columnGroup name="gdo_abreviat" height="15" totalPosition="End">
+					<bucket class="java.lang.String">
+						<bucketExpression><![CDATA[$F{gdo_abreviat}]]></bucketExpression>
+					</bucket>
+					<crosstabColumnHeader>
+						<cellContents backcolor="#F0F8FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<textField>
+								<reportElement uuid="0b70c024-bee9-4f01-ae18-6b9008f7ca02" style="Crosstab Data Text" x="0" y="0" width="45" height="15"/>
+								<textElement verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<textFieldExpression><![CDATA[$V{gdo_abreviat}]]></textFieldExpression>
+							</textField>
+						</cellContents>
+					</crosstabColumnHeader>
+					<crosstabTotalColumnHeader>
+						<cellContents backcolor="#BFE1FF" mode="Opaque">
+							<box>
+								<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+							</box>
+							<staticText>
+								<reportElement uuid="35a0c6fc-5ad2-4f08-b7bc-3dc882a2187e" x="0" y="0" width="50" height="15"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font size="8" isBold="true"/>
+								</textElement>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</cellContents>
+					</crosstabTotalColumnHeader>
+				</columnGroup>
+				<measure name="f_valor_comision_grupoMeasure" class="java.lang.Double" calculation="Sum">
+					<measureExpression><![CDATA[$F{f_valor_comision_grupo}]]></measureExpression>
+				</measure>
+				<crosstabCell width="45" height="12">
+					<cellContents>
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00">
+							<reportElement uuid="1be6b41e-f8f1-4f9e-ac2b-1d2b2135997c" style="Crosstab Data Text" x="0" y="0" width="45" height="12"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font size="8"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{f_valor_comision_grupoMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="45" height="15" rowTotalGroup="mes">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00">
+							<reportElement uuid="4e7b233a-ccb2-45fc-9b1f-29005fdf8306" style="Crosstab Data Text" x="0" y="0" width="45" height="15"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font size="8" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{f_valor_comision_grupoMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" height="12" columnTotalGroup="gdo_abreviat">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00">
+							<reportElement uuid="66dd7e1d-9db9-4e57-bddc-fe2ca66abd3a" style="Crosstab Data Text" x="0" y="0" width="50" height="12"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font size="8"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{f_valor_comision_grupoMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+				<crosstabCell width="50" height="15" rowTotalGroup="mes" columnTotalGroup="gdo_abreviat">
+					<cellContents backcolor="#BFE1FF" mode="Opaque">
+						<box>
+							<pen lineWidth="0.5" lineStyle="Solid" lineColor="#000000"/>
+						</box>
+						<textField pattern="#,##0.00">
+							<reportElement uuid="747dc4d2-a609-4b3a-a903-14472cbf087f" style="Crosstab Data Text" x="0" y="0" width="50" height="15"/>
+							<box rightPadding="2"/>
+							<textElement textAlignment="Right" verticalAlignment="Middle">
+								<font size="8" isBold="true"/>
+							</textElement>
+							<textFieldExpression><![CDATA[$V{f_valor_comision_grupoMeasure}]]></textFieldExpression>
+						</textField>
+					</cellContents>
+				</crosstabCell>
+			</crosstab>
+			<bar3DChart>
+				<chart isShowLegend="true">
+					<reportElement uuid="bc3ce8c1-3570-4c7f-bcc5-7494a50bc5cd" positionType="Float" x="0" y="138" width="555" height="180"/>
+					<chartTitle>
+						<font size="10" isBold="true"/>
+						<titleExpression><![CDATA["GRÁFICO ESTADÍSTICO"]]></titleExpression>
+					</chartTitle>
+					<chartSubtitle/>
+					<chartLegend>
+						<font size="8"/>
+					</chartLegend>
+				</chart>
+				<categoryDataset>
+					<categorySeries>
+						<seriesExpression><![CDATA[$F{gdo_abreviat}]]></seriesExpression>
+						<categoryExpression><![CDATA[$F{mes}.substring(2)]]></categoryExpression>
+						<valueExpression><![CDATA[$V{grupo_sum}]]></valueExpression>
+					</categorySeries>
+				</categoryDataset>
+				<bar3DPlot>
+					<plot labelRotation="0.0"/>
+					<itemLabel>
+						<font size="8"/>
+					</itemLabel>
+					<categoryAxisLabelExpression><![CDATA["MESES"]]></categoryAxisLabelExpression>
+					<categoryAxisFormat labelRotation="0.0">
+						<axisFormat verticalTickLabels="true">
+							<labelFont>
+								<font size="8" isBold="true"/>
+							</labelFont>
+							<tickLabelFont>
+								<font size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</categoryAxisFormat>
+					<valueAxisFormat>
+						<axisFormat>
+							<labelFont>
+								<font size="8" isBold="true"/>
+							</labelFont>
+							<tickLabelFont>
+								<font size="8"/>
+							</tickLabelFont>
+						</axisFormat>
+					</valueAxisFormat>
+				</bar3DPlot>
+			</bar3DChart>
+		</band>
+	</summary>
+</jasperReport>

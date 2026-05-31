@@ -1,0 +1,280 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="reporteCrnl." language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="72f7f0a7-49c4-441c-ac37-15a66556af5a">
+	<property name="ireport.zoom" value="1.9487171000000014"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT pxo.per_secuen, gmi_abreviat, (per_apellido || ' ' || per_nombre) nombre,
+	fue_abrevi,
+	per_fecingre as ingcmp,
+	(case when tdo_destino = 'N' then 'INTERIOR' else 'EXTERIOR' end) as destino,
+	(pai_pais || ' - ' || ciu_ciudad) as lugar,
+	(case when pxo_fecsalgru is not null then pxo_fecsalgru else cms_fecini end)::date as fecsal,
+	comisiones.f_dias_persona_com(pxo.per_secuen, cxr_secuen_pag) dias,
+	fun_funcion
+	FROM personal.pper_persona per, personal.pgmi_gradomil gmi,
+	     comisiones.cpxo_persoper pxo, comisiones.cord_operacion ord,
+	     comisiones.ctdo_tipooper tdo, comisiones.cciu_ciudad ciu,
+	     comisiones.cpai_pais pai, personal.pfun_funcion fun,
+	     personal.pfue_fuerza fue
+	  where per.gmi_secuen = gmi.gmi_secuen
+	    and per.per_secuen = pxo.per_secuen
+	    and pxo.cms_secuen = ord.cms_secuen
+	    and ord.tdo_secuen = tdo.tdo_secuen
+	    and ord.ciu_secuen = ciu.ciu_secuen
+	    and ciu.pai_secuen = pai.pai_secuen
+	    and pxo.fun_secuen = fun.fun_secuen
+	    and gmi.fue_secuen = fue.fue_secuen
+	    and per_fecsalida is null
+              and fue.fue_secuen < 5
+	--  and pxo.per_secuen = 3685
+	    order by gmi_orden, per_antigu, destino, fecsal;]]>
+	</queryString>
+	<field name="per_secuen" class="java.lang.Long"/>
+	<field name="gmi_abreviat" class="java.lang.String"/>
+	<field name="nombre" class="java.lang.String"/>
+	<field name="fue_abrevi" class="java.lang.String"/>
+	<field name="ingcmp" class="java.sql.Date"/>
+	<field name="destino" class="java.lang.String"/>
+	<field name="lugar" class="java.lang.String"/>
+	<field name="fecsal" class="java.sql.Date"/>
+	<field name="dias" class="java.lang.Integer"/>
+	<field name="fun_funcion" class="java.lang.String"/>
+	<variable name="dias_1" class="java.lang.Integer" resetType="Group" resetGroup="destino" calculation="Sum">
+		<variableExpression><![CDATA[$F{dias}]]></variableExpression>
+	</variable>
+	<variable name="dias_2" class="java.lang.Integer" resetType="Group" resetGroup="persona" calculation="Sum">
+		<variableExpression><![CDATA[$F{dias}]]></variableExpression>
+	</variable>
+	<variable name="dias_3" class="java.lang.Integer" resetType="Group" resetGroup="destino" calculation="Sum">
+		<variableExpression><![CDATA[$F{dias}]]></variableExpression>
+	</variable>
+	<group name="persona">
+		<groupExpression><![CDATA[$F{per_secuen}]]></groupExpression>
+		<groupHeader>
+			<band height="21">
+				<textField>
+					<reportElement uuid="b24c73cb-a856-4150-a4cc-bf8f89eae545" x="0" y="2" width="209" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{gmi_abreviat} + '. ' + $F{nombre}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement uuid="91c642a2-c651-4557-b6a9-3047145b9a1e" x="266" y="2" width="100" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{fue_abrevi}]]></textFieldExpression>
+				</textField>
+				<textField pattern="dd/MM/yyyy">
+					<reportElement uuid="fa675a6f-df7a-4c8b-b646-f559c4b247de" x="455" y="2" width="100" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{ingcmp}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="ccf15535-04c8-4a52-b024-fb8ad200f44d" x="396" y="2" width="59" height="19"/>
+					<textElement verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[ING. CMP.:]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="24">
+				<textField isBlankWhenNull="true">
+					<reportElement uuid="63102db4-aa51-43e2-8ff0-0848812af1a1" x="235" y="0" width="44" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$V{dias_2}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="757d56cf-5394-4a27-a924-090dddee3eaf" x="0" y="0" width="235" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[TOTAL DÍAS POR PERSONA: ]]></text>
+				</staticText>
+			</band>
+		</groupFooter>
+	</group>
+	<group name="destino">
+		<groupExpression><![CDATA[$F{destino}]]></groupExpression>
+		<groupHeader>
+			<band height="33">
+				<staticText>
+					<reportElement uuid="a04408ca-18f4-48a2-ae31-5987a65bf4f1" x="0" y="14" width="165" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[LUGAR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="13ccc370-1027-4577-865a-db07c02e5fd9" x="165" y="14" width="70" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[FECHA]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="c0327eac-40b6-47a6-9c7e-253ba98a1227" x="235" y="14" width="44" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[No. DÍAS]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="9ae556f7-32e6-4a27-8865-b9c5602dd8a1" x="279" y="14" width="276" height="19"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[FUNCIÓN]]></text>
+				</staticText>
+				<textField evaluationTime="Group" evaluationGroup="destino">
+					<reportElement uuid="cdb4f7e4-68ae-4774-823b-b793e49361b4" x="0" y="0" width="555" height="18"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[( $V{dias_3} == null ? 0 : $V{dias_3} ) + " DÍAS " + $F{destino}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="33" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="b90ce2ea-3315-436e-b601-d46ca2f347b2" x="0" y="0" width="165" height="16"/>
+				<box leftPadding="3" rightPadding="0">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{lugar}]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy">
+				<reportElement uuid="82e25bec-2430-4d9e-aca0-0f27dfb83dae" x="165" y="0" width="70" height="16"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fecsal}]]></textFieldExpression>
+			</textField>
+			<textField isBlankWhenNull="true">
+				<reportElement uuid="3a7ed3a9-ae59-4221-8455-e0295b9b4d03" x="235" y="0" width="44" height="16"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dias}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4de9e990-b577-4025-8983-af41d7fdc7e6" x="279" y="0" width="276" height="16"/>
+				<box leftPadding="3">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fun_funcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="37" splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

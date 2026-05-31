@@ -1,0 +1,2427 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="informeEvaluacionSinMovilidad" 
+              language="groovy" 
+              pageWidth="595" 
+              pageHeight="842" 
+              whenNoDataType="AllSectionsNoDetail" 
+              columnWidth="555" 
+              leftMargin="20" 
+              rightMargin="20" 
+              topMargin="20" 
+              bottomMargin="20" 
+              isSummaryWithPageHeaderAndFooter="true" 
+              uuid="a8fb85f8-8e44-0cac-ffa6-df71ea549961">
+              
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+
+	<!-- Parámetros Generales -->
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["selloCongresoSinMovilidad.png"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_EVALUADOR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ING. HERNÁN LARA PADILLA, PhD"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_DOCENTE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ING. DAVID RIVAS LALALEO, PhD"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_DEPARTAMENTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Eléctrica, Electrónica y Telecomunicaciones"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_NUMERO_INFORME" class="java.lang.String">
+		<defaultValueExpression><![CDATA["VIIT-2025-01"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FECHA_INFORME" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Sangolquí, a 12 de marzo de 2024"]]></defaultValueExpression>
+	</parameter>
+
+	<!-- Artículo 1 -->
+	<parameter name="P_ART1_TITULO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["PROPOSED ARCHITECTURE FOR A PATIENT CLASSIFICATION SYSTEM IN THE TRIAGE PROCESS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_AUTORES" class="java.lang.String">
+		<defaultValueExpression><![CDATA["José Canchila-Agámez, Santiago García-Cardona, Cesar Viloria-Nuñez, Jose Atilio Nuñez-Ramos, David Rivas-Lalaleo."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_AFILIACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Solo David Rivas-Lalaleo pertenece a la Universidad de las Fuerzas Armadas – ESPE."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_OBS_2_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-CI-2025-01 Línea de investigación: Tecnologías de información y telecomunicaciones. Área de conocimiento: Telecomunicaciones"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_OBS_2_2" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-ESPE-SL-g-4-CD-2025-002-001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_OBS_2_3" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Congreso: International Conference on Technological Innovation and AI Research ICTIAIR 2025\nFecha: 19-21 marzo 2025\nAceptado el 2025/enero/27"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_OBS_2_5" class="java.lang.String">
+		<defaultValueExpression><![CDATA["All accepted papers from the conference will be published in the IET Conference Proceedings. Furthermore, the proceedings will be indexed by IET Inspec, EI Compendex and Scopus."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_OBS_2_7" class="java.lang.String">
+		<defaultValueExpression><![CDATA["USD 300.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART1_AUTOR_NUM" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Quinto"]]></defaultValueExpression>
+	</parameter>
+
+	<!-- Artículo 2 -->
+	<parameter name="P_ART2_TITULO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["BUILDING MANAGEMENT SYSTEM CONTROL FOR HOME AUTOMATION WITH HDL BUSPRO"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_AUTORES" class="java.lang.String">
+		<defaultValueExpression><![CDATA["O. Gómez, C. Fabara, D. Rivas, F. Pérez, J. Guevara, D. Chicaiza."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_AFILIACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["David Rivas-Lalaleo y F. Pérez pertenecen a la Universidad de las Fuerzas Armadas – ESPE."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_OBS_2_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-CI-2025-01 Línea de investigación: Tecnologías de información y telecomunicaciones. Área de conocimiento: Telecomunicaciones"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_OBS_2_2" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-ESPE-SL-g-4-CD-2025-002-001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_OBS_2_3" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Congreso: International Conference on Technological Innovation and AI Research ICTIAIR 2025\nFecha: 19-21 marzo 2025\nAceptado el 2025/enero/27"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_OBS_2_5" class="java.lang.String">
+		<defaultValueExpression><![CDATA["All accepted papers from the conference will be published in the IET Conference Proceedings. Furthermore, the proceedings will be indexed by IET Inspec, EI Compendex and Scopus."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_OBS_2_7" class="java.lang.String">
+		<defaultValueExpression><![CDATA["USD 300.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART2_AUTOR_NUM" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Tercero"]]></defaultValueExpression>
+	</parameter>
+
+	<!-- Artículo 3 -->
+	<parameter name="P_ART3_TITULO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["WHITE BALANCE ADJUSTMENT IN HYPERSPECTRAL IMAGES THROUGH STATISTICAL ANALYSIS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_AUTORES" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Carlos Hernández-Orellana, David Rivas-Lalaleo, Fernando Caicedo-Altamirano, Carlos Bran, José Luis Serrano-Mira, Jesús Barba-Romero."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_AFILIACION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["David Rivas-Lalaleo y Fernando Caicedo-Altamirano pertenecen a la Universidad de las Fuerzas Armadas – ESPE."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_OBS_2_1" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-CI-2025-01 Línea de investigación: Tecnologías de información y telecomunicaciones. Área de conocimiento: Telecomunicaciones"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_OBS_2_2" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DEEL-ESPE-SL-g-4-CD-2025-002-001"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_OBS_2_3" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Congreso: International Conference on Technological Innovation and AI Research ICTIAIR 2025\nFecha: 19-21 marzo 2025\nAceptado el 2025/enero/27"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_OBS_2_5" class="java.lang.String">
+		<defaultValueExpression><![CDATA["All accepted papers from the conference will be published in the IET Conference Proceedings. Furthermore, the proceedings will be indexed by IET Inspec, EI Compendex and Scopus."]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_OBS_2_7" class="java.lang.String">
+		<defaultValueExpression><![CDATA["USD 300.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_ART3_AUTOR_NUM" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Segundo"]]></defaultValueExpression>
+	</parameter>
+
+	<queryString>
+		<![CDATA[select 1 as dummy]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+
+	<pageHeader>
+		<band height="95" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="95" uuid="68fb85f8-8e44-0cac-ffa6-df71ea549961" />
+				<box>
+					<pen lineWidth="0.5" />
+				</box>
+				<line>
+					<reportElement x="110" y="0" width="1" height="95" uuid="4466d14b-6761-2af3-1c4c-bc7bbfcdfb07" />
+				</line>
+				<line>
+					<reportElement x="435" y="0" width="1" height="95" uuid="bdabefcb-a7d0-341f-852f-434ea6fe3189" />
+				</line>
+				<image>
+					<reportElement x="10" y="15" width="90" height="65" uuid="90ce6ae1-c205-4ecf-6563-1f97c0492341" />
+					<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+				</image>
+				<textField>
+					<reportElement x="120" y="10" width="305" height="75" uuid="5e4e2078-b9b4-7229-e01a-195fe4d34f24" />
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="10" isBold="true" />
+					</textElement>
+					<textFieldExpression><![CDATA["INFORME DE EVALUACIÓN DE LA SOLICITUD PARA PAGO DE PUBLICACIONES EN CONGRESOS SIN MOVILIDAD"]]></textFieldExpression>
+				</textField>
+				
+				<!-- Columna 3 (Sub-secciones internas) -->
+				<frame>
+					<reportElement x="435" y="0" width="120" height="95" uuid="d77124eb-7fa1-29fc-0154-103be1ced95c" />
+					<box>
+						<pen lineWidth="0.0" />
+					</box>
+					
+					<!-- Línea horizontal superior en y=48 -->
+					<line>
+						<reportElement x="0" y="48" width="120" height="1" uuid="d67a274a-671e-4333-9d23-30bc6abf95b6" />
+					</line>
+					<!-- Línea horizontal inferior en y=71 -->
+					<line>
+						<reportElement x="0" y="71" width="120" height="1" uuid="19f506ef-2976-4f36-91ef-d8671c7bae02" />
+					</line>
+					<!-- Línea vertical divisora en x=58 -->
+					<line>
+						<reportElement x="58" y="48" width="1" height="47" uuid="55c10c0e-504c-460e-8f94-bdcf91953d5e" />
+					</line>
+					
+					<!-- "VIIT" (y=0 a 48) -->
+					<textField>
+						<reportElement x="0" y="0" width="120" height="48" uuid="422b69e0-6472-a4a5-c97b-2947fb8f3ed4" />
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="11" isBold="true" />
+						</textElement>
+						<textFieldExpression><![CDATA["VIIT"]]></textFieldExpression>
+					</textField>
+					
+					<!-- "N.º Informe" label (y=48 a 71) -->
+					<textField>
+						<reportElement x="0" y="48" width="58" height="23" uuid="cedd1185-99a0-8d4c-a0ee-a179966b04e8" />
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7" isBold="true" />
+						</textElement>
+						<textFieldExpression><![CDATA["N.º\nInforme"]]></textFieldExpression>
+					</textField>
+					
+					<!-- Nro Informe Value (y=48 a 71) -->
+					<textField>
+						<reportElement x="58" y="48" width="62" height="23" uuid="fbf8d0e0-006e-2fda-88ca-1d382fd935b1" />
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="false" />
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_NUMERO_INFORME}]]></textFieldExpression>
+					</textField>
+					
+					<!-- "Página:" label (y=71 a 95) -->
+					<staticText>
+						<reportElement x="0" y="71" width="58" height="24" uuid="f833afbf-8c7d-9c7d-1d60-f9b4a9293297" />
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="7" isBold="true" />
+						</textElement>
+						<text><![CDATA[Página:]]></text>
+					</staticText>
+					
+					<!-- Página Value (Now, y=71 a 95) -->
+					<textField>
+						<reportElement x="58" y="71" width="31" height="24" uuid="f833afbf-8c7d-9c7d-1d60-f9b4a9293298" />
+						<textElement textAlignment="Right" verticalAlignment="Middle">
+							<font fontName="Arial" size="7" />
+						</textElement>
+						<textFieldExpression><![CDATA[$V{PAGE_NUMBER} + " de"]]></textFieldExpression>
+					</textField>
+					
+					<!-- Página Value (Report, y=71 a 95) -->
+					<textField evaluationTime="Report">
+						<reportElement x="89" y="71" width="31" height="24" uuid="f833afbf-8c7d-9c7d-1d60-f9b4a9293299" />
+						<textElement textAlignment="Left" verticalAlignment="Middle">
+							<font fontName="Arial" size="7" />
+						</textElement>
+						<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+		</band>
+	</pageHeader>
+
+	<detail>
+		<band height="220" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="10" width="555" height="50" uuid="9dfbc2c9-b1e1-7797-e550-62b21eaba4c3" positionType="Float" />
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial" size="9" />
+				</textElement>
+				<textFieldExpression><![CDATA["INFORME QUE PRESENTA EL SEÑOR <b>" + $P{P_NOMBRE_EVALUADOR} + "</b>, A LA SEÑORA DRA. MARBEL TORRES ARIAS, <u><b>PhD</b></u>, DIRECTORA DE LA UNIDAD DE GESTIÓN DE LA INVESTIGACIÓN ACERCA DE LA EVALUACIÓN DE LA SOLICITUD PARA PAGO DE PUBLICACIONES EN CONGRESOS SIN MOVILIDAD PRESENTADO POR EL <b>" + $P{P_NOMBRE_DOCENTE} + "</b> DEL DEPARTAMENTO DE <b>" + $P{P_DEPARTAMENTO} + "</b>."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="65" width="555" height="15" uuid="d4944aa4-fe9a-16c1-afc5-c2048a719dcb" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="9" isBold="true" />
+				</textElement>
+				<textFieldExpression><![CDATA["MARCO NORMATIVO. -"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="85" width="555" height="100" uuid="eee4281f-10a4-7f9f-7173-a75fcedb39a5" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="8" />
+				</textElement>
+				<textFieldExpression><![CDATA["• Reglamento del Sistema de Investigación de la Universidad de las Fuerzas Armadas ESPE.\n• Documento UGIN-PRC-V1-2022-019 (Gestión de Publicaciones en Revistas Indexadas), aprobado el 14 de septiembre de 2022.\n• Disposición Transitoria Décima Cuarta del Reglamento del Sistema de Investigación de la Universidad de las Fuerzas Armadas ESPE.\n• Circular Nro. ESPE-VII-2024-0137-C del 23 de julio de 2024: Procedimiento para la subvención de publicaciones científicas aceptadas en revistas de alto impacto realizadas durante el período 2024."]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="195" width="555" height="15" uuid="eee4281f-10a4-7f9f-7173-a75fcedb39a6" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="9" isBold="true" />
+				</textElement>
+				<textFieldExpression><![CDATA["REQUISITOS. –"]]></textFieldExpression>
+			</textField>
+		</band>
+
+		<band height="440" splitType="Stretch">
+			<!-- Bloque de Evaluacion 1 -->
+			<frame>
+				<reportElement x="0" y="0" width="555" height="440" uuid="f98ccf2b-be2f-4c57-8178-3a25cb739a81" positionType="Float"/>
+				
+				<!-- Titulo del Articulo -->
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="0" width="555" height="20" uuid="bc2e8d1c-b1cc-4ea0-8b1e-b83c21a415f1" positionType="Float"/>
+					<textElement>
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ARTÍCULO: " + $P{P_ART1_TITULO}]]></textFieldExpression>
+				</textField>
+
+				<!-- Tabla Base Documental (H=68) -->
+				<frame>
+					<reportElement x="0" y="25" width="555" height="68" uuid="a7f80dbf-f513-4c91-9a7c-17e997f7ee91" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+					
+					<!-- Header -->
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="230" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f01"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Base Documental]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="230" y="0" width="110" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f11"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Fecha]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="340" y="0" width="215" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f21"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Nro. Documento]]></text>
+					</staticText>
+
+					<!-- Solicitud Docente -->
+					<staticText>
+						<reportElement x="0" y="14" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f31"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud docente-Departamento]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="14" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f41"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/13]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="14" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f51"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DEEL-2025-0300-M]]></text>
+					</staticText>
+
+					<!-- Solicitud Departamento -->
+					<staticText>
+						<reportElement x="0" y="32" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f61"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud Departamento -VIITT]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="32" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f71"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/19]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="32" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f81"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DIR-2025-0649-M]]></text>
+					</staticText>
+
+					<!-- Revision Asesor -->
+					<staticText>
+						<reportElement x="0" y="50" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f91"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando revisión asesor UGIN]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="50" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fa1"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/21]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="50" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fb1"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-UGIN-2025-0203-M]]></text>
+					</staticText>
+				</frame>
+
+				<!-- Tabla de Checklist (H=336, Y=98) -->
+				<frame>
+					<reportElement x="0" y="98" width="555" height="336" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718b1" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+
+					<!-- Row Header (Y=0, H=14) -->
+					<frame>
+						<reportElement x="0" y="0" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718c1"/>
+						<staticText>
+							<reportElement mode="Opaque" x="0" y="0" width="42" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[#]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="42" y="0" width="246" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Ítem]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="288" y="0" width="63" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718f1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<text><![CDATA[Cumple (Sí/No)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="351" y="0" width="204" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719a1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Observaciones]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1 Category: Requisitos de elegibilidad (Y=14, H=14) -->
+					<frame>
+						<reportElement x="0" y="14" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719b1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Requisitos de elegibilidad]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719f1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.1 (Y=28, H=22) -->
+					<frame>
+						<reportElement x="0" y="28" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Ser personal académico titular o militar asignado a la Universidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.2 (Y=50, H=22) -->
+					<frame>
+						<reportElement x="0" y="50" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Si es personal académico ocasional, estar participando en un proyecto de investigación o vinculación registrado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No aplica]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.3 (Y=72, H=32) -->
+					<frame>
+						<reportElement x="0" y="72" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Estar al día en el cumplimiento de deberes y obligaciones para beneficiarios de movilidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<text><![CDATA[Este requisito no se revisa de manera directa en este proceso, pero se considera que el docente actúa con ética, cumpliendo con sus deberes establecidos.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2 Category: Documentos requeridos (Y=104, H=14) -->
+					<frame>
+						<reportElement x="0" y="104" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Documentos requeridos]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.1 (Y=118, H=22) -->
+					<frame>
+						<reportElement x="0" y="118" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Informe favorable del Coordinador de Investigación.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_1}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.2 (Y=140, H=22) -->
+					<frame>
+						<reportElement x="0" y="140" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Resolución favorable de pertinencia académica por el Consejo del Departamento o Centro.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="6"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_2}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.3 (Y=162, H=22) -->
+					<frame>
+						<reportElement x="0" y="162" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Carta o correo de aceptación del artículo o ponencia en el congreso.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_3}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.4 (Y=184, H=32) -->
+					<frame>
+						<reportElement x="0" y="184" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.4]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Artículo o ponencia completa con la afiliación a la Universidad de las Fuerzas Armadas ESPE.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA["Artículo: " + $P{P_ART1_TITULO} + "\nAutores: " + $P{P_ART1_AUTORES} + "\nAfiliación: " + $P{P_ART1_AFILIACION}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.5 (Y=216, H=22) -->
+					<frame>
+						<reportElement x="0" y="216" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.5]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Código de registro ISSN o ISBN de las memorias, base de datos de indexación y evidencia de impacto.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_5}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.6 (Y=238, H=14) -->
+					<frame>
+						<reportElement x="0" y="238" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.6]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Formulario de solicitud de movilidad debidamente legalizado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.7 (Y=252, H=14) -->
+					<frame>
+						<reportElement x="0" y="252" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.7]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Información del costo de inscripción y/o publicación solicitado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.8 (Y=266, H=14) -->
+					<frame>
+						<reportElement x="0" y="266" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.8]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Concuerda el costo con la información del sitio web del evento.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.9 (Y=280, H=14) -->
+					<frame>
+						<reportElement x="0" y="280" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.9]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Declaración de autoría firmada por los autores.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3 Category: Certificaciones adicionales (Y=294, H=14) -->
+					<frame>
+						<reportElement x="0" y="294" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificaciones adicionales]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.1 (Y=308, H=14) -->
+					<frame>
+						<reportElement x="0" y="308" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no haber sido financiado por otra institución.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No financiado por otra institución.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.2 (Y=322, H=14) -->
+					<frame>
+						<reportElement x="0" y="322" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735a1"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735b1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735c1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no afectación a la propiedad intelectual.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735d1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735e1"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No hay afectación a la propiedad intelectual.]]></text>
+						</staticText>
+					</frame>
+				</frame>
+			</frame>
+		</band>
+
+		<band height="440" splitType="Stretch">
+			<!-- Bloque de Evaluacion 2 -->
+			<frame>
+				<reportElement x="0" y="0" width="555" height="440" uuid="f98ccf2b-be2f-4c57-8178-3a25cb739a82" positionType="Float"/>
+				
+				<!-- Titulo del Articulo -->
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="0" width="555" height="20" uuid="bc2e8d1c-b1cc-4ea0-8b1e-b83c21a415f2" positionType="Float"/>
+					<textElement>
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ARTÍCULO: " + $P{P_ART2_TITULO}]]></textFieldExpression>
+				</textField>
+
+				<!-- Tabla Base Documental (H=68) -->
+				<frame>
+					<reportElement x="0" y="25" width="555" height="68" uuid="a7f80dbf-f513-4c91-9a7c-17e997f7ee92" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+					
+					<!-- Header -->
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="230" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f02"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Base Documental]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="230" y="0" width="110" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f12"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Fecha]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="340" y="0" width="215" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f22"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Nro. Documento]]></text>
+					</staticText>
+
+					<!-- Solicitud Docente -->
+					<staticText>
+						<reportElement x="0" y="14" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f32"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud docente-Departamento]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="14" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f42"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/13]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="14" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f52"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DEEL-2025-0300-M]]></text>
+					</staticText>
+
+					<!-- Solicitud Departamento -->
+					<staticText>
+						<reportElement x="0" y="32" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f62"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud Departamento -VIITT]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="32" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f72"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/19]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="32" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f82"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DIR-2025-0649-M]]></text>
+					</staticText>
+
+					<!-- Revision Asesor -->
+					<staticText>
+						<reportElement x="0" y="50" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f92"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando revisión asesor UGIN]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="50" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fa2"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/21]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="50" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fb2"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-UGIN-2025-0203-M]]></text>
+					</staticText>
+				</frame>
+
+				<!-- Tabla de Checklist (H=336, Y=98) -->
+				<frame>
+					<reportElement x="0" y="98" width="555" height="336" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718b2" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+
+					<!-- Row Header (Y=0, H=14) -->
+					<frame>
+						<reportElement x="0" y="0" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718c2"/>
+						<staticText>
+							<reportElement mode="Opaque" x="0" y="0" width="42" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[#]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="42" y="0" width="246" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Ítem]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="288" y="0" width="63" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718f2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<text><![CDATA[Cumple (Sí/No)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="351" y="0" width="204" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719a2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Observaciones]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1 Category: Requisitos de elegibilidad (Y=14, H=14) -->
+					<frame>
+						<reportElement x="0" y="14" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719b2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Requisitos de elegibilidad]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719f2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.1 (Y=28, H=22) -->
+					<frame>
+						<reportElement x="0" y="28" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Ser personal académico titular o militar asignado a la Universidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.2 (Y=50, H=22) -->
+					<frame>
+						<reportElement x="0" y="50" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Si es personal académico ocasional, estar participando en un proyecto de investigación o vinculación registrado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No aplica]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.3 (Y=72, H=32) -->
+					<frame>
+						<reportElement x="0" y="72" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Estar al día en el cumplimiento de deberes y obligaciones para beneficiarios de movilidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<text><![CDATA[Este requisito no se revisa de manera directa en este proceso, pero se considera que el docente actúa con ética, cumpliendo con sus deberes establecidos.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2 Category: Documentos requeridos (Y=104, H=14) -->
+					<frame>
+						<reportElement x="0" y="104" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Documentos requeridos]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.1 (Y=118, H=22) -->
+					<frame>
+						<reportElement x="0" y="118" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Informe favorable del Coordinador de Investigación.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_1}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.2 (Y=140, H=22) -->
+					<frame>
+						<reportElement x="0" y="140" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Resolución favorable de pertinencia académica por el Consejo del Departamento o Centro.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="6"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_2}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.3 (Y=162, H=22) -->
+					<frame>
+						<reportElement x="0" y="162" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Carta o correo de aceptación del artículo o ponencia en el congreso.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_3}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.4 (Y=184, H=32) -->
+					<frame>
+						<reportElement x="0" y="184" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.4]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Artículo o ponencia completa con la afiliación a la Universidad de las Fuerzas Armadas ESPE.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA["Artículo: " + $P{P_ART2_TITULO} + "\nAutores: " + $P{P_ART2_AUTORES} + "\nAfiliación: " + $P{P_ART2_AFILIACION}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.5 (Y=216, H=22) -->
+					<frame>
+						<reportElement x="0" y="216" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.5]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Código de registro ISSN o ISBN de las memorias, base de datos de indexación y evidencia de impacto.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_5}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.6 (Y=238, H=14) -->
+					<frame>
+						<reportElement x="0" y="238" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.6]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Formulario de solicitud de movilidad debidamente legalizado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.7 (Y=252, H=14) -->
+					<frame>
+						<reportElement x="0" y="252" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.7]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Información del costo de inscripción y/o publicación solicitado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.8 (Y=266, H=14) -->
+					<frame>
+						<reportElement x="0" y="266" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.8]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Concuerda el costo con la información del sitio web del evento.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.9 (Y=280, H=14) -->
+					<frame>
+						<reportElement x="0" y="280" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.9]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Declaración de autoría firmada por los autores.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3 Category: Certificaciones adicionales (Y=294, H=14) -->
+					<frame>
+						<reportElement x="0" y="294" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificaciones adicionales]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.1 (Y=308, H=14) -->
+					<frame>
+						<reportElement x="0" y="308" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no haber sido financiado por otra institución.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No financiado por otra institución.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.2 (Y=322, H=14) -->
+					<frame>
+						<reportElement x="0" y="322" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735a2"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735b2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735c2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no afectación a la propiedad intelectual.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735d2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735e2"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No hay afectación a la propiedad intelectual.]]></text>
+						</staticText>
+					</frame>
+				</frame>
+			</frame>
+		</band>
+
+		<band height="440" splitType="Stretch">
+			<!-- Bloque de Evaluacion 3 -->
+			<frame>
+				<reportElement x="0" y="0" width="555" height="440" uuid="f98ccf2b-be2f-4c57-8178-3a25cb739a83" positionType="Float"/>
+				
+				<!-- Titulo del Articulo -->
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="0" width="555" height="20" uuid="bc2e8d1c-b1cc-4ea0-8b1e-b83c21a415f3" positionType="Float"/>
+					<textElement>
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA["ARTÍCULO: " + $P{P_ART3_TITULO}]]></textFieldExpression>
+				</textField>
+
+				<!-- Tabla Base Documental (H=68) -->
+				<frame>
+					<reportElement x="0" y="25" width="555" height="68" uuid="a7f80dbf-f513-4c91-9a7c-17e997f7ee93" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+					
+					<!-- Header -->
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="230" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f03"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Base Documental]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="230" y="0" width="110" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f13"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Fecha]]></text>
+					</staticText>
+					<staticText>
+						<reportElement mode="Opaque" x="340" y="0" width="215" height="14" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f23"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[Nro. Documento]]></text>
+					</staticText>
+
+					<!-- Solicitud Docente -->
+					<staticText>
+						<reportElement x="0" y="14" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f33"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud docente-Departamento]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="14" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f43"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/13]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="14" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f53"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DEEL-2025-0300-M]]></text>
+					</staticText>
+
+					<!-- Solicitud Departamento -->
+					<staticText>
+						<reportElement x="0" y="32" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f63"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando solicitud Departamento -VIITT]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="32" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f73"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/19]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="32" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f83"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-SL-DIR-2025-0649-M]]></text>
+					</staticText>
+
+					<!-- Revision Asesor -->
+					<staticText>
+						<reportElement x="0" y="50" width="230" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f93"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement verticalAlignment="Middle"><font fontName="Arial" size="8"/><paragraph leftIndent="5"/></textElement>
+						<text><![CDATA[Memorando revisión asesor UGIN]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="230" y="50" width="110" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fa3"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+						<text><![CDATA[2025/feb/21]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="340" y="50" width="215" height="18" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580fb3"/>
+						<box><pen lineWidth="0.5"/></box>
+						<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+						<text><![CDATA[ESPE-UGIN-2025-0203-M]]></text>
+					</staticText>
+				</frame>
+
+				<!-- Tabla de Checklist (H=336, Y=98) -->
+				<frame>
+					<reportElement x="0" y="98" width="555" height="336" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718b3" positionType="Float"/>
+					<box><pen lineWidth="0.5"/></box>
+
+					<!-- Row Header (Y=0, H=14) -->
+					<frame>
+						<reportElement x="0" y="0" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718c3"/>
+						<staticText>
+							<reportElement mode="Opaque" x="0" y="0" width="42" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[#]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="42" y="0" width="246" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Ítem]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="288" y="0" width="63" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1718f3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<text><![CDATA[Cumple (Sí/No)]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="351" y="0" width="204" height="14" backcolor="#DBE5F1" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719a3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[Observaciones]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1 Category: Requisitos de elegibilidad (Y=14, H=14) -->
+					<frame>
+						<reportElement x="0" y="14" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719b3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Requisitos de elegibilidad]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1719f3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.1 (Y=28, H=22) -->
+					<frame>
+						<reportElement x="0" y="28" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Ser personal académico titular o militar asignado a la Universidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1720e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.2 (Y=50, H=22) -->
+					<frame>
+						<reportElement x="0" y="50" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Si es personal académico ocasional, estar participando en un proyecto de investigación o vinculación registrado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1721e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No aplica]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1.3 (Y=72, H=32) -->
+					<frame>
+						<reportElement x="0" y="72" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[1.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Estar al día en el cumplimiento de deberes y obligaciones para beneficiarios de movilidad.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1722e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<text><![CDATA[Este requisito no se revisa de manera directa en este proceso, pero se considera que el docente actúa con ética, cumpliendo con sus deberes establecidos.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2 Category: Documentos requeridos (Y=104, H=14) -->
+					<frame>
+						<reportElement x="0" y="104" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Documentos requeridos]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1723e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.1 (Y=118, H=22) -->
+					<frame>
+						<reportElement x="0" y="118" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Informe favorable del Coordinador de Investigación.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1724e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_1}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.2 (Y=140, H=22) -->
+					<frame>
+						<reportElement x="0" y="140" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Resolución favorable de pertinencia académica por el Consejo del Departamento o Centro.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1725e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="6"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_2}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.3 (Y=162, H=22) -->
+					<frame>
+						<reportElement x="0" y="162" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Carta o correo de aceptación del artículo o ponencia en el congreso.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1726e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_3}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.4 (Y=184, H=32) -->
+					<frame>
+						<reportElement x="0" y="184" width="555" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.4]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Artículo o ponencia completa con la afiliación a la Universidad de las Fuerzas Armadas ESPE.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="32" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1727e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA["Artículo: " + $P{P_ART3_TITULO} + "\nAutores: " + $P{P_ART3_AUTORES} + "\nAfiliación: " + $P{P_ART3_AFILIACION}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.5 (Y=216, H=22) -->
+					<frame>
+						<reportElement x="0" y="216" width="555" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.5]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Código de registro ISSN o ISBN de las memorias, base de datos de indexación y evidencia de impacto.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="22" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1728e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_5}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.6 (Y=238, H=14) -->
+					<frame>
+						<reportElement x="0" y="238" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.6]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Formulario de solicitud de movilidad debidamente legalizado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1729e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.7 (Y=252, H=14) -->
+					<frame>
+						<reportElement x="0" y="252" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.7]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Información del costo de inscripción y/o publicación solicitado.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1730e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2.8 (Y=266, H=14) -->
+					<frame>
+						<reportElement x="0" y="266" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.8]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Concuerda el costo con la información del sitio web del evento.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1731e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 2.9 (Y=280, H=14) -->
+					<frame>
+						<reportElement x="0" y="280" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[2.9]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Declaración de autoría firmada por los autores.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1732e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3 Category: Certificaciones adicionales (Y=294, H=14) -->
+					<frame>
+						<reportElement x="0" y="294" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[3]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificaciones adicionales]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1733e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<text><![CDATA[]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.1 (Y=308, H=14) -->
+					<frame>
+						<reportElement x="0" y="308" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.1]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no haber sido financiado por otra institución.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1734e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No financiado por otra institución.]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 3.2 (Y=322, H=14) -->
+					<frame>
+						<reportElement x="0" y="322" width="555" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735a3"/>
+						<staticText>
+							<reportElement x="0" y="0" width="42" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735b3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8"/></textElement>
+							<text><![CDATA[3.2]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="42" y="0" width="246" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735c3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[Certificación de no afectación a la propiedad intelectual.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="288" y="0" width="63" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735d3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="8" isBold="true"/></textElement>
+							<text><![CDATA[SI]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="351" y="0" width="204" height="14" uuid="d6cfef8c-a1d2-43b9-a2c6-f7c8ec1735e3"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="7"/><paragraph leftIndent="3"/></textElement>
+							<text><![CDATA[No hay afectación a la propiedad intelectual.]]></text>
+						</staticText>
+					</frame>
+				</frame>
+			</frame>
+		</band>
+
+		<band height="400" splitType="Stretch">
+			<!-- Sección de Recomendaciones, Resumen y Firma -->
+			<frame>
+				<reportElement x="0" y="0" width="555" height="400" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54b" positionType="Float"/>
+				
+				<!-- RECOMENDACIONES -->
+				<textField>
+					<reportElement x="0" y="0" width="555" height="15" uuid="5e4e2078-b9b4-7229-e01a-195fe4d34f2b"/>
+					<textElement><font fontName="Arial" size="9" isBold="true"/></textElement>
+					<textFieldExpression><![CDATA["RECOMENDACIONES. -"]]></textFieldExpression>
+				</textField>
+				
+				<textField isStretchWithOverflow="true">
+					<reportElement x="0" y="15" width="555" height="50" uuid="d77124eb-7fa1-29fc-0154-103be1ced95b"/>
+					<textElement textAlignment="Justified"><font fontName="Arial" size="9"/></textElement>
+					<textFieldExpression><![CDATA["Se recomienda continuar con el proceso de subvención para la publicación de los artículos titulados: “Proposed Architecture for a Patient Classification System in the Triage Process”, “Building Management System Control for Home Automation with HDL Buspro” y “White Balance Adjustment in Hyperspectral Images through Statistical Analysis” presentados por el Ing. David Rivas-Lalaleo, PhD. La solicitud cumple con todos los requisitos reglamentarios y normativos establecidos, así como con los lineamientos y procedimientos vigentes."]]></textFieldExpression>
+				</textField>
+
+				<!-- RESUMEN HEADER -->
+				<staticText>
+					<reportElement x="0" y="75" width="555" height="15" uuid="cedd1185-99a0-8d4c-a0ee-a179966b04e9"/>
+					<textElement textAlignment="Center"><font fontName="Arial" size="9" isBold="true"/></textElement>
+					<text><![CDATA[RESUMEN]]></text>
+				</staticText>
+
+				<!-- TABLA DE RESUMEN -->
+				<frame>
+					<reportElement x="0" y="95" width="555" height="130" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54c"/>
+					<box><pen lineWidth="0.5"/></box>
+					
+					<!-- Header (H=25) -->
+					<frame>
+						<reportElement x="0" y="0" width="555" height="25" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54d"/>
+						<staticText>
+							<reportElement mode="Opaque" x="0" y="0" width="15" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f11"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[No.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="15" y="0" width="75" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f12"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[APELLIDOS Y NOMBRES]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="90" y="0" width="50" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f13"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[No DE CÉDULA]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="140" y="0" width="65" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f14"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[DPTO.]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="205" y="0" width="120" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f15"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[NOMBRE DEL ARTÍCULO]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="325" y="0" width="35" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f16"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[No DE AUTOR]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="360" y="0" width="65" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f17"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[CONGRESO/ FECHA/ PUBLICACIÓN]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="425" y="0" width="70" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f18"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[IMPACTO]]></text>
+						</staticText>
+						<staticText>
+							<reportElement mode="Opaque" x="495" y="0" width="60" height="25" backcolor="#DBE5F1" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f19"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6" isBold="true"/></textElement>
+							<text><![CDATA[VALOR PUBLICACIÓN]]></text>
+						</staticText>
+					</frame>
+
+					<!-- Fila 1 (H=35, Y=25) -->
+					<frame>
+						<reportElement x="0" y="25" width="555" height="35" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54e"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f21"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[1]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="15" y="0" width="75" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f22"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_NOMBRE_DOCENTE}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="90" y="0" width="50" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f23"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[1902445302]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="140" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f24"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_DEPARTAMENTO}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="205" y="0" width="120" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f25"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_TITULO}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="325" y="0" width="35" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f26"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_AUTOR_NUM}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="360" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f27"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<text><![CDATA[ICTIAIR 2025
+19-21 Mar 2025]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="425" y="0" width="70" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f28"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="2" rightIndent="2"/></textElement>
+							<text><![CDATA[Proceedings will be indexed by IET Inspec, EI Compendex and Scopus]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="495" y="0" width="60" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f29"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART1_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 2 (H=35, Y=60) -->
+					<frame>
+						<reportElement x="0" y="60" width="555" height="35" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54f"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f31"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[2]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="15" y="0" width="75" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f32"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_NOMBRE_DOCENTE}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="90" y="0" width="50" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f33"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[1902445302]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="140" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f34"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_DEPARTAMENTO}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="205" y="0" width="120" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f35"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_TITULO}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="325" y="0" width="35" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f36"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_AUTOR_NUM}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="360" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f37"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<text><![CDATA[ICTIAIR 2025
+19-21 Mar 2025]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="425" y="0" width="70" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f38"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="2" rightIndent="2"/></textElement>
+							<text><![CDATA[Proceedings will be indexed by Scopus]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="495" y="0" width="60" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f39"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART2_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+
+					<!-- Fila 3 (H=35, Y=95) -->
+					<frame>
+						<reportElement x="0" y="95" width="555" height="35" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a550"/>
+						<staticText>
+							<reportElement x="0" y="0" width="15" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f41"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[3]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="15" y="0" width="75" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f42"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_NOMBRE_DOCENTE}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="90" y="0" width="50" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f43"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<text><![CDATA[1902445302]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="140" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f44"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_DEPARTAMENTO}]]></textFieldExpression>
+						</textField>
+						<textField isStretchWithOverflow="true">
+							<reportElement x="205" y="0" width="120" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f45"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement verticalAlignment="Middle"><font fontName="Arial" size="5"/><paragraph leftIndent="3" rightIndent="3"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_TITULO}]]></textFieldExpression>
+						</textField>
+						<textField>
+							<reportElement x="325" y="0" width="35" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f46"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_AUTOR_NUM}]]></textFieldExpression>
+						</textField>
+						<staticText>
+							<reportElement x="360" y="0" width="65" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f47"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="6"/></textElement>
+							<text><![CDATA[ICTIAIR 2025
+19-21 Mar 2025]]></text>
+						</staticText>
+						<staticText>
+							<reportElement x="425" y="0" width="70" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f48"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Justified" verticalAlignment="Middle"><font fontName="Arial" size="4"/><paragraph leftIndent="2" rightIndent="2"/></textElement>
+							<text><![CDATA[Proceedings will be indexed by Scopus]]></text>
+						</staticText>
+						<textField>
+							<reportElement x="495" y="0" width="60" height="35" uuid="ec6cbe3d-3b7c-4828-9844-3c66f6580f49"/>
+							<box><pen lineWidth="0.5"/></box>
+							<textElement textAlignment="Center" verticalAlignment="Middle"><font fontName="Arial" size="7" isBold="true"/></textElement>
+							<textFieldExpression><![CDATA[$P{P_ART3_OBS_2_7}]]></textFieldExpression>
+						</textField>
+					</frame>
+				</frame>
+
+				<!-- Fecha -->
+				<textField>
+					<reportElement x="355" y="240" width="200" height="15" uuid="cedd1185-99a0-8d4c-a0ee-a179966b04ea"/>
+					<textElement textAlignment="Right"><font fontName="Arial" size="9"/></textElement>
+					<textFieldExpression><![CDATA[$P{P_FECHA_INFORME}]]></textFieldExpression>
+				</textField>
+
+				<!-- Firma (H=80, Y=265) -->
+				<frame>
+					<reportElement x="0" y="265" width="555" height="120" uuid="bc289139-4d63-4712-ba7a-a4be8fb6a54f"/>
+					<line>
+						<reportElement x="177" y="45" width="200" height="1" uuid="bdabefcb-a7d0-341f-852f-434ea6fe318a"/>
+					</line>
+					<textField>
+						<reportElement x="0" y="48" width="555" height="15" uuid="efb21a15-0722-4fae-8670-3e38f9b5c08c"/>
+						<textElement textAlignment="Center"><font fontName="Arial" size="9" isBold="true"/></textElement>
+						<textFieldExpression><![CDATA[$P{P_NOMBRE_EVALUADOR}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="63" width="555" height="30" uuid="efb21a15-0722-4fae-8670-3e38f9b5c08d"/>
+						<textElement textAlignment="Center"><font fontName="Arial" size="9"/></textElement>
+						<textFieldExpression><![CDATA["Docente de Apoyo\nUnidad de Gestión de la Investigación"]]></textFieldExpression>
+					</textField>
+				</frame>
+			</frame>
+		</band>
+
+	</detail>
+</jasperReport>

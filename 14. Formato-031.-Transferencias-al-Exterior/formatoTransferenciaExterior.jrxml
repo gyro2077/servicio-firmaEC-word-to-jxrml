@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="formatoTransferenciaExterior" 
+              language="groovy" 
+              pageWidth="842" 
+              pageHeight="595" 
+              orientation="Landscape" 
+              columnWidth="802" 
+              leftMargin="20" 
+              rightMargin="20" 
+              topMargin="20" 
+              bottomMargin="20" 
+              isSummaryWithPageHeaderAndFooter="true" 
+              uuid="98eee998-f333-4467-ab42-0676608e63b7">
+              
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+
+	<!-- Parámetros del Formulario -->
+	<parameter name="P_FORMULARIO_NUMERO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["31"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MONTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2,000.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_MONEDA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["FRANCOS SUIZOS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MDPI AG PUBLISHER OF OPEN ACCESS JOURNALS"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_DIRECCION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Grosspeteranlage 5, 4052 Basel, Switzerland"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_CUENTA" class="java.lang.String">
+		<defaultValueExpression><![CDATA["0233 00222721.01Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_BANCO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["UBS Switzerland AG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_PAIS_CIUDAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Suiza"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BENEFICIARIO_SWIFT" class="java.lang.String">
+		<defaultValueExpression><![CDATA["UBSWCHZH80A"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BANCO_INTERMEDIARIO" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BANCO_INTERMEDIARIO_PAIS_CIUDAD" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_BANCO_INTERMEDIARIO_SWIFT" class="java.lang.String">
+		<defaultValueExpression><![CDATA[""]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_IBAN" class="java.lang.String">
+		<defaultValueExpression><![CDATA["CH74 0023 3233 2227 2101 Y"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_CONCEPTO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["Pago por publicación de artículo titulado “Real-Time Digital Twin Architecture for Immersive Industrial Automation\""]]></defaultValueExpression>
+	</parameter>
+
+	<!-- Valores de Cálculo -->
+	<parameter name="P_VALOR_TRANSFERIR" class="java.lang.String">
+		<defaultValueExpression><![CDATA["2,000.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_VALOR_RETENCION" class="java.lang.String">
+		<defaultValueExpression><![CDATA["500.00"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_VALOR_LIQUIDO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["1,500.00"]]></defaultValueExpression>
+	</parameter>
+
+	<!-- Firmas Autorizadas -->
+	<parameter name="P_SOLICITANTE_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ING. SONIA CARDENAS, Ph.D"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_SOLICITANTE_CARGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["SOLICITANTE DEL PAGO"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FINANCIERO_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["MGTR. PAOLA TAPIA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_FINANCIERO_CARGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["DIRECTORA FINANCIERA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TESORERO_NOMBRE" class="java.lang.String">
+		<defaultValueExpression><![CDATA["ING. MARCO QUINGA"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="P_TESORERO_CARGO" class="java.lang.String">
+		<defaultValueExpression><![CDATA["TESORERO"]]></defaultValueExpression>
+	</parameter>
+
+	<queryString>
+		<![CDATA[select 1 as dummy]]>
+	</queryString>
+
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+
+	<title>
+		<band height="535" splitType="Stretch">
+			<!-- Form Número (Top Right) -->
+			<textField>
+				<reportElement x="600" y="0" width="202" height="15" uuid="15b5a8ed-a321-4b18-8f6a-092c65cbbfb8"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["FORMULARIO NRO. " + $P{P_FORMULARIO_NUMERO}]]></textFieldExpression>
+			</textField>
+
+			<!-- Cabecera Institucional (B2-C3) -->
+			<frame>
+				<reportElement x="0" y="15" width="802" height="40" uuid="fc202ecd-caaa-463f-a096-c6dfedea53c6"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+				<staticText>
+					<reportElement x="0" y="3" width="802" height="18" uuid="83ac99ec-6350-4c01-9a8b-168b19483512"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="11" isBold="true"/>
+					</textElement>
+					<text><![CDATA[BANCO CENTRAL DEL ECUADOR]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="0" y="21" width="802" height="15" uuid="991397ad-ead2-405f-89df-c38f7409cbdd"/>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FORMULARIO PARA SOLICITAR TRANSFERENCIAS AL EXTERIOR]]></text>
+				</staticText>
+			</frame>
+
+			<!-- Grid Principal (Rows 4 a 16) -->
+			<frame>
+				<reportElement x="0" y="65" width="802" height="234" uuid="df9d70fb-981f-46d9-b3aa-dc7f696e0fbf"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+
+				<!-- 1. MONTO -->
+				<staticText>
+					<reportElement x="0" y="0" width="320" height="18" uuid="992ea9f7-3bdc-4c86-93b3-a44d51bf3d82"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[MONTO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="0" width="482" height="18" uuid="fcfcaed0-91ed-4537-871b-366b7015d3f1"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_MONTO}]]></textFieldExpression>
+				</textField>
+
+				<!-- 2. MONEDA -->
+				<staticText>
+					<reportElement x="0" y="18" width="320" height="18" uuid="57bb1488-2be7-45de-bad1-6aa592f490b4"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[MONEDA]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="18" width="482" height="18" uuid="42f91b20-dc07-4c4a-99a2-05391830d2ef"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_MONEDA}]]></textFieldExpression>
+				</textField>
+
+				<!-- 3. NOMBRE BENEFICIARIO -->
+				<staticText>
+					<reportElement x="0" y="36" width="320" height="18" uuid="346fa7a4-3d7f-48cc-b536-fbd70723c788"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[NOMBRE DE LA CUENTA /BENEFICIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="36" width="482" height="18" uuid="e588d953-258e-48f4-bb4a-9d5510f7f3a8"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_NOMBRE}]]></textFieldExpression>
+				</textField>
+
+				<!-- 4. DIRECCION BENEFICIARIO -->
+				<staticText>
+					<reportElement x="0" y="54" width="320" height="18" uuid="df06ee68-e8de-4b2c-bfb1-312d62895477"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[DIRECCION COMPLETA DEL BENEFICIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="54" width="482" height="18" uuid="217fff58-79eb-4b4a-a7cc-9cbfd8c5295a"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_DIRECCION}]]></textFieldExpression>
+				</textField>
+
+				<!-- 5. NUMERO CUENTA -->
+				<staticText>
+					<reportElement x="0" y="72" width="320" height="18" uuid="3f7e6712-c99d-4b0e-b4b6-5f7e85e1ac03"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[NUMERO CUENTA DEL BENEFICIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="72" width="482" height="18" uuid="b5756a03-e2e7-4548-8f1d-0b5efa12669c"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_CUENTA}]]></textFieldExpression>
+				</textField>
+
+				<!-- 6. BANCO BENEFICIARIO -->
+				<staticText>
+					<reportElement x="0" y="90" width="320" height="18" uuid="66e5cbf8-0788-45ed-86a4-c8b41b6337eb"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[BANCO DEL BENEFICIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="90" width="482" height="18" uuid="02af051a-3497-47b2-9879-54a0c8b526e8"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_BANCO}]]></textFieldExpression>
+				</textField>
+
+				<!-- 7. PAIS/CIUDAD BENEFICIARIO -->
+				<staticText>
+					<reportElement x="0" y="108" width="320" height="18" uuid="66077876-ec0f-473d-9052-4aa90277d303"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[PAIS  CIUDAD DEL BANCO BENEFICIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="108" width="482" height="18" uuid="0f4559e4-2f22-4af7-ba8e-06650fdfb526"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_PAIS_CIUDAD}]]></textFieldExpression>
+				</textField>
+
+				<!-- 8. CODIGO SWIFT -->
+				<staticText>
+					<reportElement x="0" y="126" width="320" height="18" uuid="b9bc9a64-f685-4588-acd4-6236b6d5b9cb"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[CODIGO SWIFT ]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="126" width="482" height="18" uuid="073051e4-4c08-4045-bf7b-c2dc4e9bf212"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BENEFICIARIO_SWIFT}]]></textFieldExpression>
+				</textField>
+
+				<!-- 9. BANCO INTERMEDIARIO -->
+				<staticText>
+					<reportElement x="0" y="144" width="320" height="18" uuid="4b10e4a6-a9e3-4772-8e89-1cecff1ddfaa"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[BANCO INTERMEDIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="144" width="482" height="18" uuid="15444607-7824-4c45-9005-c19fed999c30"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BANCO_INTERMEDIARIO}]]></textFieldExpression>
+				</textField>
+
+				<!-- 10. PAIS/CIUDAD INTERMEDIARIO -->
+				<staticText>
+					<reportElement x="0" y="162" width="320" height="18" uuid="2acabe4c-2e67-4ebb-9c27-8672a2f191a2"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[PAIS  CIUDAD DEL BANCO INTERMEDIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="162" width="482" height="18" uuid="99882982-1159-4fdb-9161-583c7d4a6e55"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BANCO_INTERMEDIARIO_PAIS_CIUDAD}]]></textFieldExpression>
+				</textField>
+
+				<!-- 11. SWIFT INTERMEDIARIO -->
+				<staticText>
+					<reportElement x="0" y="180" width="320" height="18" uuid="6890a848-e100-44b2-83a5-68dbb1c132e5"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[CODIGO SWIFT O ABA DEL BANCO INTERMEDIARIO]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="180" width="482" height="18" uuid="25442315-fe04-4bf3-9d70-4661e87ed488"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_BANCO_INTERMEDIARIO_SWIFT}]]></textFieldExpression>
+				</textField>
+
+				<!-- 12. IBAN -->
+				<staticText>
+					<reportElement x="0" y="198" width="320" height="18" uuid="f2c003f0-cf04-48b6-b870-0bac046df754"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[IBAN**]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="320" y="198" width="482" height="18" uuid="df3f9f29-05d8-4700-ada8-dfda58711cec"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_IBAN}]]></textFieldExpression>
+				</textField>
+
+				<!-- 13. CONCEPTO DE PAGO -->
+				<staticText>
+					<reportElement x="0" y="216" width="320" height="18" uuid="bfeb0051-ef87-4317-b218-48e52ecddf2c"/>
+					<box>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<text><![CDATA[CONCEPTO DEL PAGO:]]></text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="320" y="216" width="482" height="18" uuid="8f2eed22-3dbf-4e5a-9289-1ee76977cb3a"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+						<paragraph leftIndent="8"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_CONCEPTO}]]></textFieldExpression>
+				</textField>
+			</frame>
+
+			<!-- Notas (Lado Izquierdo) y Cálculos (Lado Derecho) -->
+			<!-- Nota * y ** -->
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="308" width="450" height="18" uuid="4870b7ec-84f6-45ed-927d-79cb3dc9e106"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["* Cuando se trate de transferencias en USD a favor de beneficiarios fuera de los Estados Unidos y en EUR a favor de beneficiarios fuera de la Unión Europea"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="326" width="450" height="10" uuid="d8db7e0b-779c-49a7-95df-dba3b2a1e12b"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["** Cuenta para transferencias a favor de beneficiarios dentro de países europeos"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="338" width="450" height="10" uuid="9287f2c6-c2d0-46c3-b475-f2242c8bcf4a"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="7" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota 1: La información que se consigna en este documento deberá estar libre de enmendaduras"]]></textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="350" width="450" height="28" uuid="5436ea18-2a9c-48a7-bf26-3e382bd36d33"/>
+				<textElement textAlignment="Justified">
+					<font fontName="Arial" size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Nota 2: En el caso que la transferencia se realice a un país con el cual se mantiene convenio de doble tributación se deberá analizar el porcentaje de retención en la fuente del impuesto a la renta."]]></textFieldExpression>
+			</textField>
+
+			<!-- Cálculo del Valor a Transferir (Frame) -->
+			<frame>
+				<reportElement x="472" y="308" width="330" height="74" uuid="19567bf2-1b16-4160-8f1c-dab4dabc7347"/>
+				<box>
+					<topPen lineWidth="0.5"/>
+					<leftPen lineWidth="0.5"/>
+					<bottomPen lineWidth="0.5"/>
+					<rightPen lineWidth="0.5"/>
+				</box>
+				<!-- Titulo -->
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="330" height="14" backcolor="#E6E6E6" uuid="a4e658ef-94a8-4816-8cd9-19521fd87723"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+					</textElement>
+					<text><![CDATA[CALCULO DEL VALOR A TRANSFERIR]]></text>
+				</staticText>
+
+				<!-- Valor transferir -->
+				<staticText>
+					<reportElement x="0" y="14" width="230" height="16" uuid="147f1122-deea-455a-9072-343acc9e619f"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Valor a transferir]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="230" y="14" width="100" height="16" uuid="9efddfdc-3068-4f5a-99aa-70169d3a0600"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+						<paragraph rightIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_VALOR_TRANSFERIR}]]></textFieldExpression>
+				</textField>
+
+				<!-- Retención -->
+				<staticText>
+					<reportElement x="0" y="30" width="230" height="24" uuid="105f7333-bb8e-4897-be6e-e7fb1a524f2b"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="7"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Menos 25% de retención en la fuente del Impuesto a la Renta]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="230" y="30" width="100" height="24" uuid="cd2fdde5-6470-4551-81d9-cc46ffe52360"/>
+					<box>
+						<bottomPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8"/>
+						<paragraph rightIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_VALOR_RETENCION}]]></textFieldExpression>
+				</textField>
+
+				<!-- Valor liquido -->
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="54" width="230" height="20" backcolor="#FFFFCC" uuid="f6eca6b3-f408-42b2-99de-63b330bffbf4"/>
+					<box>
+						<rightPen lineWidth="0.5"/>
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+						<paragraph leftIndent="5"/>
+					</textElement>
+					<text><![CDATA[Valor líquido que se acredita en la cuenta]]></text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="230" y="54" width="100" height="20" backcolor="#FFFFCC" uuid="a2d9255b-a9ec-4a47-ae72-d4517578b850"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="8" isBold="true"/>
+						<paragraph rightIndent="5"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$P{P_VALOR_LIQUIDO}]]></textFieldExpression>
+				</textField>
+			</frame>
+
+			<!-- Bloque de Firmas Autorizadas (Frame Container) -->
+			<frame>
+				<reportElement x="0" y="405" width="802" height="115" uuid="a4fee766-637b-4631-89f2-7aae979be744"/>
+				<box>
+					<topPen lineWidth="1.5"/>
+					<leftPen lineWidth="1.5"/>
+					<bottomPen lineWidth="1.5"/>
+					<rightPen lineWidth="1.5"/>
+				</box>
+
+				<!-- Columna 1: Solicitante (X=0, W=267, H=100) -->
+				<frame>
+					<reportElement x="0" y="0" width="267" height="100" uuid="11e4bda0-16ae-4c1f-ae90-865daa4a50af"/>
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="267" height="15" backcolor="#E6E6E6" uuid="aef14ce4-caab-4690-a24e-317aa216a745"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<text><![CDATA[SOLICITANTE DEL PAGO]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="15" width="267" height="50" uuid="c2c1eb8e-15c5-428b-802f-e9341911408f"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<line>
+						<reportElement x="15" y="65" width="237" height="1" uuid="4e6fefa3-8f13-4c72-8f3e-423de816457c"/>
+					</line>
+					<textField>
+						<reportElement x="0" y="68" width="267" height="12" uuid="030cfa55-d765-41f3-82dd-57bd1337cabc"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_SOLICITANTE_NOMBRE}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="80" width="267" height="20" uuid="8966de81-c6ae-4713-b9ab-79ec0837359a"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_SOLICITANTE_CARGO}]]></textFieldExpression>
+					</textField>
+				</frame>
+
+				<!-- Columna 2: Directora Financiera (X=267, W=268, H=100) -->
+				<frame>
+					<reportElement x="267" y="0" width="268" height="100" uuid="3f5a200e-01fe-45ff-b684-2ed259d1e34b"/>
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="268" height="15" backcolor="#E6E6E6" uuid="8431c076-f4cd-4ba4-bb7a-440947e82c39"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<text><![CDATA[DIRECTORA FINANCIERA]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="15" width="268" height="50" uuid="f0809531-8e10-4c90-b95a-687386580139"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<line>
+						<reportElement x="15" y="65" width="238" height="1" uuid="a991d292-1d93-44fc-aea8-8217dc382335"/>
+					</line>
+					<textField>
+						<reportElement x="0" y="68" width="268" height="12" uuid="455b3c58-d66e-4489-803f-cd28dd754d45"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_FINANCIERO_NOMBRE}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="80" width="268" height="20" uuid="c51cd405-65e9-4cf9-a977-87f03b1fcbd8"/>
+						<box>
+							<rightPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_FINANCIERO_CARGO}]]></textFieldExpression>
+					</textField>
+				</frame>
+
+				<!-- Columna 3: Tesorero (X=535, W=267, H=100) -->
+				<frame>
+					<reportElement x="535" y="0" width="267" height="100" uuid="bbbc0445-898e-4191-af27-77dec3a62f2e"/>
+					<staticText>
+						<reportElement mode="Opaque" x="0" y="0" width="267" height="15" backcolor="#E6E6E6" uuid="2c632eb0-a627-4a64-9f94-26216ede80be"/>
+						<box>
+							<bottomPen lineWidth="0.5"/>
+						</box>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<text><![CDATA[TESORERO]]></text>
+					</staticText>
+					<staticText>
+						<reportElement x="0" y="15" width="267" height="50" uuid="33bc8c42-1e48-4745-8c57-57f2f8f61bf9"/>
+						<text><![CDATA[]]></text>
+					</staticText>
+					<line>
+						<reportElement x="15" y="65" width="237" height="1" uuid="9df26c0b-943f-4274-b901-2ebffb0864d2"/>
+					</line>
+					<textField>
+						<reportElement x="0" y="68" width="267" height="12" uuid="ead8d317-6440-4114-936e-0f00d0e7c1c2"/>
+						<textElement textAlignment="Center" verticalAlignment="Middle">
+							<font fontName="Arial" size="8" isBold="true"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_TESORERO_NOMBRE}]]></textFieldExpression>
+					</textField>
+					<textField>
+						<reportElement x="0" y="80" width="267" height="20" uuid="405866b7-7db6-4c70-87ca-d9d7a81d8784"/>
+						<textElement textAlignment="Center" verticalAlignment="Top">
+							<font fontName="Arial" size="8"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$P{P_TESORERO_CARGO}]]></textFieldExpression>
+					</textField>
+				</frame>
+
+				<!-- Bottom Row: FIRMAS AUTORIZADAS (Y=100, H=15) -->
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="100" width="802" height="15" backcolor="#F2F2F2" uuid="757dd9f9-9f68-446c-a929-7578f4d0fcb7"/>
+					<box>
+						<topPen lineWidth="0.5"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font fontName="Arial" size="9" isBold="true"/>
+					</textElement>
+					<text><![CDATA[FIRMAS AUTORIZADAS]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>

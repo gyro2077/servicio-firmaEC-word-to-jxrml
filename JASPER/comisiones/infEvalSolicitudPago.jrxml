@@ -1,0 +1,1377 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="infEvalSolicitudPago" language="groovy" pageWidth="595" pageHeight="1200" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="c96589ee-fb08-28c0-7179-095bcd0cef5f">
+	<property name="ireport.zoom" value="2.0" />
+	<property name="ireport.x" value="0" />
+	<property name="ireport.y" value="0" />
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression>"c:\\selloSPP.PNG"</defaultValueExpression>
+	</parameter>
+	<parameter name="P_NOMBRE_EVALUADOR" class="java.lang.String" />
+	<parameter name="P_NOMBRE_DOCENTE" class="java.lang.String" />
+	<parameter name="P_DEPARTAMENTO" class="java.lang.String" />
+	<queryString>
+		select 1 as v_numero, 'EJEMPLO APELLIDOS Y NOMBRES' as v_apellidos, '1234567890' as v_cedula, 'XXX' as v_departamento, 'TITULO DEL ARTICULO' as v_articulo, 3 as v_autor, 'NOMBRE REVISTA' as v_revista, 'Q1' as v_impacto, 1500.00 as v_valor
+	</queryString>
+	<field name="v_numero" class="java.lang.Integer" />
+	<field name="v_apellidos" class="java.lang.String" />
+	<field name="v_cedula" class="java.lang.String" />
+	<field name="v_departamento" class="java.lang.String" />
+	<field name="v_articulo" class="java.lang.String" />
+	<field name="v_autor" class="java.lang.Integer" />
+	<field name="v_revista" class="java.lang.String" />
+	<field name="v_impacto" class="java.lang.String" />
+	<field name="v_valor" class="java.math.BigDecimal" />
+	<background>
+		<band splitType="Stretch" />
+	</background>
+<title>
+		<band height="733" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="95" uuid="68fb85f8-8e44-0cac-ffa6-df71ea549961" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<line>
+					<reportElement x="110" y="0" width="1" height="95" uuid="4466d14b-6761-2af3-1c4c-bc7bbfcdfb07" />
+				</line>
+				<line>
+					<reportElement x="435" y="0" width="1" height="95" uuid="bdabefcb-a7d0-341f-852f-434ea6fe3189" />
+				</line>
+				<image>
+					<reportElement x="10" y="15" width="90" height="65" uuid="90ce6ae1-c205-4ecf-6563-1f97c0492341" />
+					<imageExpression>$P{selloSPP}.toString()</imageExpression>
+				</image>
+				<textField>
+					<reportElement x="120" y="10" width="305" height="75" uuid="5e4e2078-b9b4-7229-e01a-195fe4d34f24" />
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="11" isBold="true" />
+					</textElement>
+					<textFieldExpression>"INFORME DE EVALUACIÓN DE LA SOLICITUD PARA PAGO DE PUBLICACIÓN"</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="440" y="3" width="110" height="40" uuid="d77124eb-7fa1-29fc-0154-103be1ced95c" />
+					<textElement textAlignment="Center">
+						<font size="6" />
+					</textElement>
+					<textFieldExpression>"Vicerrectorado de Investigación Innovación y Transferencia de Tecnología\nUnidad de Gestión de la Investigación"</textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="440" y="48" width="53" height="15" uuid="422b69e0-6472-a4a5-c97b-2947fb8f3ed4" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.0" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<text>N.° Informe</text>
+				</staticText>
+				<textField>
+					<reportElement mode="Opaque" x="493" y="48" width="62" height="15" backcolor="#FFFF00" uuid="fbf8d0e0-006e-2fda-88ca-1d382fd935b1" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.0" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<textFieldExpression>"VIIT-2024-036"</textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="440" y="63" width="53" height="15" uuid="cedd1185-99a0-8d4c-a0ee-a179966b04e8" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.0" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.0" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<text>Página:</text>
+				</staticText>
+				<textField>
+					<reportElement x="493" y="63" width="62" height="15" uuid="f833afbf-8c7d-9c7d-1d60-f9b4a9293297" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.0" />
+						<leftPen lineWidth="0.0" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>"1 de 1"</textFieldExpression>
+				</textField>
+			</frame>
+		
+
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="100" width="555" height="50" uuid="9dfbc2c9-b1e1-7797-e550-62b21eaba4c3" positionType="Float" />
+				<textElement textAlignment="Justified" markup="html">
+					<font fontName="Arial Narrow" size="10" />
+				</textElement>
+				<textFieldExpression>"INFORME QUE PRESENTA EL SEÑOR ING. " + $P{P_NOMBRE_EVALUADOR} + ", A LA SEÑORA DRA. MARBEL TORRES ARIAS, &lt;u&gt;&lt;b&gt;PhD&lt;/b&gt;&lt;/u&gt;, DIRECTORA DE LA UNIDAD DE GESTIÓN DE LA INVESTIGACIÓN ACERCA DE LA EVALUACIÓN DE LA SOLICITUD PARA PAGO DE PUBLICACIÓN REALIZADA POR EL DOCENTE &lt;b&gt;" + $P{P_NOMBRE_DOCENTE} + "&lt;/b&gt; DEL DEPARTAMENTO DE &lt;b&gt;" + $P{P_DEPARTAMENTO} + "&lt;/b&gt;."</textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="155" width="555" height="15" uuid="d4944aa4-fe9a-16c1-afc5-c2048a719dcb" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" size="10" isBold="true" />
+				</textElement>
+				<textFieldExpression>"ANTECEDENTES. -"</textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement mode="Opaque" x="0" y="175" width="555" height="25" backcolor="#FFFF00" uuid="653de8d3-8e38-3f01-6345-630b19591fb0" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" size="10" />
+				</textElement>
+				<textFieldExpression>"• Memorando ESPE-UGIN-2024-1289-M del 01 de octubre de 2024. (Memorando de requerimiento)"</textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="200" width="555" height="75" uuid="eee4281f-10a4-7f9f-7173-a75fcedb39a5" positionType="Float" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" size="10" />
+				</textElement>
+				<textFieldExpression>"• Reglamento del Sistema de Investigación de la Universidad de las Fuerzas Armadas ESPE.\n• Documento UGIN-PRC-V1-2022-019 (Gestión de Publicaciones en Revistas Indexadas), aprobado el 14 de septiembre de 2022.\n• Disposición Transitoria Décima Cuarta del Reglamento del Sistema de Investigación de la Universidad de las Fuerzas Armadas ESPE.\n• Circular Nro. ESPE-VII-2024-0137-C del 23 de julio de 2024: Procedimiento para la subvención de publicaciones científicas aceptadas en revistas de alto impacto realizadas durante el período 2024."</textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement x="0" y="285" width="555" height="20" uuid="1dd6e996-8a45-e7f2-bf11-7637f4f633f7" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="42" height="20" backcolor="#DBE5F1" uuid="0fa23893-b811-e226-4fa6-22485f377859" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>#</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="42" y="0" width="246" height="20" backcolor="#DBE5F1" uuid="74dde007-f2ac-c2af-c6ff-0b11e771239e" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Ítem</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="288" y="0" width="63" height="20" backcolor="#DBE5F1" uuid="7c360c95-1871-a8ed-7da6-66e691eeb95b" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Cumplimiento (Sí/No)</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="351" y="0" width="204" height="20" backcolor="#DBE5F1" uuid="5e8a8fde-22d9-2fa3-d188-99f03583e80e" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Observaciones</text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="305" width="555" height="25" uuid="1e1f284d-c959-0369-340b-9c4560f16482" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="53afe51b-a726-b240-7fda-f54f873832fb" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>1</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="cfe6e63a-4b57-15a9-d6e4-6a1c339822c2" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Requisitos de elegibilidad</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="de8e4259-de4d-1cf4-158d-2340f43b8922" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="0eff6d56-6d9a-1aa5-42c3-13b23ca7adae" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="330" width="555" height="35" uuid="2506a1e3-9ef9-26e4-2a2a-38dc2bd89021" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="35" uuid="36249d61-83fb-fc17-9ad0-269ade914f9b" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>1.1</text>
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="42" y="0" width="246" height="35" uuid="928f3f81-11b1-0813-f137-e11b091b2749" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Top">
+						<font size="9" isBold="true" />
+					</textElement>
+					<textFieldExpression>"Ser personal académico (titular u ocasional), de personal de apoyo académico o personal militar asignado a la Universidad."</textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="35" uuid="eb7c2d52-a9b1-2ecf-7d86-e3e6f5ab03cb" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="35" uuid="58efc28f-88d2-9204-0318-2e3923070515" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="365" width="555" height="25" uuid="2b5c6bcd-690f-7cc2-de98-fdf862c805cc" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="68a2f7b8-b6e3-9939-4696-19f4291d7d09" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>2</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="86d86c4c-1933-39bb-0741-fbfa37cc2d89" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Documentos requeridos</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="4dff1fa4-a8f5-a76b-c99d-a9616872716b" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="c39491e2-87e4-1a62-9215-2a951d97bda3" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="390" width="555" height="38" uuid="a67bc2c8-2e80-351a-07da-531a8f791a6f" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="38" uuid="3dd56d1a-1fa9-11d2-4152-391606bf279a" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.1</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="38" uuid="2a18747e-8790-53c4-02b7-1d4bcc743a1a" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Informe favorable del Coordinador de Investigación.</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="38" uuid="a05c5988-408f-bc28-10dc-356fc4c801a8" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="351" y="0" width="204" height="38" uuid="0c1216c7-a8a9-7ee0-38e3-a61d2da8df5c" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true" />
+					</textElement>
+					<textFieldExpression>"Pertinencia: Líneas de investigación y Áreas de conocimiento.\nRevisar que el docente esté al día en el cumplimiento de deberes y obligaciones para beneficiarios de movilidad."</textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="428" width="555" height="25" uuid="1c40380a-95f7-0816-64d5-a7384089edc4" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="27604d9a-368f-808e-aff2-96a195cad172" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.2</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="bb4e96a6-eba8-8bf4-b879-97282364d6ec" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Carta y(o correo de aceptación del artículo.</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="b934e9ba-eda9-f69d-c7e5-09e4b3adff4f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="a9e48bb8-9f2a-754d-2b32-6ab7a08b7558" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="453" width="555" height="25" uuid="b1d14033-0794-6683-56c6-86d574927bc0" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="fd140f26-77e3-6f49-c379-3ad438c742fd" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.3</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="c814f393-7e9e-9586-dfbd-bdd8861a10ec" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Artículo completo.</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="bf7129fd-a689-33f4-f243-400a686c3ca7" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="15e67570-60a3-66cc-aa0f-84c0977b5ad7" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="478" width="555" height="25" uuid="4f84c8ac-1a12-9d05-1e53-fb5144997208" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="7123fb75-6adc-f2c1-c3ca-28bcbefaa4ac" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.4</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="eb069ae3-0f5b-95e5-48bf-eec07af139d1" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Evidencia de indexación, factor de impacto y cuartil de la revista (Scopus o WoS).</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="25fb4358-feb9-9478-85f8-a8cbef913261" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="ff87814f-8706-af16-1549-c6e5b437aa00" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="503" width="555" height="25" uuid="fc7ef80e-a195-9ef1-ab56-ac05de6538ac" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="88f9f7eb-1546-322b-5863-ef0315be9ffd" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.5</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="4d5d1412-37da-cae5-10e6-d4fc545896c6" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Evidencia del costo de la publicación; por correo o pagina web emitido por la revista</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="9b49b0a1-1960-b0f1-abfd-cd8fb41fb7ec" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="5f6321e5-f953-ea6e-5ad2-9ae1f8be675f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="528" width="555" height="25" uuid="fc14646d-b822-54a1-4a4e-c38789099193" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="545e238f-8be8-75f1-85de-7ad01f4fc8cd" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.6</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="7380f7ad-d9ff-b5d1-fdd2-c8d45cf77a9f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Formulario de solicitud de movilidad debidamente legalizado. Anexo 1</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="3294fc2f-63dc-479d-c942-a08488c2612f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="7ffd8735-419f-8b28-352d-9623ab40ada6" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Contrastar con la información de la revista.</text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="553" width="555" height="35" uuid="52941594-b11e-9dfd-2f08-b21d27cbef27" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="35" uuid="29387ca9-47f7-bf56-2a82-0fdb38471a5a" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>2.7</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="35" uuid="9380e3a1-9dc4-d2e1-22aa-8d1ad32b5aa2" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Declaración de autoría firmada por los autores. Anexo 2</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="35" uuid="4f6e4791-f043-eb0d-c6a7-cea99b65896f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="351" y="0" width="204" height="35" uuid="c9a15d95-1314-a5e6-f8a7-11c990b26e2d" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Top">
+						<font size="8" isBold="true" />
+					</textElement>
+					<textFieldExpression>"Considerar la declaración de CRediT Taxonomy según (ANSI/NISO Z39.104-2022):\nhttps://credit.niso.org/"</textFieldExpression>
+				</textField>
+			</frame>
+			<frame>
+				<reportElement x="0" y="588" width="555" height="25" uuid="b6c49add-86ff-61a8-166a-dabc57c06dd0" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="379ae720-9eff-b994-c7f8-265e01f9217c" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>3</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="45b4263a-e3f0-7d6c-5c98-074118491493" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" />
+					</textElement>
+					<text>Certificaciones adicionales</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="fe53d788-68a5-9a83-8e28-59bc65c44769" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="bbc7db60-9e7b-f6f4-a7ea-7ce7dc8fa7fe" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="613" width="555" height="25" uuid="3dd45451-347a-bd93-bf73-a6dccb2f4c70" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="f2075182-8c5c-93b5-a5cf-f9c46a525adc" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>3.1</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="20286627-7456-2b4c-a98b-e5493bfdfb68" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Certificado de los autores en el que se indique que el artículo no ha sido financiado o se encuentre en proceso de pago en otra institución. Anexo 3</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="920dc705-f879-58c8-f3c4-91c3b3ac7552" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="60420ca2-65fd-18bd-d641-c89d88b6396b" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement x="0" y="638" width="555" height="25" uuid="4c62e886-fcc0-c091-e7ab-8e39f63a5143" positionType="Float" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement x="0" y="0" width="42" height="25" uuid="56f87473-ebb1-c4f9-ba2a-3c2cbf1ac6d9" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>3.2</text>
+				</staticText>
+				<staticText>
+					<reportElement x="42" y="0" width="246" height="25" uuid="d86d92c5-8466-ad4f-7f71-e82620c3270d" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle">
+						<font size="9" isBold="true" />
+					</textElement>
+					<text>Declaración de los autores en el que se indique la no afectación a la condición de novedad en el ámbito de la protección de la propiedad intelectual con fines de transferencia de tecnología. Anexo 4</text>
+				</staticText>
+				<staticText>
+					<reportElement x="288" y="0" width="63" height="25" uuid="6481dd89-8add-d20b-db2e-c5ed51194447" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+				<staticText>
+					<reportElement x="351" y="0" width="204" height="25" uuid="b4d282b3-7012-e58b-7d94-ff2794708511" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement verticalAlignment="Middle" />
+					<text />
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="95" splitType="Stretch">
+			<printWhenExpression>$V{PAGE_NUMBER} &gt; 1</printWhenExpression>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="25" uuid="cce2ee02-ab52-5b23-9b2e-d5d972ac5f9a" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<staticText>
+					<reportElement mode="Opaque" x="0" y="0" width="20" height="25" backcolor="#DBE5F1" uuid="6ed9ac86-c3a7-53c8-b06d-3cf0937e10e4" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>No.</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="20" y="0" width="105" height="25" backcolor="#DBE5F1" uuid="76ee0bc5-f21e-5d85-8304-e6c90ce927ed" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>APELLIDOS Y NOMBRES</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="125" y="0" width="60" height="25" backcolor="#DBE5F1" uuid="96b26b63-bb69-5ded-b56c-43be3fe18ec6" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>No DE CÉDULA</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="185" y="0" width="35" height="25" backcolor="#DBE5F1" uuid="896878c0-37ce-58c3-9d3e-bdff945e8c0a" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>DPTO.</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="220" y="0" width="100" height="25" backcolor="#DBE5F1" uuid="80bf1288-110b-56d0-b248-62dd8cab9d02" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>NOMBRE DEL ARTÍCULO</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="320" y="0" width="35" height="25" backcolor="#DBE5F1" uuid="07a1a151-5dda-553a-904a-2a3e6fa9e760" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>No DE AUTOR</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="355" y="0" width="75" height="25" backcolor="#DBE5F1" uuid="f28acd8f-ae6d-5591-9cdd-ec388c61b2f1" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>NOMBRE REVISTA</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="430" y="0" width="55" height="25" backcolor="#DBE5F1" uuid="18e509e2-075e-5e0e-9f23-1ac3fc31f8a8" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="6" isBold="true" />
+					</textElement>
+					<text>FACTOR DE IMPACTO</text>
+				</staticText>
+				<staticText>
+					<reportElement mode="Opaque" x="485" y="0" width="70" height="25" backcolor="#DBE5F1" uuid="751b10fc-da7e-5f58-809a-b351f87e65ab" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" isBold="true" />
+					</textElement>
+					<text>VALOR PUBLICACION</text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement x="0" y="0" width="555" height="25" uuid="13e373d5-9b8b-5609-ac94-f67449eebbd0" />
+				<box>
+					<pen lineWidth="0.5" />
+					<topPen lineWidth="0.5" />
+					<leftPen lineWidth="0.5" />
+					<bottomPen lineWidth="0.5" />
+					<rightPen lineWidth="0.5" />
+				</box>
+				<textField>
+					<reportElement x="0" y="0" width="20" height="25" uuid="1e46dcc9-79cd-5df7-a05b-b1093c299754" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_numero}</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="20" y="0" width="105" height="25" uuid="4853f95a-f0ae-582f-bdfc-9aa8a050cf43" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_apellidos}</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="125" y="0" width="60" height="25" uuid="8c5d4db0-72ad-5bad-a957-2e4366e84991" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_cedula}</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="185" y="0" width="35" height="25" uuid="066fac62-2de4-5f5a-8907-b17bf28ea00f" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_departamento}</textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="220" y="0" width="100" height="25" uuid="8372019e-1356-5721-a261-93736292974e" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_articulo}</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="320" y="0" width="35" height="25" uuid="a4550dbd-2016-57d8-9908-0fd902fe3989" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_autor}</textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement x="355" y="0" width="75" height="25" uuid="3907a30f-fb2d-5bde-bbd3-016ff41ec9a3" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_revista}</textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="430" y="0" width="55" height="25" uuid="b9a7e985-f829-5796-ab41-0024543c75ee" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_impacto}</textFieldExpression>
+				</textField>
+				<textField pattern="#,##0.00">
+					<reportElement x="485" y="0" width="70" height="25" uuid="ed94e756-3cd8-55d8-8f60-2aaa916005be" />
+					<box>
+						<pen lineWidth="0.5" />
+						<topPen lineWidth="0.5" />
+						<leftPen lineWidth="0.5" />
+						<bottomPen lineWidth="0.5" />
+						<rightPen lineWidth="0.5" />
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="7" />
+					</textElement>
+					<textFieldExpression>$F{v_valor}</textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="140" splitType="Stretch">
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="0" width="555" height="15" uuid="a056c6b3-e90e-cdfa-7892-7a9ea8a56641" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" size="10" isBold="true" />
+				</textElement>
+				<textFieldExpression>"RECOMENDACIONES. -"</textFieldExpression>
+			</textField>
+			<textField isStretchWithOverflow="true">
+				<reportElement x="0" y="15" width="555" height="25" uuid="9783b667-29df-d9ba-9e7d-7b549aa8fe80" />
+				<textElement textAlignment="Justified">
+					<font fontName="Arial Narrow" size="10" />
+				</textElement>
+				<textFieldExpression>"En base a la revisión efectuada, una vez que el docente ha cumplido con todos los requisitos establecidos en el procedimiento UGIN-PRC-V1-2022-019, se recomienda continuar con el trámite de pago de la publicación."</textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="45" width="155" height="15" uuid="6036f499-6728-c953-bafa-db85d6d5e9c5" />
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="10" isBold="true" />
+				</textElement>
+				<textFieldExpression>"RESUMEN"</textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="355" y="65" width="200" height="15" uuid="a2801912-f0a7-88e7-b6f3-4f89c0530379" />
+				<textElement textAlignment="Right">
+					<font fontName="Arial Narrow" size="10" />
+				</textElement>
+				<textFieldExpression>"Sangolquí, a 1 de enero de 2025"</textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="177" y="95" width="200" height="1" uuid="70975149-c53e-aded-1ded-516a1d17c95f" />
+			</line>
+			<textField>
+				<reportElement x="177" y="97" width="200" height="40" uuid="9d4dd9c8-420a-3e77-bd69-3a43716042d1" />
+				<textElement textAlignment="Center">
+					<font fontName="Arial Narrow" size="10" isBold="true" />
+				</textElement>
+				<textFieldExpression>"Firma\nDocente de Apoyo\nUnidad de Gestión de la Investigación"</textFieldExpression>
+			</textField>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="20" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="555" height="10" uuid="38705c67-fbc2-9f73-38f5-78e2c3fda234" />
+				<textElement textAlignment="Left">
+					<font size="6" />
+				</textElement>
+				<textFieldExpression>"Código de documento: UGIN-INF-2025-V1-001"</textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="0" y="10" width="555" height="10" uuid="b85540a4-5d3d-7750-3387-8e512f81e22e" />
+				<textElement textAlignment="Left">
+					<font size="6" />
+				</textElement>
+				<textFieldExpression>"Código de proceso: GINV-GATI-2"</textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch" />
+	</summary>
+</jasperReport>

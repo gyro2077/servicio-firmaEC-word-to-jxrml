@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" 
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" 
+              name="InformeEvaluacionESPE" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="11111111-2222-3333-4444-555555555555">
+    
+    <parameter name="NOMBRE_EVALUADOR" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["XXXXXXXXX"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="NOMBRE_DOCENTE" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["XXXXXXXXXXX"]]></defaultValueExpression>
+    </parameter>
+    <parameter name="DEPARTAMENTO" class="java.lang.String" isForPrompting="false">
+        <defaultValueExpression><![CDATA["XXX"]]></defaultValueExpression>
+    </parameter>
+
+    <field name="numero" class="java.lang.Integer"/>
+    <field name="apellidosNombres" class="java.lang.String"/>
+    <field name="cedula" class="java.lang.String"/>
+    <field name="departamento" class="java.lang.String"/>
+    <field name="nombreArticulo" class="java.lang.String"/>
+    <field name="noAutor" class="java.lang.Integer"/>
+    <field name="nombreRevista" class="java.lang.String"/>
+    <field name="factorImpacto" class="java.lang.String"/>
+    <field name="valorPublicacion" class="java.math.BigDecimal"/>
+
+    <title>
+        <band height="380" splitType="Stretch">
+            <textField textAdjust="StretchHeight">
+                <reportElement x="0" y="0" width="555" height="40" uuid="22222222-3333-4444-5555-666666666666"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <textFieldExpression><![CDATA["INFORME QUE PRESENTA EL SEÑOR ING. " + $P{NOMBRE_EVALUADOR} + ", A LA SEÑORA DRA. MARBEL TORRES ARIAS, PhD, DIRECTORA DE LA UNIDAD DE GESTIÓN DE LA INVESTIGACIÓN ACERCA DE LA EVALUACIÓN DE LA SOLICITUD PARA PAGO DE PUBLICACIÓN REALIZADA POR EL DOCENTE " + $P{NOMBRE_DOCENTE} + " DEL DEPARTAMENTO DE " + $P{DEPARTAMENTO} + "."]]></textFieldExpression>
+            </textField>
+
+            <staticText>
+                <reportElement x="0" y="50" width="555" height="20" uuid="33333333-4444-5555-6666-777777777777"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[ANTECEDENTES. -]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="20" y="70" width="535" height="90" uuid="44444444-5555-6666-7777-888888888888"/>
+                <textElement textAlignment="Justified">
+                    <font fontName="Arial" size="11"/>
+                </textElement>
+                <text><![CDATA[- Memorando ESPE-UGIN-2024-1289-M del 01 de octubre de 2024. (Memorando de requerimiento)
+- Reglamento del Sistema de Investigación de la Universidad de las Fuerzas Armadas ESPE.
+- Documento UGIN-PRC-V1-2022-019 (Gestión de Publicaciones en Revistas Indexadas), aprobado el 14 de septiembre de 2022.
+- Disposición Transitoria Décima Cuarta del Reglamento del Sistema de Investigación.
+- Circular Nro. ESPE-VII-2024-0137-C del 23 de julio de 2024: Procedimiento para la subvención de publicaciones científicas.]]></text>
+            </staticText>
+
+            <rectangle>
+                <reportElement x="0" y="170" width="555" height="20" backcolor="#B8CCE4" uuid="55555555-6666-7777-8888-999999999999"/>
+            </rectangle>
+            <staticText>
+                <reportElement x="5" y="172" width="20" height="15" uuid="aa11bb22-cc33-dd44-ee55-ff66aa77bb88"/><textElement><font isBold="true"/></textElement><text><![CDATA[#]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="30" y="172" width="200" height="15" uuid="aa11bb22-cc33-dd44-ee55-ff66aa77bb89"/><textElement><font isBold="true"/></textElement><text><![CDATA[Ítem]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="240" y="172" width="100" height="15" uuid="aa11bb22-cc33-dd44-ee55-ff66aa77bb90"/><textElement><font isBold="true"/></textElement><text><![CDATA[Cumplimiento]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="350" y="172" width="200" height="15" uuid="aa11bb22-cc33-dd44-ee55-ff66aa77bb91"/><textElement><font isBold="true"/></textElement><text><![CDATA[Observaciones]]></text>
+            </staticText>
+
+            <staticText>
+                <reportElement x="30" y="195" width="200" height="30" uuid="aa11bb22-cc33-dd44-ee55-ff66aa77bb92"/>
+                <textElement><font size="9"/></textElement>
+                <text><![CDATA[1. Requisitos de elegibilidad
+1.1 Ser personal académico...]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="340" width="555" height="20" uuid="66666666-7777-8888-9999-aaaaaaaaaaaa"/>
+                <textElement>
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[RECOMENDACIONES. -]]></text>
+            </staticText>
+            <staticText>
+                <reportElement x="0" y="360" width="555" height="20" uuid="77777777-8888-9999-aaaa-bbbbbbbbbbbb"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="12" isBold="true"/>
+                </textElement>
+                <text><![CDATA[RESUMEN]]></text>
+            </staticText>
+        </band>
+    </title>
+
+    <columnHeader>
+        <band height="30">
+            <rectangle>
+                <reportElement x="0" y="0" width="555" height="30" backcolor="#B8CCE4" uuid="88888888-9999-aaaa-bbbb-cccccccccccc"/>
+            </rectangle>
+            <staticText><reportElement x="5" y="5" width="20" height="20" uuid="h1"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[No.]]></text></staticText>
+            <staticText><reportElement x="30" y="5" width="100" height="20" uuid="h2"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[APELLIDOS Y NOMBRES]]></text></staticText>
+            <staticText><reportElement x="135" y="5" width="65" height="20" uuid="h3"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[No DE CÉDULA]]></text></staticText>
+            <staticText><reportElement x="205" y="5" width="45" height="20" uuid="h4"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[DPTO.]]></text></staticText>
+            <staticText><reportElement x="255" y="5" width="100" height="20" uuid="h5"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[NOMBRE DEL ARTÍCULO]]></text></staticText>
+            <staticText><reportElement x="360" y="5" width="40" height="20" uuid="h6"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[AUTOR]]></text></staticText>
+            <staticText><reportElement x="405" y="5" width="60" height="20" uuid="h7"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[REVISTA]]></text></staticText>
+            <staticText><reportElement x="470" y="5" width="40" height="20" uuid="h8"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[IMPACTO]]></text></staticText>
+            <staticText><reportElement x="515" y="5" width="40" height="20" uuid="h9"/><textElement><font size="8" isBold="true"/></textElement><text><![CDATA[VALOR]]></text></staticText>
+        </band>
+    </columnHeader>
+
+    <detail>
+        <band height="20" splitType="Stretch">
+            <line><reportElement x="0" y="19" width="555" height="1" uuid="line1"/></line>
+            <textField><reportElement x="5" y="0" width="20" height="20" uuid="d1"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{numero}]]></textFieldExpression></textField>
+            <textField textAdjust="StretchHeight"><reportElement x="30" y="0" width="100" height="20" uuid="d2"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{apellidosNombres}]]></textFieldExpression></textField>
+            <textField><reportElement x="135" y="0" width="65" height="20" uuid="d3"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{cedula}]]></textFieldExpression></textField>
+            <textField><reportElement x="205" y="0" width="45" height="20" uuid="d4"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{departamento}]]></textFieldExpression></textField>
+            <textField textAdjust="StretchHeight"><reportElement x="255" y="0" width="100" height="20" uuid="d5"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{nombreArticulo}]]></textFieldExpression></textField>
+            <textField><reportElement x="360" y="0" width="40" height="20" uuid="d6"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{noAutor}]]></textFieldExpression></textField>
+            <textField textAdjust="StretchHeight"><reportElement x="405" y="0" width="60" height="20" uuid="d7"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{nombreRevista}]]></textFieldExpression></textField>
+            <textField><reportElement x="470" y="0" width="40" height="20" uuid="d8"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{factorImpacto}]]></textFieldExpression></textField>
+            <textField pattern="¤#,##0.00"><reportElement x="515" y="0" width="40" height="20" uuid="d9"/><textElement><font size="8"/></textElement><textFieldExpression><![CDATA[$F{valorPublicacion}]]></textFieldExpression></textField>
+        </band>
+    </detail>
+
+    <summary>
+        <band height="150" splitType="Stretch">
+            <staticText>
+                <reportElement x="0" y="30" width="250" height="20" uuid="99999999-aaaa-bbbb-cccc-dddddddddddd"/>
+                <textElement>
+                    <font fontName="Arial" size="11"/>
+                </textElement>
+                <text><![CDATA[Sangolquí, a 1 de enero de 2025]]></text>
+            </staticText>
+            
+            <line>
+                <reportElement x="177" y="110" width="200" height="1" uuid="aaaaaaaa-bbbb-cccc-dddd-eeeeeeeeeeee"/>
+            </line>
+            
+            <staticText>
+                <reportElement x="177" y="115" width="200" height="30" uuid="bbbbbbbb-cccc-dddd-eeee-ffffffffffff"/>
+                <textElement textAlignment="Center">
+                    <font fontName="Arial" size="11" isBold="true"/>
+                </textElement>
+                <text><![CDATA[Firma
+Docente de Apoyo Unidad de Gestion de la Investigación]]></text>
+            </staticText>
+        </band>
+    </summary>
+</jasperReport>

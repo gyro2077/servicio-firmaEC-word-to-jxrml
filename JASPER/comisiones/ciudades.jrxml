@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ciudades" language="groovy" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="0" uuid="a518856e-9f2a-4137-a200-a6aeb4f0dbec">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="146"/>
+	<parameter name="selloSPP" class="java.lang.String">
+		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="marca" class="java.lang.String">
+		<defaultValueExpression><![CDATA["poner20caracteres123"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select pai_pais, ciu_ciudad, ciu_coefic
+ from comisiones.cciu_ciudad ciu, comisiones.cpai_pais pai
+   where ciu.pai_secuen = pai.pai_secuen
+      order by pai_pais, ciu_ciudad]]>
+	</queryString>
+	<field name="pai_pais" class="java.lang.String">
+		<fieldDescription><![CDATA[País]]></fieldDescription>
+	</field>
+	<field name="ciu_ciudad" class="java.lang.String">
+		<fieldDescription><![CDATA[Ciudad]]></fieldDescription>
+	</field>
+	<field name="ciu_coefic" class="java.math.BigDecimal"/>
+	<group name="pais">
+		<groupExpression><![CDATA[$F{pai_pais}]]></groupExpression>
+		<groupHeader>
+			<band height="32">
+				<textField>
+					<reportElement uuid="8d1411db-7ff7-48f9-b7d1-8968f4292797" x="123" y="4" width="304" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8" isBold="true"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{pai_pais}]]></textFieldExpression>
+				</textField>
+				<staticText>
+					<reportElement uuid="66b608a5-77e8-41f9-affd-f9c88d31ed4a" x="123" y="16" width="204" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[CIUDAD]]></text>
+				</staticText>
+				<staticText>
+					<reportElement uuid="1bd71070-56cc-4bf8-a0e1-510642b0155b" x="327" y="16" width="100" height="16"/>
+					<box>
+						<pen lineWidth="0.25"/>
+						<topPen lineWidth="0.25"/>
+						<leftPen lineWidth="0.25"/>
+						<bottomPen lineWidth="0.25"/>
+						<rightPen lineWidth="0.25"/>
+					</box>
+					<textElement textAlignment="Center" verticalAlignment="Middle">
+						<font size="8"/>
+					</textElement>
+					<text><![CDATA[COEFICIENTE]]></text>
+				</staticText>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="14"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="806" splitType="Stretch">
+			<textField pattern="000000">
+				<reportElement uuid="935e4c68-0e3e-4fee-a2fd-e6d0e7c6ba50" positionType="Float" mode="Transparent" x="45" y="67" width="468" height="737" forecolor="#CCCCCC"/>
+				<textElement verticalAlignment="Top" rotation="None" markup="styled">
+					<font size="8" isBold="false" isStrikeThrough="false" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}+$P{marca}]]></textFieldExpression>
+			</textField>
+		</band>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement uuid="3c82f558-7b4e-469e-8de3-a174fe6b7491" x="86" y="32" width="385" height="24"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[REPORTE CIUDADES POR PAÍSES]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="672d8cbf-38d5-456a-b09c-31a40d98c533" x="86" y="17" width="385" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[DIRECCIÓN DE TECNOLOGÍAS DE LA INFORMACIÓN]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="296f316f-cf93-4ac1-9d22-87b987e10e94" x="465" y="40" width="60" height="16"/>
+				<box>
+					<pen lineWidth="0.0"/>
+					<topPen lineWidth="0.0"/>
+					<leftPen lineWidth="0.0"/>
+					<bottomPen lineWidth="0.0"/>
+					<rightPen lineWidth="0.0"/>
+				</box>
+				<textElement textAlignment="Right">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Página "+$V{PAGE_NUMBER}+" de"]]></textFieldExpression>
+			</textField>
+			<textField pattern="dd/MM/yyyy HH:mm">
+				<reportElement uuid="3db4a742-88b1-4206-8c72-efd24404c7dc" x="475" y="29" width="80" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement uuid="0cdf75d4-ad1a-4cfd-bf12-af38ee864fa4" x="525" y="40" width="30" height="16"/>
+				<textElement>
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement uuid="94cfab6d-6d4b-48fe-9af2-a96dc140619e" x="5" y="2" width="50" height="59"/>
+				<imageExpression><![CDATA[$P{selloSPP}.toString()]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement uuid="257bb622-cd10-4333-a972-e7c2aecbef63" x="86" y="2" width="385" height="20"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[SERVICIO DE PROTECCIÓN PRESIDENCIAL]]></text>
+			</staticText>
+			<line>
+				<reportElement uuid="e1624dc6-8d40-41e4-a116-e011f2e8134d" x="0" y="55" width="554" height="1"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="9" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="16" splitType="Stretch">
+			<textField>
+				<reportElement uuid="85b64731-2dc7-4457-9a31-ddabfc790771" x="123" y="0" width="204" height="16"/>
+				<box leftPadding="4">
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciu_ciudad}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="be0e0f5a-8519-4fe8-b78c-7b6cf5da7335" x="327" y="0" width="100" height="16"/>
+				<box>
+					<pen lineWidth="0.25"/>
+					<topPen lineWidth="0.25"/>
+					<leftPen lineWidth="0.25"/>
+					<bottomPen lineWidth="0.25"/>
+					<rightPen lineWidth="0.25"/>
+				</box>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ciu_coefic}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band splitType="Stretch"/>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
