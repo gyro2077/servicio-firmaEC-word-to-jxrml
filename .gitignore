@@ -1,0 +1,8 @@
+*.tgz
+*.tar.gz
+*.zip
+*.7z
+*.rar
+*.iso
+__pycache__/
+*.pyc
