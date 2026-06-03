@@ -4,7 +4,7 @@
 	<property name="ireport.x" value="1379"/>
 	<property name="ireport.y" value="475"/>
 	<parameter name="selloSPP" class="java.lang.String">
-		<defaultValueExpression><![CDATA["c:\\selloSPP.PNG"]]></defaultValueExpression>
+		<defaultValueExpression><![CDATA["selloAnexoFirmaDocente.png"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="paramIdComision" class="java.lang.Long">
 		<defaultValueExpression><![CDATA[13]]></defaultValueExpression>

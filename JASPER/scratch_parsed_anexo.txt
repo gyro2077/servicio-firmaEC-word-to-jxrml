@@ -1,0 +1,80 @@
+
+P 0:
+  R 0: bold=True, italic=False, u=False, size=22 | 'Anexo {{ numero_anexo }}'
+
+P 1:
+  R 0: bold=True, italic=False, u=False, size=22 | 'UNIVERSIDAD DE LAS FUERZAS ARMADAS – ESPE'
+
+P 2:
+  R 0: bold=True, italic=False, u=False, size=22 | 'DECLARACIÓN INTEGRAL DE AUTORÍA, NO AFECTACIÓN A PROPIEDAD INTELECTUAL Y ACUERDO DE PRESENTACIÓN'
+
+P 3:
+  R 0: bold=False, italic=False, u=False, size=22 | 'El/la docente solicitante '
+  R 1: bold=True, italic=False, u=True, size=22 | '{{ docente_solicitante_nombre }}'
+  R 2: bold=False, italic=False, u=False, size=22 | ', con identificación No. '
+  R 3: bold=True, italic=False, u=True, size=22 | '{{ docente_solicitante_identificacion }}'
+  R 4: bold=False, italic=False, u=False, size=22 | ', en calidad de responsable de la solicitud de fondos para el artículo titulado '
+  R 5: bold=True, italic=False, u=True, size=22 | '{{ titulo_articulo }}'
+  R 6: bold=False, italic=False, u=False, size=22 | ', a ser publicado o presentado en '
+  R 7: bold=True, italic=False, u=True, size=22 | '{{ destino_publicacion }}'
+  R 8: bold=False, italic=False, u=False, size=22 | ', con base en la información registrada en el expediente y en el sistema institucional, '
+  R 9: bold=True, italic=False, u=False, size=22 | 'CERTIFICA, DECLARA Y ACUERDA'
+  R 10: bold=False, italic=False, u=False, size=22 | ' lo siguiente:'
+
+P 4:
+  R 0: bold=True, italic=False, u=False, size=22 | '1. Información de autoría y financiamiento'
+
+P 5:
+  R 0: bold=False, italic=False, u=False, size=22 | 'Que el artículo registra como autores a '
+  R 1: bold=True, italic=False, u=True, size=22 | '{{ autores_texto }}'
+  R 2: bold=False, italic=False, u=False, size=22 | '. El contenido del artículo corresponde a una investigación desarrollada por dichos autores, respetando los derechos de propiedad intelectual de terceros. Asimismo, se deja constancia de que la presente publicación '
+  R 3: bold=True, italic=False, u=False, size=22 | 'NO'
+  R 4: bold=False, italic=False, u=False, size=22 | ' ha sido financiada previamente ni se encuentra en proceso de financiamiento por otras Instituciones de Educación Superior, centros, entidades u organismos.'
+
+P 6:
+  R 0: bold=True, italic=False, u=False, size=22 | '2. Declaración de no afectación a propiedad intelectual'
+
+P 7:
+  R 0: bold=False, italic=False, u=False, size=22 | 'Que la publicación o presentación del artículo '
+  R 1: bold=True, italic=False, u=False, size=22 | 'NO'
+  R 2: bold=False, italic=False, u=False, size=22 | ' genera afectación a la condición de novedad en el ámbito de la protección de la propiedad intelectual con fines de transferencia de tecnología.'
+
+P 8:
+  R 0: bold=True, italic=False, u=False, size=22 | '3. Aporte de los autores'
+
+P 9:
+  R 0: bold=False, italic=False, u=False, size=22 | 'Además, se registra que el aporte de cada autor es el siguiente:'
+
+P 10:
+  R 0: bold=True, italic=False, u=True, size=21 | '{{ bloque_aportes_autores }}'
+
+P 11:
+  R 0: bold=True, italic=False, u=False, size=22 | '4. Acuerdo de presentación'
+
+P 12:
+  R 0: bold=False, italic=False, u=False, size=22 | 'Cuando el proceso implique pago de publicaciones a ser presentadas en congresos o conferencias sin movilidad, se registra como responsable de la presentación del artículo a '
+  R 1: bold=True, italic=False, u=True, size=22 | '{{ presentador_nombre }}'
+  R 2: bold=False, italic=False, u=False, size=22 | '. En caso de que no aplique presentación, el sistema deberá registrar esta cláusula como '
+  R 3: bold=True, italic=False, u=False, size=22 | 'NO APLICA'
+  R 4: bold=False, italic=False, u=False, size=22 | '.'
+
+P 13:
+  R 0: bold=False, italic=False, u=False, size=22 | '{{ ciudad }}, '
+  R 1: bold=True, italic=False, u=True, size=22 | '{{ fecha_larga }}'
+
+P 14:
+  R 0: bold=True, italic=False, u=False, size=22 | '5. Firma  del docente solicitante'
+
+P 15:
+  R 0: bold=False, italic=False, u=False, size=19 | 'Para efectos de trámite, el presente documento será suscrito únicamente por el/la docente solicitante, quien deja constancia de la veracidad de la información registrada en la solicitud y en el expediente correspondiente.'
+
+TBL 16:
+  Row 0:
+    Cell 0:
+      P: [B=False,I=False,U=False]'__________________________________'
+      P: [B=False,I=False,U=False]'Firma'
+      P: [B=True,I=False,U=True]'{{ docente_solicitante_nombre }}'
+      P: [B=True,I=False,U=False]'CI: {{ docente_solicitante_identificacion }}'
+      P: [B=True,I=False,U=False]'{{ docente_solicitante_cargo }}'
+
+P 17:

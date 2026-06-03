@@ -89,7 +89,8 @@ fi
 echo "[PASO 2] Rellenando reporte y exportando a PDF..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-java --add-opens java.base/java.lang=ALL-UNNAMED \
+java -Djava.awt.headless=true \
+     --add-opens java.base/java.lang=ALL-UNNAMED \
      --add-opens java.base/java.util=ALL-UNNAMED \
      -cp ".:commons-beanutils.jar:lib/*" \
      ExportPDF "$JASPER_PATH" "$OUT_PDF_PATH"

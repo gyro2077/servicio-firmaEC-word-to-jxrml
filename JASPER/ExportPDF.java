@@ -18,6 +18,13 @@ public class ExportPDF {
             System.setProperty("net.sf.jasperreports.awt.ignore.missing.font", "true");
             net.sf.jasperreports.engine.util.JRProperties.setProperty("net.sf.jasperreports.awt.ignore.missing.font", "true");
 
+            System.out.println("DEBUG: net.sf.jasperreports.awt.ignore.missing.font = " + 
+                net.sf.jasperreports.engine.util.JRProperties.getProperty("net.sf.jasperreports.awt.ignore.missing.font"));
+            System.out.println("DEBUG: net.sf.jasperreports.export.pdf.font.Helvetica = " + 
+                net.sf.jasperreports.engine.util.JRProperties.getProperty("net.sf.jasperreports.export.pdf.font.Helvetica"));
+            System.out.println("DEBUG: net.sf.jasperreports.export.pdf.font.Helvetica-Bold = " + 
+                net.sf.jasperreports.engine.util.JRProperties.getProperty("net.sf.jasperreports.export.pdf.font.Helvetica-Bold"));
+
             System.out.println("Llenando reporte: " + jasperFile);
             // Llenar con parámetros por defecto (HashMap vacío) y fuente de datos vacía
             JasperPrint jasperPrint = JasperFillManager.fillReport(jasperFile, new HashMap<>(), new JREmptyDataSource());

@@ -65,7 +65,8 @@ fi
 echo "[PASO 1] Compilando JRXML a JASPER..."
 echo "━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━"
 
-java --add-opens java.base/java.lang=ALL-UNNAMED \
+java -Djava.awt.headless=true \
+     --add-opens java.base/java.lang=ALL-UNNAMED \
      --add-opens java.base/java.util=ALL-UNNAMED \
      -cp ".:commons-beanutils.jar:lib/*" \
      CompileJasper "$JRXML_PATH"
