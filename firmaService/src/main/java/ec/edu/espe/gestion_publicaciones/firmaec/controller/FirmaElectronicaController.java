@@ -79,6 +79,7 @@ public class FirmaElectronicaController {
         resp.setId(entity.getId());
         resp.setIdSolicitud(entity.getIdSolicitud());
         resp.setIdTipoDocumento(entity.getIdTipoDocumento());
+        resp.setPdfBase64(entity.getPdfBase64());
         resp.setNombreArchivo(entity.getNombreArchivo());
         resp.setTotalFirmasRequeridas(entity.getTotalFirmasRequeridas());
         resp.setFirmasCompletadas(entity.getFirmasCompletadas());
