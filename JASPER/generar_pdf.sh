@@ -75,14 +75,30 @@ if [ -z "$OUT_PDF_PATH" ]; then
     OUT_PDF_PATH="${JASPER_PATH%.jasper}.pdf"
 fi
 
-# Asegurarse de que ExportPDF está compilado
-if [ ! -f "ExportPDF.class" ] || [ "ExportPDF.java" -nt "ExportPDF.class" ]; then
-    echo "[INFO] Compilando ExportPDF.java..."
-    javac -cp ".:commons-beanutils.jar:lib/*" ExportPDF.java
-    if [ $? -ne 0 ]; then
-        echo "✗ ERROR: Falló la compilación de ExportPDF.java"
-        exit 1
+# ─── Detectar versión del .jasper para elegir classpath correcto ─────────────
+# Buscamos el .jrxml compañero del .jasper para leer su versión
+JRXML_COMPANION="${JASPER_PATH%.jasper}.jrxml"
+IS_JR7=false
+if [ -f "$JRXML_COMPANION" ]; then
+    if head -3 "$JRXML_COMPANION" | grep -qE 'JasperReports Library version 7'; then
+        IS_JR7=true
     fi
+fi
+
+if [ "$IS_JR7" = true ]; then
+    echo "[INFO] Detectado .jasper compilado con JR 7.x — usando lib_jr6/"
+    CP=".:lib_jr6/*"
+else
+    echo "[INFO] Detectado .jasper compilado con JR 5.x — usando lib/"
+    CP=".:commons-beanutils.jar:lib/*"
+fi
+
+# Asegurarse de que ExportPDF está compilado con el classpath correcto
+echo "[INFO] Compilando ExportPDF.java..."
+javac -cp "$CP" ExportPDF.java
+if [ $? -ne 0 ]; then
+    echo "✗ ERROR: Falló la compilación de ExportPDF.java"
+    exit 1
 fi
 
 # Generar PDF
@@ -92,7 +108,7 @@ echo "━━━━━━━━━━━━━━━━━━━━━━━━�
 java -Djava.awt.headless=true \
      --add-opens java.base/java.lang=ALL-UNNAMED \
      --add-opens java.base/java.util=ALL-UNNAMED \
-     -cp ".:commons-beanutils.jar:lib/*" \
+     -cp "$CP" \
      ExportPDF "$JASPER_PATH" "$OUT_PDF_PATH"
 
 if [ $? -ne 0 ]; then

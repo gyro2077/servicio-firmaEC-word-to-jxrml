@@ -1,846 +1,538 @@
-<?xml version='1.0' encoding='UTF-8'?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ordenGasto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" isSummaryWithPageHeaderAndFooter="true">
-	<property name="ireport.zoom" value="1.5" />
-	<property name="ireport.x" value="0" />
-	<property name="ireport.y" value="0" />
+<!-- Created with Jaspersoft Studio version 7.0.6.final using JasperReports Library version 7.0.6-5d2a603fdc6b3db8f842a83383e594f41891534d  -->
+<jasperReport name="ordenGasto" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" whenNoDataType="AllSectionsNoDetail" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="aeda9d78-5e13-4329-8d64-559ab2d3c6da" summaryWithPageHeaderAndFooter="true">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
 	<parameter name="selloSPP" class="java.lang.String">
-		<defaultValueExpression>"/home/gyro/Documents/TESIS/word-to-jrxml/24. MTZ ORDEN DE GASTO/selloOrdenGasto.jpg"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["/home/gyro/Documents/TESIS/word-to-jrxml/24. MTZ ORDEN DE GASTO/selloOrdenGasto.jpg"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FECHA_DOCUMENTO" class="java.lang.String">
-		<defaultValueExpression>"24/03/2026"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["24/03/2026"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ORDEN_NUMERO" class="java.lang.String">
-		<defaultValueExpression>"OG-2026-024-UGIN-ESPE-d-1"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["OG-2026-024-UGIN-ESPE-d-1"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_CONTRATACION_NUMERO" class="java.lang.String">
-		<defaultValueExpression>"Memorando Nro. ESPE-UGIN-2026-0517-M"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Memorando Nro. ESPE-UGIN-2026-0517-M"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_CONTRATACION_OBJETO" class="java.lang.String">
-		<defaultValueExpression>"Pago por publicación de artículo titulado “Real-Time Digital Twin Architecture for Immersive Industrial Automation\""</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Pago por publicación de artículo titulado “Real-Time Digital Twin Architecture for Immersive Industrial Automation\""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_PROVEEDOR_NOMBRE" class="java.lang.String">
-		<defaultValueExpression>"MDPI AG PUBLISHER OF OPEN ACCESS JOURNALS"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["MDPI AG PUBLISHER OF OPEN ACCESS JOURNALS"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_PROVEEDOR_ID" class="java.lang.String">
-		<defaultValueExpression>"INT0000003793"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["INT0000003793"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_ORD" class="java.lang.String">
-		<defaultValueExpression>"1"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_DESCRIPCION" class="java.lang.String">
-		<defaultValueExpression>"Pago por publicación de artículo titulado “Real-Time Digital Twin Architecture for Immersive Industrial Automation\""</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Pago por publicación de artículo titulado “Real-Time Digital Twin Architecture for Immersive Industrial Automation\""]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_CANTIDAD" class="java.lang.String">
-		<defaultValueExpression>"1"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["1"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_PRECIO_UNITARIO" class="java.lang.String">
-		<defaultValueExpression>"2550,21"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["2550,21"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_SUBTOTAL" class="java.lang.String">
-		<defaultValueExpression>"2550,21"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["2550,21"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_IVA" class="java.lang.String">
-		<defaultValueExpression>"-"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["-"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_OTROS_IMPUESTOS" class="java.lang.String">
-		<defaultValueExpression>"0"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_TOTAL" class="java.lang.String">
-		<defaultValueExpression>"2550,21"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["2550,21"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_CODIGO_PRESUP" class="java.lang.String">
-		<defaultValueExpression>"83 00 000 005 530204 1705 003 0000 0000"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["83 00 000 005 530204 1705 003 0000 0000"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_ITEM_DESCRIP_ITEM_PRESUP" class="java.lang.String">
-		<defaultValueExpression>"Edicion Impresion Reproduccion Publicaciones Suscripciones Fotocopiado Traduccion Empastado Enmarcacion Serigrafia Fotografia Carnetizacion Filmacion e Imagenes Satelitales"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Edicion Impresion Reproduccion Publicaciones Suscripciones Fotocopiado Traduccion Empastado Enmarcacion Serigrafia Fotografia Carnetizacion Filmacion e Imagenes Satelitales"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_TOTAL_SUBTOTAL" class="java.lang.String">
-		<defaultValueExpression>"2550,21"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["2550,21"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_TOTAL_IVA" class="java.lang.String">
-		<defaultValueExpression>"0"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_TOTAL_OTROS_IMPUESTOS" class="java.lang.String">
-		<defaultValueExpression>"0"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["0"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_TOTAL_GENERAL" class="java.lang.String">
-		<defaultValueExpression>"2550,21"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["2550,21"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_PREPARADO_NOMBRE" class="java.lang.String">
-		<defaultValueExpression>"Ing. Jessica Sofia Ortiz Moreano, Ph.D."</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Ing. Jessica Sofia Ortiz Moreano, Ph.D."]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_PREPARADO_CI" class="java.lang.String">
-		<defaultValueExpression>"0603924226"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["0603924226"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_PREPARADO_CARGO" class="java.lang.String">
-		<defaultValueExpression>"SOLICITANTE"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["SOLICITANTE"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_REVISADO_NOMBRE" class="java.lang.String">
-		<defaultValueExpression>"Ing. Laura María Cedamano García"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Ing. Laura María Cedamano García"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_REVISADO_CI" class="java.lang.String">
-		<defaultValueExpression>"1712522026"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["1712522026"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_REVISADO_CARGO" class="java.lang.String">
-		<defaultValueExpression>"RESPONSABLE DE LA PLANIFICACIÓN / EJECUCIÓN PRESUPUESTARIA DE LA UNIDAD"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["RESPONSABLE DE LA PLANIFICACIÓN / EJECUCIÓN PRESUPUESTARIA DE LA UNIDAD"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_AUTORIZADO_NOMBRE" class="java.lang.String">
-		<defaultValueExpression>"Ing. Sonia Elizabeth Cárdenas Delgado, Ph.D."</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Ing. Sonia Elizabeth Cárdenas Delgado, Ph.D."]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_AUTORIZADO_CI" class="java.lang.String">
-		<defaultValueExpression>"1713261160"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["1713261160"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_FIRMA_AUTORIZADO_CARGO" class="java.lang.String">
-		<defaultValueExpression>"DIRECTORA DE LA UGIN"</defaultValueExpression>
+		<defaultValueExpression><![CDATA["DIRECTORA DE LA UGIN"]]></defaultValueExpression>
 	</parameter>
 	<parameter name="P_APROBADO_INFORME" class="java.lang.String">
-		<defaultValueExpression>"Aprobado por Informe de pertinencia VIIT-2026-028, Ing. David Esteban Galarza García, Mgtr."</defaultValueExpression>
+		<defaultValueExpression><![CDATA["Aprobado por Informe de pertinencia VIIT-2026-028, Ing. David Esteban Galarza García, Mgtr."]]></defaultValueExpression>
 	</parameter>
-	<queryString>
-		select 1 as dummy
-	</queryString>
-	<background>
-		<band />
-	</background>
-	<title>
-		<band />
-	</title>
-	<pageHeader>
-		<band height="75">
-			
-			<frame>
-				<reportElement x="0" y="0" width="802" height="75" uuid="1e2f384d-c959-0369-340b-9c4560f16470" />
-				<box>
-					<pen lineWidth="0.5" />
-				</box>
-				<line>
-					<reportElement x="110" y="0" width="1" height="75" uuid="1e2f384d-c959-0369-340b-9c4560f16471" />
-				</line>
-				<line>
-					<reportElement x="660" y="0" width="1" height="75" uuid="1e2f384d-c959-0369-340b-9c4560f16472" />
-				</line>
-				<image>
-					<reportElement x="10" y="5" width="90" height="65" uuid="1e2f384d-c959-0369-340b-9c4560f16473" />
-					<imageExpression>$P{selloSPP}.toString()</imageExpression>
-				</image>
-				<textField>
-					<reportElement x="120" y="5" width="530" height="65" uuid="1e2f384d-c959-0369-340b-9c4560f16474" />
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="12" isBold="true" />
-					</textElement>
-					<textFieldExpression>"UNIVERSIDAD DE LAS FUERZAS ARMADAS - ESPE\nORDEN DE GASTO"</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="665" y="3" width="130" height="32" uuid="1e2f384d-c959-0369-340b-9c4560f16475" />
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>"Unidad de Gestión de la Investigación"</textFieldExpression>
-				</textField>
-				<line>
-					<reportElement x="660" y="38" width="142" height="1" uuid="1e2f384d-c959-0369-340b-9c4560f16476" />
-				</line>
-				<line>
-					<reportElement x="660" y="56" width="142" height="1" uuid="1e2f384d-c959-0369-340b-9c4560f16477" />
-				</line>
-				<line>
-					<reportElement x="725" y="38" width="1" height="37" uuid="1e2f384d-c959-0369-340b-9c4560f16478" />
-				</line>
-				<staticText>
-					<reportElement x="665" y="38" width="60" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16479" />
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>Pág.</text>
-				</staticText>
-				<textField>
-					<reportElement x="726" y="38" width="40" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f1647a" />
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$V{PAGE_NUMBER} + " de "</textFieldExpression>
-				</textField>
-				<textField evaluationTime="Report">
-					<reportElement x="766" y="38" width="30" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f164b" />
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>"" + $V{PAGE_NUMBER}</textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="665" y="56" width="60" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f1647c" />
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>Fecha:</text>
-				</staticText>
-				<textField>
-					<reportElement x="730" y="56" width="65" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f1647d" />
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_FECHA_DOCUMENTO}</textFieldExpression>
-				</textField>
-			</frame>
-		</band>
+	<query language="sql"><![CDATA[select 1 as dummy]]></query>
+	<background/>
+	<title/>
+	<pageHeader height="75">
+		<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f16470" x="0" y="0" width="802" height="75">
+			<element kind="line" uuid="1e2f384d-c959-0369-340b-9c4560f16471" x="110" y="0" width="1" height="75"/>
+			<element kind="line" uuid="1e2f384d-c959-0369-340b-9c4560f16472" x="660" y="0" width="1" height="75"/>
+			<element kind="image" uuid="1e2f384d-c959-0369-340b-9c4560f16473" x="10" y="5" width="90" height="65">
+				<expression><![CDATA[$P{selloSPP}.toString()]]></expression>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16474" x="120" y="5" width="530" height="65" fontName="Arial Narrow" fontSize="12.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA["UNIVERSIDAD DE LAS FUERZAS ARMADAS - ESPE\nORDEN DE GASTO"]]></expression>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16475" x="665" y="3" width="130" height="32" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA["Unidad de Gestión de la Investigación"]]></expression>
+			</element>
+			<element kind="line" uuid="1e2f384d-c959-0369-340b-9c4560f16476" x="660" y="38" width="142" height="1"/>
+			<element kind="line" uuid="1e2f384d-c959-0369-340b-9c4560f16477" x="660" y="56" width="142" height="1"/>
+			<element kind="line" uuid="1e2f384d-c959-0369-340b-9c4560f16478" x="725" y="38" width="1" height="37"/>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16479" x="665" y="38" width="60" height="18" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+				<text><![CDATA[Pág.]]></text>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f1647a" x="726" y="38" width="40" height="18" fontName="Arial Narrow" fontSize="7.0" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$V{PAGE_NUMBER} + " de "]]></expression>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-09c4560f164b" x="766" y="38" width="30" height="18" fontName="Arial Narrow" fontSize="7.0" evaluationTime="Report" hTextAlign="Left" vTextAlign="Middle">
+				<expression><![CDATA["" + $V{PAGE_NUMBER}]]></expression>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1647c" x="665" y="56" width="60" height="18" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+				<text><![CDATA[Fecha:]]></text>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f1647d" x="730" y="56" width="65" height="18" fontName="Arial Narrow" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FECHA_DOCUMENTO}]]></expression>
+			</element>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
 	</pageHeader>
 	<detail>
 		<band height="188">
-			
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="0" width="802" height="18" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16480" />
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16480" mode="Opaque" x="0" y="0" width="802" height="18" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="9.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[SECCIÓN I - IDENTIFICACIÓN DE LA ORDEN DE GASTO]]></text>
 				<box leftPadding="4">
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="9" isBold="true" />
-				</textElement>
-				<text>SECCIÓN I - IDENTIFICACIÓN DE LA ORDEN DE GASTO</text>
-			</staticText>
-			<frame>
-				<reportElement x="0" y="18" width="802" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16481" />
+			</element>
+			<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f16481" x="0" y="18" width="802" height="18">
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16482" x="0" y="0" width="100" height="18" fontName="Arial Narrow" fontSize="9.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[No:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16483" x="100" y="0" width="300" height="18" fontName="Arial Narrow" fontSize="9.0" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ORDEN_NUMERO}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16484" x="400" y="0" width="100" height="18" fontName="Arial Narrow" fontSize="9.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[Fecha:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16485" x="500" y="0" width="302" height="18" fontName="Arial Narrow" fontSize="9.0" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_FECHA_DOCUMENTO}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<staticText>
-					<reportElement x="0" y="0" width="100" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16482" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="9" isBold="true" />
-					</textElement>
-					<text>No:</text>
-				</staticText>
-				<textField>
-					<reportElement x="100" y="0" width="300" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16483" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="9" />
-					</textElement>
-					<textFieldExpression>$P{P_ORDEN_NUMERO}</textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="400" y="0" width="100" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16484" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="9" isBold="true" />
-					</textElement>
-					<text>Fecha:</text>
-				</staticText>
-				<textField>
-					<reportElement x="500" y="0" width="302" height="18" uuid="1e2f384d-c959-0369-340b-9c4560f16485" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="9" />
-					</textElement>
-					<textFieldExpression>$P{P_FECHA_DOCUMENTO}</textFieldExpression>
-				</textField>
-			</frame>
-
-			
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="40" width="802" height="15" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16486" />
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16486" mode="Opaque" x="0" y="40" width="802" height="15" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[SECCIÓN II - INFORMACIÓN DE LA CONTRATACIÓN]]></text>
 				<box leftPadding="4">
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8" isBold="true" />
-				</textElement>
-				<text>SECCIÓN II - INFORMACIÓN DE LA CONTRATACIÓN</text>
-			</staticText>
-			<frame>
-				<reportElement x="0" y="55" width="802" height="30" uuid="1e2f384d-c959-0369-340b-9c4560f16487" />
+			</element>
+			<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f16487" x="0" y="55" width="802" height="30">
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16488" x="0" y="0" width="220" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[No. Contrato/Orden de Compra/Contratación:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16489" x="220" y="0" width="582" height="15" fontName="Arial Narrow" fontSize="8.0" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_CONTRATACION_NUMERO}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1648a" x="0" y="15" width="220" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[Objeto de la Contratación:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f1648b" x="220" y="15" width="582" height="15" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_CONTRATACION_OBJETO}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<staticText>
-					<reportElement x="0" y="0" width="220" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f16488" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>No. Contrato/Orden de Compra/Contratación:</text>
-				</staticText>
-				<textField>
-					<reportElement x="220" y="0" width="582" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f16489" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_CONTRATACION_NUMERO}</textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="15" width="220" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f1648a" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>Objeto de la Contratación:</text>
-				</staticText>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="220" y="15" width="582" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f1648b" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_CONTRATACION_OBJETO}</textFieldExpression>
-				</textField>
-			</frame>
-
-			
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="90" width="802" height="15" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f1648c" />
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1648c" mode="Opaque" x="0" y="90" width="802" height="15" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[SECCIÓN III - INFORMACIÓN DEL PROVEEDOR]]></text>
 				<box leftPadding="4">
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8" isBold="true" />
-				</textElement>
-				<text>SECCIÓN III - INFORMACIÓN DEL PROVEEDOR</text>
-			</staticText>
-			<frame>
-				<reportElement x="0" y="105" width="802" height="30" uuid="1e2f384d-c959-0369-340b-9c4560f1648d" />
+			</element>
+			<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f1648d" x="0" y="105" width="802" height="30">
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1648e" x="0" y="0" width="220" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[Razón Social:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f1648f" x="220" y="0" width="582" height="15" fontName="Arial Narrow" fontSize="8.0" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_PROVEEDOR_NOMBRE}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16490" x="0" y="15" width="220" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+					<text><![CDATA[RUC/ID Proveedor:]]></text>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f16491" x="220" y="15" width="582" height="15" fontName="Arial Narrow" fontSize="8.0" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_PROVEEDOR_ID}]]></expression>
+					<box leftPadding="4">
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<staticText>
-					<reportElement x="0" y="0" width="220" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f1648e" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>Razón Social:</text>
-				</staticText>
-				<textField>
-					<reportElement x="220" y="0" width="582" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f1648f" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_PROVEEDOR_NOMBRE}</textFieldExpression>
-				</textField>
-				<staticText>
-					<reportElement x="0" y="15" width="220" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f16490" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>RUC/ID Proveedor:</text>
-				</staticText>
-				<textField>
-					<reportElement x="220" y="15" width="582" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f16491" />
-					<box leftPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_PROVEEDOR_ID}</textFieldExpression>
-				</textField>
-			</frame>
-
-			
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="140" width="802" height="15" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16492" />
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16492" mode="Opaque" x="0" y="140" width="802" height="15" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+				<text><![CDATA[SECCIÓN IV - INFORMACIÓN DEL GASTO]]></text>
 				<box leftPadding="4">
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8" isBold="true" />
-				</textElement>
-				<text>SECCIÓN IV - INFORMACIÓN DEL GASTO</text>
-			</staticText>
-
-			
-			<frame>
-				<reportElement x="0" y="155" width="802" height="16" uuid="1e2f384d-c959-0369-340b-9c4560f16493" />
+			</element>
+			<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f16493" x="0" y="155" width="802" height="16">
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16494" mode="Opaque" x="0" y="0" width="30" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[ORD]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16495" mode="Opaque" x="30" y="0" width="180" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[DESCRIPCIÓN]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16496" mode="Opaque" x="210" y="0" width="50" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[CANTIDAD]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16497" mode="Opaque" x="260" y="0" width="70" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[PRECIO UNITARIO]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16498" mode="Opaque" x="330" y="0" width="70" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[SUBTOTAL]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f16499" mode="Opaque" x="400" y="0" width="40" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[IVA]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1649a" mode="Opaque" x="440" y="0" width="60" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[OTROS IMP.]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1649b" mode="Opaque" x="500" y="0" width="70" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[TOTAL]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1649c" mode="Opaque" x="570" y="0" width="110" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[CÓDIGO PRESUPUESTARIO]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
+				<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f1649d" mode="Opaque" x="680" y="0" width="122" height="16" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+					<text><![CDATA[DESCRIPCIÓN ITEM PRESUPUESTARIO]]></text>
+					<box>
+						<pen lineWidth="0.5"/>
+					</box>
+				</element>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="30" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16494" />
+			</element>
+			<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f1649e" stretchType="ElementGroupHeight" x="0" y="171" width="802" height="16">
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f1649f" stretchType="ElementGroupHeight" x="0" y="0" width="30" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_ORD}]]></expression>
 					<box>
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>ORD</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="30" y="0" width="180" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16495" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>DESCRIPCIÓN</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="210" y="0" width="50" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16496" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>CANTIDAD</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="260" y="0" width="70" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16497" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>PRECIO UNITARIO</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="330" y="0" width="70" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16498" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>SUBTOTAL</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="400" y="0" width="40" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f16499" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>IVA</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="440" y="0" width="60" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f1649a" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>OTROS IMP.</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="500" y="0" width="70" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f1649b" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>TOTAL</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="570" y="0" width="110" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f1649c" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>CÓDIGO PRESUPUESTARIO</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="680" y="0" width="122" height="16" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f1649d" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>DESCRIPCIÓN ITEM PRESUPUESTARIO</text>
-				</staticText>
-			</frame>
-
-			
-			<frame>
-				<reportElement x="0" y="171" width="802" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f1649e" />
-				<box>
-					<pen lineWidth="0.5" />
-				</box>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="0" y="0" width="30" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f1649f" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_ORD}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="30" y="0" width="180" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a0" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a0" stretchType="ElementGroupHeight" x="30" y="0" width="180" height="16" fontName="Arial Narrow" fontSize="7.0" textAdjust="StretchHeight" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_DESCRIPCION}]]></expression>
 					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_DESCRIPCION}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="210" y="0" width="50" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a1" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a1" stretchType="ElementGroupHeight" x="210" y="0" width="50" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_CANTIDAD}]]></expression>
 					<box>
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_CANTIDAD}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="260" y="0" width="70" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a2" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a2" stretchType="ElementGroupHeight" x="260" y="0" width="70" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Right" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_PRECIO_UNITARIO}]]></expression>
 					<box rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_PRECIO_UNITARIO}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="330" y="0" width="70" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a3" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a3" stretchType="ElementGroupHeight" x="330" y="0" width="70" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Right" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_SUBTOTAL}]]></expression>
 					<box rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_SUBTOTAL}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="400" y="0" width="40" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a4" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a4" stretchType="ElementGroupHeight" x="400" y="0" width="40" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_IVA}]]></expression>
 					<box>
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_IVA}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="440" y="0" width="60" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a5" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a5" stretchType="ElementGroupHeight" x="440" y="0" width="60" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" hTextAlign="Right" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_OTROS_IMPUESTOS}]]></expression>
 					<box rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_OTROS_IMPUESTOS}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="500" y="0" width="70" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a6" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a6" stretchType="ElementGroupHeight" x="500" y="0" width="70" height="16" fontName="Arial Narrow" fontSize="8.0" textAdjust="StretchHeight" bold="true" hTextAlign="Right" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_TOTAL}]]></expression>
 					<box rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_TOTAL}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="570" y="0" width="110" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a7" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a7" stretchType="ElementGroupHeight" x="570" y="0" width="110" height="16" fontName="Arial Narrow" fontSize="7.0" textAdjust="StretchHeight" hTextAlign="Center" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_CODIGO_PRESUP}]]></expression>
 					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_CODIGO_PRESUP}</textFieldExpression>
-				</textField>
-				<textField isStretchWithOverflow="true">
-					<reportElement x="680" y="0" width="122" height="16" stretchType="RelativeToTallestObject" uuid="1e2f384d-c959-0369-340b-9c4560f164a8" />
+				</element>
+				<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164a8" stretchType="ElementGroupHeight" x="680" y="0" width="122" height="16" fontName="Arial Narrow" fontSize="6.0" textAdjust="StretchHeight" vTextAlign="Middle">
+					<expression><![CDATA[$P{P_ITEM_DESCRIP_ITEM_PRESUP}]]></expression>
 					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
+						<pen lineWidth="0.5"/>
 					</box>
-					<textElement verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="6" />
-					</textElement>
-					<textFieldExpression>$P{P_ITEM_DESCRIP_ITEM_PRESUP}</textFieldExpression>
-				</textField>
-			</frame>
+				</element>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
 		</band>
 	</detail>
-	<pageFooter>
-		<band height="15">
-			<frame>
-				<reportElement x="0" y="0" width="802" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164e0" />
-				<staticText>
-					<reportElement x="0" y="0" width="300" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164e1" />
-					<textElement textAlignment="Left" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>Código de proceso: UFIN-MTZ-V3-2022-021</text>
-				</staticText>
-				<staticText>
-					<reportElement x="300" y="0" width="202" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164e2" />
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>Código de proceso: GFN.1.4</text>
-				</staticText>
-				<staticText>
-					<reportElement x="502" y="0" width="300" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164e3" />
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" isBold="true" />
-					</textElement>
-					<text>Rev.UPDI : 2022-ago-31</text>
-				</staticText>
-			</frame>
-		</band>
+	<pageFooter height="15">
+		<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f164e0" x="0" y="0" width="802" height="15">
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164e1" x="0" y="0" width="300" height="15" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Left" vTextAlign="Middle">
+				<text><![CDATA[Código de proceso: UFIN-MTZ-V3-2022-021]]></text>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164e2" x="300" y="0" width="202" height="15" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[Código de proceso: GFN.1.4]]></text>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164e3" x="502" y="0" width="300" height="15" fontName="Arial Narrow" fontSize="7.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<text><![CDATA[Rev.UPDI : 2022-ago-31]]></text>
+			</element>
+		</element>
 	</pageFooter>
-	<summary>
-		<band height="220">
-			
-			<frame>
-				<reportElement x="0" y="0" width="802" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b0" />
+	<summary height="220">
+		<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f164b0" x="0" y="0" width="802" height="15">
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164b1" x="0" y="0" width="330" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<text><![CDATA[TOTAL DE LA ORDEN DE GASTO]]></text>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164b2" x="330" y="0" width="70" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_TOTAL_SUBTOTAL}]]></expression>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164b3" x="400" y="0" width="40" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_TOTAL_IVA}]]></expression>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				<staticText>
-					<reportElement x="0" y="0" width="330" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b1" />
-					<box rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>TOTAL DE LA ORDEN DE GASTO</text>
-				</staticText>
-				<textField>
-					<reportElement x="330" y="0" width="70" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b2" />
-					<box rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_TOTAL_SUBTOTAL}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="400" y="0" width="40" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b3" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_TOTAL_IVA}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="440" y="0" width="60" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b4" />
-					<box rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_TOTAL_OTROS_IMPUESTOS}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="500" y="0" width="70" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b5" />
-					<box rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Right" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_TOTAL_GENERAL}</textFieldExpression>
-				</textField>
-				
-				<staticText>
-					<reportElement x="570" y="0" width="232" height="15" uuid="1e2f384d-c959-0369-340b-9c4560f164b6" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<text />
-				</staticText>
-			</frame>
-
-			
-			<staticText>
-				<reportElement mode="Opaque" x="0" y="20" width="802" height="15" backcolor="#DBE5F1" uuid="1e2f384d-c959-0369-340b-9c4560f164c0" />
-				<box leftPadding="4">
-					<pen lineWidth="0.5" />
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164b4" x="440" y="0" width="60" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_TOTAL_OTROS_IMPUESTOS}]]></expression>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
 				</box>
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="8" isBold="true" />
-				</textElement>
-				<text>SECCIÓN V - FIRMAS DE RESPONSABILIDAD</text>
-			</staticText>
-
-			
-			<frame>
-				<reportElement x="0" y="35" width="802" height="142" uuid="1e2f384d-c959-0369-340b-9c4560f164c1" />
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164b5" x="500" y="0" width="70" height="15" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Right" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_TOTAL_GENERAL}]]></expression>
+				<box rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164b6" x="570" y="0" width="232" height="15">
+				<text><![CDATA[]]></text>
 				<box>
-					<pen lineWidth="0.5" />
+					<pen lineWidth="0.5"/>
 				</box>
-				
-				<staticText>
-					<reportElement mode="Opaque" x="0" y="0" width="267" height="15" backcolor="#E9EDF4" uuid="1e2f384d-c959-0369-340b-9c4560f164c2" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>SOLICITADO POR:</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="267" y="0" width="268" height="15" backcolor="#E9EDF4" uuid="1e2f384d-c959-0369-340b-9c4560f164c3" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>PREPARADO POR:</text>
-				</staticText>
-				<staticText>
-					<reportElement mode="Opaque" x="535" y="0" width="267" height="15" backcolor="#E9EDF4" uuid="1e2f384d-c959-0369-340b-9c4560f164c4" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="8" isBold="true" />
-					</textElement>
-					<text>AUTORIZADO POR:</text>
-				</staticText>
-
-				
-				<staticText>
-					<reportElement x="0" y="15" width="267" height="75" forecolor="#FFFFFF" uuid="1e2f384d-c959-0369-340b-9c4560f164c5" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<text>[F1]</text>
-				</staticText>
-				<staticText>
-					<reportElement x="267" y="15" width="268" height="75" forecolor="#FFFFFF" uuid="1e2f384d-c959-0369-340b-9c4560f164c6" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<text>[F2]</text>
-				</staticText>
-				<staticText>
-					<reportElement x="535" y="15" width="267" height="75" forecolor="#FFFFFF" uuid="1e2f384d-c959-0369-340b-9c4560f164c7" />
-					<box>
-						<pen lineWidth="0.5" />
-					</box>
-					<text>[F3]</text>
-				</staticText>
-
-				
-				<textField>
-					<reportElement x="0" y="90" width="267" height="28" uuid="1e2f384d-c959-0369-340b-9c4560f164c8" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_PREPARADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_PREPARADO_CI}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="267" y="90" width="268" height="28" uuid="1e2f384d-c959-0369-340b-9c4560f164c9" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_REVISADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_REVISADO_CI}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="535" y="90" width="267" height="28" uuid="1e2f384d-c959-0369-340b-9c4560f164ca" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="7" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_AUTORIZADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_AUTORIZADO_CI}</textFieldExpression>
-				</textField>
-
-				
-				<textField>
-					<reportElement x="0" y="118" width="267" height="24" uuid="1e2f384d-c959-0369-340b-9c4560f164cb" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="6" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_PREPARADO_CARGO}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="267" y="118" width="268" height="24" uuid="1e2f384d-c959-0369-340b-9c4560f164cc" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="6" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_REVISADO_CARGO}</textFieldExpression>
-				</textField>
-				<textField>
-					<reportElement x="535" y="118" width="267" height="24" uuid="1e2f384d-c959-0369-340b-9c4560f164cd" />
-					<box leftPadding="4" rightPadding="4">
-						<pen lineWidth="0.5" />
-					</box>
-					<textElement textAlignment="Center" verticalAlignment="Middle">
-						<font fontName="Arial Narrow" size="6" isBold="true" />
-					</textElement>
-					<textFieldExpression>$P{P_FIRMA_AUTORIZADO_CARGO} + "\nORDENADOR DE GASTO"</textFieldExpression>
-				</textField>
-			</frame>
-
-			
-			<textField>
-				<reportElement x="0" y="182" width="802" height="12" uuid="1e2f384d-c959-0369-340b-9c4560f164d0" />
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="7" isItalic="true" />
-				</textElement>
-				<textFieldExpression>$P{P_APROBADO_INFORME}</textFieldExpression>
-			</textField>
-
-			
-			<staticText>
-				<reportElement x="0" y="196" width="802" height="20" uuid="1e2f384d-c959-0369-340b-9c4560f164d1" />
-				<textElement verticalAlignment="Middle">
-					<font fontName="Arial Narrow" size="6" />
-				</textElement>
-				<text>* Para trámite de publicaciones/movilización con fines de investigación incluir firmas de beneficiarios
-** Para frámite de proyectos con co- ejecución incluir la firma del Director de Proyecto de inversión</text>
-			</staticText>
-		</band>
+			</element>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c0" mode="Opaque" x="0" y="20" width="802" height="15" backcolor="#DBE5F1" fontName="Arial Narrow" fontSize="8.0" bold="true" vTextAlign="Middle">
+			<text><![CDATA[SECCIÓN V - FIRMAS DE RESPONSABILIDAD]]></text>
+			<box leftPadding="4">
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="frame" uuid="1e2f384d-c959-0369-340b-9c4560f164c1" x="0" y="35" width="802" height="142">
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c2" mode="Opaque" x="0" y="0" width="267" height="15" backcolor="#E9EDF4" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[SOLICITADO POR:]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c3" mode="Opaque" x="267" y="0" width="268" height="15" backcolor="#E9EDF4" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[PREPARADO POR:]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c4" mode="Opaque" x="535" y="0" width="267" height="15" backcolor="#E9EDF4" fontName="Arial Narrow" fontSize="8.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<text><![CDATA[AUTORIZADO POR:]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c5" x="0" y="15" width="267" height="75">
+				<text><![CDATA[]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="35d2f19e-fa85-4e78-81a9-7fb8507e6ca2" x="41" y="33" width="80" height="12" forecolor="#FFFFFF" fontName="Arial Narrow" fontSize="6.0" hTextAlign="Left" vTextAlign="Bottom">
+				<text><![CDATA[[F1]]]></text>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c6" x="267" y="15" width="268" height="75">
+				<text><![CDATA[]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="44151792-5b95-41a0-82f1-923b48596f6d" x="311" y="32" width="80" height="12" forecolor="#FFFFFF" fontName="Arial Narrow" fontSize="6.0" hTextAlign="Left" vTextAlign="Bottom">
+				<text><![CDATA[[F2]]]></text>
+			</element>
+			<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164c7" x="535" y="15" width="267" height="75">
+				<text><![CDATA[]]></text>
+				<box>
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="staticText" uuid="e4da0dd5-87ac-4627-93d3-7f846b114f7d" x="581" y="31" width="80" height="12" forecolor="#FFFFFF" fontName="Arial Narrow" fontSize="6.0" hTextAlign="Left" vTextAlign="Bottom">
+				<text><![CDATA[[F3]]]></text>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164c8" x="0" y="90" width="267" height="28" fontName="Arial Narrow" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_PREPARADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_PREPARADO_CI}]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164c9" x="267" y="90" width="268" height="28" fontName="Arial Narrow" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_REVISADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_REVISADO_CI}]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164ca" x="535" y="90" width="267" height="28" fontName="Arial Narrow" fontSize="7.0" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_AUTORIZADO_NOMBRE} + "\nCI: " + $P{P_FIRMA_AUTORIZADO_CI}]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164cb" x="0" y="118" width="267" height="24" fontName="Arial Narrow" fontSize="6.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_PREPARADO_CARGO}]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164cc" x="267" y="118" width="268" height="24" fontName="Arial Narrow" fontSize="6.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_REVISADO_CARGO}]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164cd" x="535" y="118" width="267" height="24" fontName="Arial Narrow" fontSize="6.0" bold="true" hTextAlign="Center" vTextAlign="Middle">
+				<expression><![CDATA[$P{P_FIRMA_AUTORIZADO_CARGO} + "\nORDENADOR DE GASTO"]]></expression>
+				<box leftPadding="4" rightPadding="4">
+					<pen lineWidth="0.5"/>
+				</box>
+			</element>
+			<box>
+				<pen lineWidth="0.5"/>
+			</box>
+		</element>
+		<element kind="textField" uuid="1e2f384d-c959-0369-340b-9c4560f164d0" x="0" y="182" width="802" height="12" fontName="Arial Narrow" fontSize="7.0" italic="true" vTextAlign="Middle">
+			<expression><![CDATA[$P{P_APROBADO_INFORME}]]></expression>
+		</element>
+		<element kind="staticText" uuid="1e2f384d-c959-0369-340b-9c4560f164d1" x="0" y="196" width="802" height="20" fontName="Arial Narrow" fontSize="6.0" vTextAlign="Middle">
+			<text><![CDATA[* Para trámite de publicaciones/movilización con fines de investigación incluir firmas de beneficiarios
+** Para frámite de proyectos con co- ejecución incluir la firma del Director de Proyecto de inversión]]></text>
+		</element>
 	</summary>
 </jasperReport>

@@ -14,7 +14,58 @@ set -euo pipefail
 DIR="$(cd "$(dirname "$0")" && pwd)"
 SALIDA_DIR="$DIR/test_output"
 TIMESTAMP=$(date +%Y%m%d_%H%M%S)
-PDF_BASE="/home/gyro/Documents/TESIS/word-to-jrxml/24. MTZ ORDEN DE GASTO/ordenGasto.pdf"
+
+# ============ PARSEO DE ARGUMENTOS ============
+PDF_BASE=""
+MODO=""
+REANUDAR_DOC_ID=""
+REANUDAR_TURNO=""
+
+while [ $# -gt 0 ]; do
+  case "$1" in
+    --solo-firma)
+      MODO="solo-firma"
+      shift
+      ;;
+    --con-firmaservice)
+      MODO="con-firmaservice"
+      shift
+      ;;
+    --reanudar)
+      MODO="reanudar"
+      if [ -n "${2:-}" ] && [ -n "${3:-}" ]; then
+        REANUDAR_DOC_ID="$2"
+        REANUDAR_TURNO="$3"
+        shift 3
+      else
+        echo "Error: --reanudar requiere <DOC_ID> y <TURNO>"
+        exit 1
+      fi
+      ;;
+    -*)
+      echo "Opción desconocida: $1"
+      echo "Uso: $0 [ruta_al_pdf] [--solo-firma | --con-firmaservice | --reanudar <doc_id> <turno>]"
+      exit 1
+      ;;
+    *)
+      if [ -z "$PDF_BASE" ]; then
+        PDF_BASE="$1"
+      else
+        echo "Error: Argumento no esperado o PDF duplicado: $1"
+        exit 1
+      fi
+      shift
+      ;;
+  esac
+done
+
+if [ -z "$PDF_BASE" ]; then
+  PDF_BASE="/home/gyro/Documents/TESIS/word-to-jrxml/24. MTZ ORDEN DE GASTO/ordenGasto.pdf"
+fi
+
+if [ -z "$MODO" ]; then
+  MODO="con-firmaservice"
+fi
 
 # Colores
 VERDE='\033[0;32m'; ROJO='\033[0;31m'; AMARILLO='\033[1;33m'
@@ -75,7 +126,9 @@ mostrar_estado_db() {
 descargar_pdf() {
   local doc_id="$1"
   local turno="$2"
-  local archivo="$SALIDA_DIR/ordenGasto_turno${turno}_${TIMESTAMP}.pdf"
+  local pdf_name
+  pdf_name=$(basename "$PDF_BASE" .pdf)
+  local archivo="$SALIDA_DIR/${pdf_name}_turno${turno}_${TIMESTAMP}.pdf"
   local b64
   b64=$(curl -s "$FIRMASERVICE_URL/documento/$doc_id/estado" | python3 -c "
 import sys, json
@@ -174,10 +227,13 @@ menu_cedulas() {
 # ============ MAIN ============
 mkdir -p "$SALIDA_DIR"
 
+PDF_NAME=$(basename "$PDF_BASE")
+PDF_NAME_NO_EXT=$(basename "$PDF_BASE" .pdf)
+
 echo ""
 echo "╔════════════════════════════════════════════════════════════════════╗"
-echo "║    TEST 3 FIRMAS — ordenGasto.pdf                                ║"
-echo "║    $(date)                  ║"
+printf "║    TEST 3 FIRMAS — %-47s ║\n" "$PDF_NAME"
+printf "║    %-63s ║\n" "$(date)"
 echo "╚════════════════════════════════════════════════════════════════════╝"
 echo ""
 
@@ -230,7 +286,7 @@ fi
 echo ""
 
 # 3. MODO: SOLO FIRMA DIRECTA
-if [ "${1:-}" = "--solo-firma" ] && [ "$FIRMAEC_OK" = true ]; then
+if [ "$MODO" = "solo-firma" ] && [ "$FIRMAEC_OK" = true ]; then
   tit "FIRMA DIRECTA CONTRA FIRMAEC"
   API_KEY="1b6e325b1851d6f167c0a2c8e3ceb8ca727e92106992bf973b028c1bb7aff849"
   SYS="test-system"
@@ -262,8 +318,46 @@ if [ "${1:-}" = "--solo-firma" ] && [ "$FIRMAEC_OK" = true ]; then
   exit 0
 fi
 
-# 4. MODO: FIRMASERVICE (3 TURNOS)
-if [ "${1:-}" = "--con-firmaservice" ] || [ $# -eq 0 ]; then
+# 4. MODO: REANUDAR
+if [ "$MODO" = "reanudar" ]; then
+  # Check if we have DOC_ID and TURNO
+  if [ -z "$REANUDAR_DOC_ID" ] || [ -z "$REANUDAR_TURNO" ]; then
+    fail "Falta DOC_ID o TURNO para reanudar."
+    exit 1
+  fi
+  DOC_ID="$REANUDAR_DOC_ID"
+  
+  # Menú de cédulas
+  menu_cedulas
+  
+  # Iniciar loop desde el turno indicado
+  START_INDEX=$((REANUDAR_TURNO - 1))
+  for ((i=START_INDEX; i<3; i++)); do
+    IFS=':' read -r CEDULA ROL NOMBRE <<< "${TURNOS[$i]}"
+    TURNO=$((i + 1))
+    ANCLA="[F$TURNO]"
+
+    firmar_turno "$DOC_ID" "$TURNO" "$CEDULA" "$NOMBRE" "$ANCLA" || {
+      warn "Fallo en turno $TURNO. Puedes reintentar con:"
+      echo "  $0 \"$PDF_BASE\" --reanudar $DOC_ID $TURNO"
+      break
+    }
+  done
+  
+  # Resultado final
+  tit "RESULTADO FINAL (REANUDACIÓN)"
+  mostrar_estado_db "$DOC_ID"
+  echo ""
+  echo "  Archivos en: $SALIDA_DIR"
+  ls -lh "$SALIDA_DIR"/"${PDF_NAME_NO_EXT}"_turno*_"$TIMESTAMP".pdf 2>/dev/null | \
+    awk '{printf "    %s (%s)\n", $NF, $5}'
+  echo ""
+  ok "Proceso completado. Revisa los PDFs en $SALIDA_DIR"
+  exit 0
+fi
+
+# 5. MODO: FIRMASERVICE (3 TURNOS)
+if [ "$MODO" = "con-firmaservice" ]; then
   # Check firmaService
   FS_OK=$(curl -s -o /dev/null -w "%{http_code}" "$FIRMASERVICE_URL/documento/1/estado" 2>/dev/null || echo "000")
   if [ "$FS_OK" = "000" ]; then
@@ -273,7 +367,7 @@ if [ "${1:-}" = "--con-firmaservice" ] || [ $# -eq 0 ]; then
     echo "    cd $DIR && mvn spring-boot:run"
     echo ""
     echo "  Luego vuelve a ejecutar:"
-    echo "    $0 --con-firmaservice"
+    echo "    $0 \"$PDF_BASE\" --con-firmaservice"
     exit 1
   fi
   ok "firmaService disponible en localhost:8081"
@@ -293,7 +387,7 @@ if [ "${1:-}" = "--con-firmaservice" ] || [ $# -eq 0 ]; then
     FIRMANTES_JSON+="{\"cedula\":\"$cedula\",\"nombre\":\"$nombre\",\"rol\":\"$rol\"}"
   done
 
-  JSON_CREAR="{\"idSolicitud\":1,\"idTipoDocumento\":1,\"pdfBase64\":\"$PDF_B64\",\"nombreArchivo\":\"ordenGasto_prueba.pdf\",\"firmantes\":[$FIRMANTES_JSON]}"
+  JSON_CREAR="{\"idSolicitud\":1,\"idTipoDocumento\":1,\"pdfBase64\":\"$PDF_B64\",\"nombreArchivo\":\"$PDF_NAME\",\"firmantes\":[$FIRMANTES_JSON]}"
 
   DOC_RESP=$(curl -s -X POST -H "Content-Type: application/json" -d "$JSON_CREAR" "$FIRMASERVICE_URL/documento")
   DOC_ID=$(echo "$DOC_RESP" | python3 -c "import sys,json; print(json.load(sys.stdin).get('id',''))" 2>/dev/null || echo "")
@@ -314,7 +408,7 @@ if [ "${1:-}" = "--con-firmaservice" ] || [ $# -eq 0 ]; then
 
     firmar_turno "$DOC_ID" "$TURNO" "$CEDULA" "$NOMBRE" "$ANCLA" || {
       warn "Fallo en turno $TURNO. Puedes reintentar con:"
-      echo "  $0 --reanudar $DOC_ID $TURNO"
+      echo "  $0 \"$PDF_BASE\" --reanudar $DOC_ID $TURNO"
       break
     }
   done
@@ -324,7 +418,7 @@ if [ "${1:-}" = "--con-firmaservice" ] || [ $# -eq 0 ]; then
   mostrar_estado_db "$DOC_ID"
   echo ""
   echo "  Archivos en: $SALIDA_DIR"
-  ls -lh "$SALIDA_DIR"/ordenGasto_turno*_"$TIMESTAMP".pdf 2>/dev/null | \
+  ls -lh "$SALIDA_DIR"/"${PDF_NAME_NO_EXT}"_turno*_"$TIMESTAMP".pdf 2>/dev/null | \
     awk '{printf "    %s (%s)\n", $NF, $5}'
   echo ""
   ok "Proceso completado. Revisa los PDFs en $SALIDA_DIR"
